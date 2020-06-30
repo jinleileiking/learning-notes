@@ -61,6 +61,8 @@ default     replicaset.apps/druid-operator-85648779d7   1         1         1   
 * metadata如果使用derby的话，不好使，最后申请了个mysql，最终跑起来了, indexer也要改为使用metadata
 * 官网没有druid-mysql镜像，按照官网步骤需要自己编一个，用dockerhub autobuild ARG传不进去，我自己编了个镜像`https://hub.docker.com/repository/docker/leiking/druid-mysql`，这个dockerfile完美的展示了，如何在一个已有的镜像里，添加东西，老外真牛
 * 权限问题，我最终都改为0了，否则建不了data目录，会报错
+* 我把service从None改为有ip了，当初调试时弄得，感觉不用ip也行
+
 
 相关异常log
 ```
