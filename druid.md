@@ -33,41 +33,7 @@ default            statefulset.apps/druid-tiny-cluster-routers          1/1     
 
 1. 先在k8s部署operator的pod: 
 
-```
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: druid-operator
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      name: druid-operator
-  template:
-    metadata:
-      labels:
-        name: druid-operator
-    spec:
-      serviceAccountName: druid-operator
-      containers:
-        - name: druid-operator
-          # Replace this with the built image name
-          image: video-harbor.ks-live.com/public/druid-operator:0.0.2
-          command:
-          - druid-operator
-          imagePullPolicy: Always
-          env:
-            - name: WATCH_NAMESPACE
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.namespace
-            - name: POD_NAME
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.name
-            - name: OPERATOR_NAME
-              value: "druid-operator"
-```
+
 
 ```
 * kgaa -l name=druid-operator
