@@ -15,3 +15,4 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 
 # hover 不能 hotreload
 
+设置了代理
