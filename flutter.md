@@ -16,3 +16,13 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 # hover 不能 hotreload
 
 设置了代理
+
+
+# vscode run 不起来了
+
+一直卡在 launching。。。。。我直接用hover run了，这个还没解决
+
+
+# plugin 找不到 handlefunc
+
+需要再go里面addplugin。。。。
