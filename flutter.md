@@ -35,6 +35,13 @@ custom pallet 可以开启dart log， 需用代理：
 [  +39 ms] Downloading: https://storage.googleapis.com/flutter_infra/flutter/9a28c3bcf40ce64fee61e807ee3e1395fd6bd954/ios/artifacts.zip
 ```
 
+尝试把这个artifacts.zip挪到这个目录，后续又报了一堆错，好像vscode不能用设置的代理，需要改zsh之类的。于是我看了一下ps，把命令弄了出来，试试：
+
+`/Users/jinleileiking/lk/flutter/bin/cache/dart-sdk/bin/dart --disable-dart-dev --packages=/Users/jinleileiking/lk/flutter/packages/flutter_tools/.packages /Users/jinleileiking/lk/flutter/bin/cache/flutter_tools.snapshot run --machine --target lib/main.dart -d 23F33AAC-D07A-42D1-93D2-DD35E5A8DB52 --track-widget-creation --dart-define=flutter.inspector.structuredErrors=true --start-paused --web-server-debug-protocol ws --web-allow-expose-url -v`
+
+命令复制的不对，还是不行，最终：
+
+在命令行 ` open  /Applications/_green/Visual\ Studio\ Code.app`
 
 
 # plugin 找不到 handlefunc
