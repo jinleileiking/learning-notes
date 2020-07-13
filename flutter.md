@@ -54,3 +54,6 @@ custom pallet 可以开启dart log， 需用代理：
 ruby太老 -》 rvm 更新 -》 rvm install ruby-head
 
 
+# flutter devices 找不到 mi note 3 
+
+在手机要打开usb调试。。。。
