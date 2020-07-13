@@ -47,3 +47,10 @@ custom pallet 可以开启dart log， 需用代理：
 # plugin 找不到 handlefunc
 
 需要再go里面addplugin。。。。
+
+
+# 编译出错                [!] Invalid `Podfile` file: no implicit conversion of nil into String.
+
+ruby太老 -》 rvm 更新 -》 rvm install ruby-head
+
+
