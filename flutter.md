@@ -51,7 +51,7 @@ custom pallet 可以开启dart log， 需用代理：
 
 # 编译出错                [!] Invalid `Podfile` file: no implicit conversion of nil into String.
 
-ruby太老 -》 rvm 更新 -》 rvm install ruby-head
+ruby太老 -》 rvm 更新 -》 rvm install ruby-head rvm 整了半天，不好使。用rbenv没装成功，最后不用rvm，直接用系统的ruby2.6就好了。。。。
 
 
 # flutter devices 找不到 mi note 3 
