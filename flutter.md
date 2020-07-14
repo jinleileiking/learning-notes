@@ -57,3 +57,12 @@ ruby太老 -》 rvm 更新 -》 rvm install ruby-head
 # flutter devices 找不到 mi note 3 
 
 在手机要打开usb调试。。。。
+
+# android 模拟器跑不起来
+
+提示platform version 28没linsence，在sdk manager安装28 platform 的sdk就行了。
+
+
+#  Could not resolve all files for configuration ':video_player:androidApis'.
+
+
