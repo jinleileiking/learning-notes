@@ -65,4 +65,8 @@ ruby太老 -》 rvm 更新 -》 rvm install ruby-head rvm 整了半天，不好�
 
 #  Could not resolve all files for configuration ':video_player:androidApis'.
 
+# 最后折腾半天，ios 模拟器`[ +545 ms] [VERBOSE-2:ui_dart_state.cc(166)] Unhandled Exception: MissingPluginException(No implementation found for method getData on channel instance.id/go/data)`
+
+好像是go只支持桌面，不支持端。。。。。我去，得把go翻译成dart
+
 
