@@ -69,4 +69,5 @@ ruby太老 -》 rvm 更新 -》 rvm install ruby-head rvm 整了半天，不好�
 
 好像是go只支持桌面，不支持端。。。。。我去，得把go翻译成dart
 
+真不支持：https://github.com/go-flutter-desktop/go-flutter/issues/334
 
