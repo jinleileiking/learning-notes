@@ -83,8 +83,32 @@ Could not determine the dependencies of task ':app:compileDebugJavaWithJavac'.
 
 看需要 flutter pub cache repair, 执行后，有的下不下来， 挂全局代理就行了， 非全局不行。。。。。
 
+还是不行， 然后：
+
+```
+flutter channel stable
+flutter upgrade --force
+flutter pub cache repair
+cd <YOUR APP FOLDER>
+flutter clean
+```
+
+报错：
 
 
+```
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':video_player:parseDebugLibraryResources'.
+> Could not resolve all files for configuration ':video_player:androidApis'.
+   > Failed to transform file 'android.jar' to match attributes {artifactType=android-platform-attr, org.gradle.libraryelements=jar, org.gradle.usage=java-runtime}
+      > Execution failed for PlatformAttrTransform: /Users/jinleileiking/Library/Android/sdk/platforms/android-28/android.jar.
+         > /Users/jinleileiking/Library/Android/sdk/platforms/android-28/android.jar (No such file or directory)
+```
+
+
+最后竟然是android28没装完全。。。。。删了重装就好了。。。沃日。。
 
 
 
