@@ -79,14 +79,12 @@ Could not determine the dependencies of task ':app:compileDebugJavaWithJavac'.
          project :app > project :video_player
       > Could not resolve io.flutter:flutter_embedding_debug:1.0.0-9a28c3bcf40ce64fee61e807ee3e1395fd6bd954.
          > Could not get resource 'https://storage.flutter-io.c/download.flutter.io/io/flutter/flutter_embedding_debug/1.0.0-9a28c3bcf40ce64fee61e807ee3e1395fd6bd954/flutter_embedding_debug-1.0.0-9a28c3bcf40ce64fee61e807ee3e1395fd6bd954.pom'.
+         
 ```
 
-看需要 flutter pub cache repair, 执行后，有的下不下来， 挂全局代理就行了， 非全局不行。。。。。
+按照：
 
-用环境变量 repair 不行，得挂全局代理。。。。。
-
-还是不行， 然后：
-
+ 
 ```
 flutter channel stable
 flutter upgrade --force
@@ -94,6 +92,14 @@ flutter pub cache repair
 cd <YOUR APP FOLDER>
 flutter clean
 ```
+   
+看需要 flutter pub cache repair, 执行后，有的下不下来， 挂全局代理就行了， 非全局不行。。。。。
+
+用环境变量 repair 不行，得挂全局代理。。。。。
+
+还是不行， 然后：
+
+
 
 
 
