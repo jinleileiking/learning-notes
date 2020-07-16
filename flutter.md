@@ -129,10 +129,26 @@ Execution failed for task ':video_player:parseDebugLibraryResources'.
 
 看了一下，好像是使用stable 导致的，我了个日。。切到beta试试。。。
 
+重启mac。。
+
+取消china flutter 环境变量配置，开启全局代理。
+
+稀里糊涂的好了。。。。
+
+
+# android: exoplayer不能放
+
+报get resoource , 仔细看log是https的事，于是: https://stackoverflow.com/questions/45940861/android-8-cleartext-http-traffic-not-permitted          android:usesCleartextTraffic="true"  搞定
+
 
 # 最后折腾半天，ios 模拟器`[ +545 ms] [VERBOSE-2:ui_dart_state.cc(166)] Unhandled Exception: MissingPluginException(No implementation found for method getData on channel instance.id/go/data)`
 
 好像是go只支持桌面，不支持端。。。。。我去，得把go翻译成dart
 
 真不支持：https://github.com/go-flutter-desktop/go-flutter/issues/334
+
+
+# 参数pass不过去
+
+参考 https://stackoverflow.com/questions/60395124/flutter-video-player-how-to-add-query-string-parameter-in-network 其实state里可以直接用widget.XXX调用。
 
