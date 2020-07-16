@@ -83,6 +83,8 @@ Could not determine the dependencies of task ':app:compileDebugJavaWithJavac'.
 
 看需要 flutter pub cache repair, 执行后，有的下不下来， 挂全局代理就行了， 非全局不行。。。。。
 
+用环境变量 repair 不行，得挂全局代理。。。。。
+
 还是不行， 然后：
 
 ```
@@ -92,6 +94,8 @@ flutter pub cache repair
 cd <YOUR APP FOLDER>
 flutter clean
 ```
+
+
 
 报错：
 
@@ -110,6 +114,14 @@ Execution failed for task ':video_player:parseDebugLibraryResources'.
 
 最后竟然是android28没装完全。。。。。删了重装就好了。。。沃日。。
 
+
+# android： 不能连接ws
+
+```
+ Fail to connect to service protocol: http://127.0.0.1:64947/z5CsCP5tzD8=/: HttpException: Connection closed before full header was received, uri = http://127.0.0.1:64947/z5CsCP5tzD8=/ws
+```
+
+看了一下，好像是使用stable 导致的，我了个日。。切到beta试试。。。
 
 
 # 最后折腾半天，ios 模拟器`[ +545 ms] [VERBOSE-2:ui_dart_state.cc(166)] Unhandled Exception: MissingPluginException(No implementation found for method getData on channel instance.id/go/data)`
