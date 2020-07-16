@@ -65,6 +65,29 @@ ruby太老 -》 rvm 更新 -》 rvm install ruby-head rvm 整了半天，不好�
 
 #  Could not resolve all files for configuration ':video_player:androidApis'.
 
+
+
+# Android: Could not resolve io.flutter:flutter_embedding_debug:1.0.0-9a28c3bcf40ce64fee61e807ee3e1395fd6bd954
+
+```
+* What went wrong:
+Could not determine the dependencies of task ':app:compileDebugJavaWithJavac'.
+> Could not resolve all task dependencies for configuration ':app:debugCompileClasspath'.
+   > Could not resolve io.flutter:flutter_embedding_debug:1.0.0-9a28c3bcf40ce64fee61e807ee3e1395fd6bd954.
+     Required by:
+         project :app
+         project :app > project :video_player
+      > Could not resolve io.flutter:flutter_embedding_debug:1.0.0-9a28c3bcf40ce64fee61e807ee3e1395fd6bd954.
+         > Could not get resource 'https://storage.flutter-io.c/download.flutter.io/io/flutter/flutter_embedding_debug/1.0.0-9a28c3bcf40ce64fee61e807ee3e1395fd6bd954/flutter_embedding_debug-1.0.0-9a28c3bcf40ce64fee61e807ee3e1395fd6bd954.pom'.
+```
+
+看需要 flutter pub cache repair, 执行后，有的下不下来， 挂全局代理就行了， 非全局不行。。。。。
+
+
+
+
+
+
 # 最后折腾半天，ios 模拟器`[ +545 ms] [VERBOSE-2:ui_dart_state.cc(166)] Unhandled Exception: MissingPluginException(No implementation found for method getData on channel instance.id/go/data)`
 
 好像是go只支持桌面，不支持端。。。。。我去，得把go翻译成dart
