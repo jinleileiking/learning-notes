@@ -152,3 +152,13 @@ Execution failed for task ':video_player:parseDebugLibraryResources'.
 
 参考 https://stackoverflow.com/questions/60395124/flutter-video-player-how-to-add-query-string-parameter-in-network 其实state里可以直接用widget.XXX调用。
 
+
+# video_player不能全屏
+
+换fijkplayer!
+
+# 列表刷新后，想显示一共有多少条记录
+
+https://github.com/flutter/flutter/issues/23195#issuecomment-555335831
+
+
