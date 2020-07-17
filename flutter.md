@@ -161,4 +161,8 @@ Execution failed for task ':video_player:parseDebugLibraryResources'.
 
 https://github.com/flutter/flutter/issues/23195#issuecomment-555335831
 
+# 如何移除debug模式下右上角“DEBUG”标识
 
+MaterialApp(
+ debugShowCheckedModeBanner: false
+)
