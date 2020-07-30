@@ -15,3 +15,8 @@ nodeselector 和 label是有参数的。仔细看doc
   -Dtaskmanager.numberOfTaskSlots=4 \
   -Dresourcemanager.taskmanager-timeout=3600000 -kubernetes.jobmanager.node-selector='zone:xxxxxx' -kubernetes.taskmanager.node-selector='zone:xxx' -Dkubernetes.container.image='xxx/flink-1.11.1-scala_2.12'
   ```
+
+
+# 8081端口连不上
+
+`Caused by: java.util.concurrent.CompletionException: org.apache.flink.shaded.netty4.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /10.120.x.x:8081```
