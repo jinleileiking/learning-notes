@@ -20,3 +20,5 @@ nodeselector 和 label是有参数的。仔细看doc
 # 8081端口连不上
 
 `Caused by: java.util.concurrent.CompletionException: org.apache.flink.shaded.netty4.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /10.120.x.x:8081```
+
+默认是loadbalance， clustip会报错，用nodeport，好使，默认使用了master的nodeport。。。。。。
