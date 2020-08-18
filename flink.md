@@ -29,6 +29,10 @@ nodeselector 和 label是有参数的。仔细看doc
 试了很久，启用新的consumergroup会好些，universal好像不好使，而且文档有bug： pom应该是0.11 写成011了。
 
 
+# 出现direct memory 溢出
+
+根据提示加了`taskmanager.memory.task.off-heap.size: 500m`. 加大了就不行，500m好使。
+
 
 # 启动命令
 
