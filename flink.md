@@ -24,6 +24,12 @@ nodeselector 和 label是有参数的。仔细看doc
 默认是loadbalance， clustip会报错，用nodeport，好使，默认使用了master的nodeport。。。。。。
 
 
+# kafka连不上
+
+试了很久，启用新的consumergroup会好些，universal好像不好使，而且文档有bug： pom应该是0.11 写成011了。
+
+
+
 # 启动命令
 
 ```
