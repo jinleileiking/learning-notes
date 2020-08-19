@@ -38,6 +38,20 @@ nodeselector 和 label是有参数的。仔细看doc
 
 去掉就行了，估计版本问题。
 
+
+# java 删除 / 
+
+`String ret = cut.replaceAll("\\\\", "")`
+
+
+# joda 转换
+
+19/Aug/2020:19:07:48.007 +0800   
+
+dd/MMM/yyyy:HH:mm:ss.SSS Z
+
+
+
 # 启动命令
 
 ```
