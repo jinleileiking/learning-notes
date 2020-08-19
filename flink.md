@@ -34,6 +34,10 @@ nodeselector 和 label是有参数的。仔细看doc
 根据提示加了`taskmanager.memory.task.off-heap.size: 500m`. 加大了就不行，500m好使。
 
 
+# FlinkKafkaProducer011.Semantic.EXACTLY_ONCE 不好使
+
+去掉就行了，估计版本问题。
+
 # 启动命令
 
 ```
