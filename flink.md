@@ -57,6 +57,11 @@ dd/MMM/yyyy:HH:mm:ss.SSS Z
 去了s3的extention就不报错了。
 
 
+# middlemanager 会挂掉
+
+1. 用物理机的zk，不用k8s
+2. 给middlemanager 内存太少，kdp 看了一下原因，看到了oom，要不得查半天。
+
 # 启动命令
 
 ```
