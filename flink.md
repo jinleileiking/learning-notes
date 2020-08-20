@@ -52,6 +52,11 @@ dd/MMM/yyyy:HH:mm:ss.SSS Z
 
 
 
+# middlemanager的peon报错 s3 aws 连不上
+
+去了s3的extention就不报错了。
+
+
 # 启动命令
 
 ```
