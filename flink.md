@@ -57,6 +57,10 @@ dd/MMM/yyyy:HH:mm:ss.SSS Z
 去了s3的extention就不报错了。
 
 
+# 报1host=xxxxxxx 的错误
+
+看了半天，原来是yaml `|-`  应该为 `|`  `-`的含义是删掉最后回车，operator会加点东西，直接加到末尾了。。。。
+
 # middlemanager 会挂掉
 
 1. 用物理机的zk，不用k8s
