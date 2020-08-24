@@ -74,6 +74,22 @@ Error in custom provider, org.apache.druid.java.util.common.RE: server initializ
 * 有一台虚机的flannel配置错了，导致dns解析不到，运维改了，重启flannel后，最终跑起来了
 
 
+# select 后只展示小时级别的数据
+
+需要调整query为second，就行了
+
+
+# 查询一定时间内推流很多的sql
+
+注意 select必须带所有group的东西
+
+```
+SELECT "name", "unique_name", "lmds_description", FLOOR(__time to MINUTE) AS Mi, SUM("count") AS c
+FROM "ss-publish1"
+WHERE "__time" >= CURRENT_TIMESTAMP - INTERVAL '1' DAY AND "lmds_description" != 'Url expired!'
+GROUP BY 1,2,3,4 ORDER BY c DESC
+```
+
 
 
 
