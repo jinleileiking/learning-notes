@@ -91,5 +91,7 @@ GROUP BY 1,2,3,4 ORDER BY c DESC
 ```
 
 
+# superset helm 跑不起来
 
+production mode 好像是需要自己做用户和密码，把development 的init 后面的挪过去就好了。
 
