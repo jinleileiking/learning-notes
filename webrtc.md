@@ -1,6 +1,8 @@
- 
 
 # sdp
+
+
+
 
 ```
 o=sessionId sessionVersion ipCreatedSDP
@@ -12,6 +14,13 @@ a=rtcp --- rtcp uses port
 a=candidate:    1/2 [rtp/rtcp] udp  [priority] 
 a=extmap 
 ```
+
+不懂的sdp
+```
+a=fmtp:100 profile-id=2
+a=fmtp:102 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=42001f
+```
+
 
 https://blog.csdn.net/china_jeffery/article/details/79991986
 
