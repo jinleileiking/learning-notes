@@ -53,6 +53,7 @@ NewWebRTCTransport
  
  把recv 放到router
  
+ router启动后，会启动 r.start gorotine， 会将收到的rtp数据发送到订阅的sender
  ```
   
   
