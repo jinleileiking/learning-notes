@@ -36,3 +36,25 @@ chrome <-A-  sfu
 chrome <-O-(7051 4547) sfu
 chrome -A-> sfu
 ```
+
+# 点击publish时的调用流程
+
+```
+NewWebRTCTransport 
+  session.AddTransport -- 会将trasport 加到 session的 trasnports里
+  
+  ice connected后会 Ontrack --
+    NewWebRTCVideoReceiver 建立rtp接收 goroutine， pli发送goroutine， rtcp goroutine
+   
+   
+ receiveRTP 收到rtp后放到buffer
+ pliloop 发送 pli 到 rtcpCh
+ 启动rtcp gorotine， 接收rtcpCh 发送出去
+ 
+ 把recv 放到router
+ 
+ ```
+  
+  
+  
+  
