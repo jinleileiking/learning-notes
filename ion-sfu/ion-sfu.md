@@ -25,3 +25,12 @@ sfu建立B的pc后，会调用 APc.Addtrack. 导致给APc发negotiation
 9  0x0000000000463b61 in runtime.goexit
    at /home/jinlei1/os/go/src/runtime/asm_amd64.s:1373
 ```
+
+# 交互情况
+
+chrome -O-> (0504 5229 1614)  sfu 
+chrome <-A-  sfu
+            sfu <-O- (7051 4547 1795)  safari
+            sfu -A-> (0504 5229)       safari
+chrome <-O-(7051 4547) sfu
+chrome -A-> sfu
