@@ -1,3 +1,10 @@
+# Q43 
+
+PublicFlags(1)  {_ Multipath PNLen(2) CIDLen Nonce R V}   
+
+CID(8) Version(4)(Optional) Nonce(32)(Optional) PN(1,2,4,6)  
+
+
 # call ListenAndServeTLS
 
 ```
