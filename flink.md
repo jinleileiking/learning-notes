@@ -82,3 +82,10 @@ dd/MMM/yyyy:HH:mm:ss.SSS Z
   -Dtaskmanager.numberOfTaskSlots=4 \
   -Dresourcemanager.taskmanager-timeout=3600000 -Dkubernetes.jobmanager.node-selector='zone:xxxxxxx' -Dkubernetes.taskmanager.node-selector='zone:xxxxx' -Dkubernetes.container.image='xsssss/public/flink-1.11.1-scala_2.12' -Dkubernetes.rest-service.exposed.type='NodePort'
 ```
+
+
+
+# flink run 找不到class
+
+./bin/flink run --class k2h.K2h  ~/lk/k2h/target/k2h-0.1.jar
+
