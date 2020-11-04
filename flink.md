@@ -89,3 +89,13 @@ dd/MMM/yyyy:HH:mm:ss.SSS Z
 
 ./bin/flink run --class k2h.K2h  ~/lk/k2h/target/k2h-0.1.jar
 
+
+# jar找不到
+
+`java.lang.NoClassDefFoundError: org/apache/flink/table/catalog/hive/HiveCatalog` 解法：
+下载相应的connector`curl -O https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-hive-2.3.6_2.11/1.11.2/flink-sql-connector-hive-2.3.6_2.11-
+1.11.2.jar`    
+
+`java.lang.NoClassDefFoundError: org/apache/commons/logging/LogFactory` 解法：    
+首先要把hadoop-client里面的jar包copy到flink/lib. 并且还要删除commons-cli.jar， 好像是因为hadoop 2.7.3里面的是1.2
+而在app的pom使用commons-cli.jar 1.3.1  否则会`Exception in thread "main" java.lang.NoSuchMethodError: org.apache.commons.cli.Option.builder(Ljava/lang/String;)Lorg/apache/commons/cli/Option$Builder;`
