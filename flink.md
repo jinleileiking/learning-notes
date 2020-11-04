@@ -98,4 +98,9 @@ dd/MMM/yyyy:HH:mm:ss.SSS Z
 
 `java.lang.NoClassDefFoundError: org/apache/commons/logging/LogFactory` 解法：        
 首先要把hadoop-client里面的jar包copy到flink/lib. 并且还要删除commons-cli.jar， 好像是因为hadoop 2.7.3里面的是1.2             
-而在app的pom使用commons-cli.jar 1.3.1  否则会`Exception in thread "main" java.lang.NoSuchMethodError: org.apache.commons.cli.Option.builder(Ljava/lang/String;)Lorg/apache/commons/cli/Option$Builder;`     
+而在app的pom使用commons-cli.jar 1.3.1  否则会`Exception in thread "main" java.lang.NoSuchMethodError: org.apache.commons.cli.Option.builder(Ljava/lang/String;)Lorg/apache/commons/cli/Option$Builder;`
+
+
+# 金山云的gateway hive不好使
+
+`export  HADOOP_USER_NAME=hdfs`
