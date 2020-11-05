@@ -104,3 +104,8 @@ dd/MMM/yyyy:HH:mm:ss.SSS Z
 # 金山云的gateway hive不好使
 
 `export  HADOOP_USER_NAME=hdfs`
+
+
+# hive-site.conf
+
+需要copy gateway的 /etc/hive/2.6.1.0-129/0
