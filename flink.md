@@ -115,3 +115,10 @@ dd/MMM/yyyy:HH:mm:ss.SSS Z
 # create table失败
 `Caused by: MetaException(message:java.security.AccessControlException: Permission denied: user=xxxx, access=WRITE, inode="/apps/hive/warehouse/xxxxxxxxx.db":hdfs:hdfs:drwxr-xr-x`  
 在 client  ：` export HADOOP_USER_NAME=hdfs`
+
+
+# fsql select kafka 不通
+
+
+`org.apache.flink.table.api.ValidationException: Could not find any factory for identifier 'kafka' that implements 'org.apache.flink.table.factories.DynamicTableSourceFactory' in the classpath.` 仔细阅读需要copy kafka sql connector.jar 到flink/lib
+
