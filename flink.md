@@ -109,3 +109,9 @@ dd/MMM/yyyy:HH:mm:ss.SSS Z
 # hive-site.conf
 
 需要copy gateway的 /etc/hive/2.6.1.0-129/0
+
+
+
+# create table失败
+`Caused by: MetaException(message:java.security.AccessControlException: Permission denied: user=xxxx, access=WRITE, inode="/apps/hive/warehouse/xxxxxxxxx.db":hdfs:hdfs:drwxr-xr-x`  
+在 client  ：` export HADOOP_USER_NAME=hdfs`
