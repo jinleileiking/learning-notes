@@ -122,3 +122,10 @@ dd/MMM/yyyy:HH:mm:ss.SSS Z
 
 `org.apache.flink.table.api.ValidationException: Could not find any factory for identifier 'kafka' that implements 'org.apache.flink.table.factories.DynamicTableSourceFactory' in the classpath.` 仔细阅读需要copy kafka sql connector.jar 到flink/lib
 
+
+# flink run 报错
+
+`Caused by: org.apache.kafka.common.config.ConfigException: Invalid value org.apache.flink.kafka.shaded.org.apache.kafka.common.serialization.ByteArraySerializer for configuration key.serializer: Class org.apache.flink.kafka.shaded.org.a
+pache.kafka.common.serialization.ByteArraySerializer could not be found.`
+
+之前把hadoop一堆jar放到了flink/lib，重新清了，就好了。不知道为什么。。。
