@@ -128,4 +128,4 @@ dd/MMM/yyyy:HH:mm:ss.SSS Z
 `Caused by: org.apache.kafka.common.config.ConfigException: Invalid value org.apache.flink.kafka.shaded.org.apache.kafka.common.serialization.ByteArraySerializer for configuration key.serializer: Class org.apache.flink.kafka.shaded.org.a
 pache.kafka.common.serialization.ByteArraySerializer could not be found.`
 
-之前把hadoop一堆jar放到了flink/lib，重新清了，就好了。不知道为什么。。。
+之前把hadoop一堆jar放到了flink/lib，重新清了，就好了。不知道为什么。。。过了一会又碰到这个问题，是启动的flink server一定要干净，否则就不行。
