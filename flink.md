@@ -102,9 +102,9 @@ nodeselector 和 label是有参数的。仔细看doc
  
 `java.lang.NoClassDefFoundError: org/apache/hadoop/mapred/JobConf`: hadoop-mapreduce-client-core.jar
 
-`Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.apache.hadoop.security.UserGroupInformation`   hadoop-auth.jar
-
-`Caused by: java.lang.ClassNotFoundException: org.apache.hadoop.conf.Configuration`  hadoop-common.jar
+`Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.apache.hadoop.security.UserGroupInformation`   hadoop-auth.jar commons-configuration.jar--- 这个必须有，要不等会还会报。。  
+`Caused by: java.lang.ClassNotFoundException: org.apache.hadoop.conf.Configuration`  hadoop-common.jar  
+`Caused by: java.lang.ClassNotFoundException: javax.servlet.Filter`  servlet-api.jar
 
 
 
