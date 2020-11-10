@@ -84,33 +84,29 @@ nodeselector 和 label是有参数的。仔细看doc
 
 ./bin/flink run --class k2h.K2h  ~/lk/k2h/target/k2h-0.1.jar
 
+
+## loader violation
+
+`Caused by: java.lang.LinkageError: loader constraint violation: loader (instance of org/apache/flink/util/ChildFirstClassLoader) previously initiated loading for a different type with name "org/apache/kafka/clients/producer/ProducerReco
+rd"` 在 flink.yaml 改 loader为parent....  https://stackoverflow.com/questions/63559514/flink-fails-to-load-producerrecord-class-with-linkageerror-at-runtime
+
+
+
 # flink-hive
 
 
 ## jar找不到
 
-`java.lang.NoClassDefFoundError: org/apache/flink/table/catalog/hive/HiveCatalog` 解法：           
+* `java.lang.NoClassDefFoundError: org/apache/flink/table/catalog/hive/HiveCatalog` 解法：           
 下载相应的connector`curl -O https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-hive-2.3.6_2.11/1.11.2/flink-sql-connector-hive-2.3.6_2.11-
 1.11.2.jar`             
-
-
-`java.lang.NoClassDefFoundError: org/apache/hadoop/conf/Configuration` copy hadoop-common
-
-
-`java.lang.NoClassDefFoundError: org/apache/commons/logging/LogFactory`: commons-logging
-
- 
-`java.lang.NoClassDefFoundError: org/apache/hadoop/mapred/JobConf`: hadoop-mapreduce-client-core.jar
-
-`Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.apache.hadoop.security.UserGroupInformation`   hadoop-auth.jar commons-configuration.jar--- 这个必须有，要不等会还会报。。  
-`Caused by: java.lang.ClassNotFoundException: org.apache.hadoop.conf.Configuration`  hadoop-common.jar  
-`Caused by: java.lang.ClassNotFoundException: javax.servlet.Filter`  servlet-api.jar
-
-
-
-`java.lang.NoClassDefFoundError: org/apache/commons/logging/LogFactory` 解法：        
-首先要把hadoop-client里面的jar包copy到flink/lib. 并且还要删除commons-cli.jar， 好像是因为hadoop 2.7.3里面的是1.2             
-而在app的pom使用commons-cli.jar 1.3.1  否则会`Exception in thread "main" java.lang.NoSuchMethodError: org.apache.commons.cli.Option.builder(Ljava/lang/String;)Lorg/apache/commons/cli/Option$Builder;`
+* `java.lang.NoClassDefFoundError: org/apache/hadoop/conf/Configuration` copy hadoop-common
+* `java.lang.NoClassDefFoundError: org/apache/commons/logging/LogFactory`: commons-logging
+* `java.lang.NoClassDefFoundError: org/apache/hadoop/mapred/JobConf`: hadoop-mapreduce-client-core.jar
+* `Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.apache.hadoop.security.UserGroupInformation`   hadoop-auth.jar commons-configuration.jar--- 这个必须有，要不等会还会报。。  
+* `Caused by: java.lang.ClassNotFoundException: org.apache.hadoop.conf.Configuration`  hadoop-common.jar  
+* `Caused by: java.lang.ClassNotFoundException: javax.servlet.Filter`  servlet-api.jar
+* `java.lang.NoClassDefFoundError: org/apache/commons/logging/LogFactory` 解法：首先要把hadoop-client里面的jar包copy到flink/lib. 并且还要删除commons-cli.jar， 好像是因为hadoop 2.7.3里面的是1.2而在app的pom使用commons-cli.jar 1.3.1  否则会`Exception in thread "main" java.lang.NoSuchMethodError:org.apache.commons.cli.Option.builder(Ljava/lang/String;)Lorg/apache/commons/cli/Option$Builder;`
 
 
 # 金山云的gateway hive不好使
@@ -129,18 +125,28 @@ nodeselector 和 label是有参数的。仔细看doc
 在 client  ：` export HADOOP_USER_NAME=hdfs`
 
 
-# fsql select kafka 不通
-
-
-`org.apache.flink.table.api.ValidationException: Could not find any factory for identifier 'kafka' that implements 'org.apache.flink.table.factories.DynamicTableSourceFactory' in the classpath.` 仔细阅读需要copy kafka sql connector.jar 到flink/lib
-
-
 # flink run 报错
 
 `Caused by: org.apache.kafka.common.config.ConfigException: Invalid value org.apache.flink.kafka.shaded.org.apache.kafka.common.serialization.ByteArraySerializer for configuration key.serializer: Class org.apache.flink.kafka.shaded.org.a
 pache.kafka.common.serialization.ByteArraySerializer could not be found.`
 
 之前把hadoop一堆jar放到了flink/lib，重新清了，就好了。不知道为什么。。。过了一会又碰到这个问题，是启动的flink server一定要干净，否则就不行。
+
+
+# fsql
+
+## fsql select kafka 不通
+
+
+`org.apache.flink.table.api.ValidationException: Could not find any factory for identifier 'kafka' that implements 'org.apache.flink.table.factories.DynamicTableSourceFactory' in the classpath.` 仔细阅读需要copy kafka sql connector.jar 到flink/lib
+
+
+## 缺jar
+
+* `java.lang.ClassNotFoundException: org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer` copy ./flink-sql-connector-kafka_2.11-1.11.2.jar 到 flink/lib 
+* `java.lang.ClassNotFoundException: org.apache.kafka.common.serialization.ByteArrayDeserializer`  copy kafka-clients
+* `org.apache.flink.streaming.runtime.tasks.StreamTaskException: Cannot load user class: org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer` 这个坑爹。整了半天。scala的版本问题。。。要用flink-dist相匹配的版本，重启服务后恢复  http://apache-flink.147419.n8.nabble.com/flink-td960.html
+
 
 
 
