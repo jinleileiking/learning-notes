@@ -147,7 +147,9 @@ pache.kafka.common.serialization.ByteArraySerializer could not be found.`
 * `java.lang.ClassNotFoundException: org.apache.kafka.common.serialization.ByteArrayDeserializer`  copy kafka-clients
 * `org.apache.flink.streaming.runtime.tasks.StreamTaskException: Cannot load user class: org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer` 这个坑爹。整了半天。scala的版本问题。。。要用flink-dist相匹配的版本，重启服务后恢复  http://apache-flink.147419.n8.nabble.com/flink-td960.html
 
+# coding
 
+* StreamTableEnvironment 找不到类：`import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;`
 
 
 # java
