@@ -169,6 +169,11 @@ pache.kafka.common.serialization.ByteArraySerializer could not be found.`
 提交上去的job，找不到jar，就要在flinklib找，copy并重启。。。。
 
 
+## org.apache.flink.runtime.JobException: Recovery is suppressed by NoRestartBackoffTimeStrategy
+
+
+
+
 # fsql
 
 ## fsql select kafka 不通
