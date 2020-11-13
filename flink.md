@@ -171,7 +171,11 @@ pache.kafka.common.serialization.ByteArraySerializer could not be found.`
 
 ## org.apache.flink.runtime.JobException: Recovery is suppressed by NoRestartBackoffTimeStrategy
 
+`bsEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);`
 
+## 缺少host hdfs-ha
+
+`flink 配置加个这个env.hadoop.conf.dir: /home/jinlei1/oss/flink/flink-standalone/flink-1.11.1/conf`
 
 
 # fsql
