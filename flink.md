@@ -132,6 +132,14 @@ pache.kafka.common.serialization.ByteArraySerializer could not be found.`
 
 之前把hadoop一堆jar放到了flink/lib，重新清了，就好了。不知道为什么。。。过了一会又碰到这个问题，是启动的flink server一定要干净，否则就不行。
 
+## 任务上去 hdfs不行
+
+<dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-hdfs</artifactId>
+        <version>${org.apache.hadoop.version}</version>
+</dependency>
+
 
 ## steamtable不对
 
