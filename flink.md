@@ -109,28 +109,48 @@ rd"` 在 flink.yaml 改 loader为parent....  https://stackoverflow.com/questions
 * `java.lang.NoClassDefFoundError: org/apache/commons/logging/LogFactory` 解法：首先要把hadoop-client里面的jar包copy到flink/lib. 并且还要删除commons-cli.jar， 好像是因为hadoop 2.7.3里面的是1.2而在app的pom使用commons-cli.jar 1.3.1  否则会`Exception in thread "main" java.lang.NoSuchMethodError:org.apache.commons.cli.Option.builder(Ljava/lang/String;)Lorg/apache/commons/cli/Option$Builder;`
 
 
-# 金山云的gateway hive不好使
+## 金山云的gateway hive不好使
 
 `export  HADOOP_USER_NAME=hdfs`
 
 
-# hive-site.conf
+## hive-site.conf
 
 需要copy gateway的 /etc/hive/2.6.1.0-129/0
 
 
 
-# create table失败
+## create table失败
 `Caused by: MetaException(message:java.security.AccessControlException: Permission denied: user=xxxx, access=WRITE, inode="/apps/hive/warehouse/xxxxxxxxx.db":hdfs:hdfs:drwxr-xr-x`  
 在 client  ：` export HADOOP_USER_NAME=hdfs`
 
 
-# flink run 报错
+## flink run 报错
 
 `Caused by: org.apache.kafka.common.config.ConfigException: Invalid value org.apache.flink.kafka.shaded.org.apache.kafka.common.serialization.ByteArraySerializer for configuration key.serializer: Class org.apache.flink.kafka.shaded.org.a
 pache.kafka.common.serialization.ByteArraySerializer could not be found.`
 
 之前把hadoop一堆jar放到了flink/lib，重新清了，就好了。不知道为什么。。。过了一会又碰到这个问题，是启动的flink server一定要干净，否则就不行。
+
+
+## steamtable不对
+
+按照官网用blink的，网上都是老代码
+
+## 报没有streamgraph
+
+这个不用env.Execute()
+
+
+##  java.lang.RuntimeException: java.io.IOException: No FileSystem for scheme: hdfs
+
+```
+<dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-hdfs</artifactId>
+        <version>${org.apache.hadoop.version}</version>
+</dependency>
+```
 
 
 # fsql
