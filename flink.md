@@ -162,6 +162,12 @@ pache.kafka.common.serialization.ByteArraySerializer could not be found.`
 </dependency>
 ```
 
+## Caused by: java.lang.ClassNotFoundException: org.apache.htrace.SamplerBuilder
+
+` cp lib_b/htrace-core.jar ./lib/ ` 重启flink....
+
+提交上去的job，找不到jar，就要在flinklib找，copy并重启。。。。
+
 
 # fsql
 
