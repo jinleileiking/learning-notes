@@ -140,6 +140,8 @@ pache.kafka.common.serialization.ByteArraySerializer could not be found.`
         <version>${org.apache.hadoop.version}</version>
 </dependency>
 
+这个pom好像不管用，需要把hadoop-hdfs.jar copy到 flink/lib, 并重启flink....
+
 
 ## steamtable不对
 
