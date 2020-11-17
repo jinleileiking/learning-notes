@@ -1,3 +1,0 @@
-# 指定hosts
-
-ansible-playbook ./kafka.yml -i ./hosts/
