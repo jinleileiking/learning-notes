@@ -23,3 +23,8 @@ pipelining = True
 allow_world_readable_tmpfiles = True
 host_key_checking = False
 ```
+
+
+## 用root用户登录机器
+
+--user=foo
