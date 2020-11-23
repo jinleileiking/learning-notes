@@ -13,3 +13,11 @@ https://cwiki.apache.org/confluence/display/KAFKA/Kafka+data+structures+in+Zooke
 vailable. (org.apache.kafka.clients.NetworkClient)
 
 这个是 advertised.listeners 这个配置注释掉，就好了，不知道啥原因。。。   用 0.0， ip ，都不行
+
+
+# Producer clientId=producer-53] Error while fetching metadata with correlation id 6687 : {lmss-parsed=LEADER_NOT_AVAILABLE
+
+查了半天。 这个和delete topic没反应是一样的：
+
+1. advertiseport 要和listen port一致，最开始搞的不一致，是错的
+2. host.name,  advertised.host.name 要写成外网ip，一个都不能少,  adevertised listeners 也必须写！！！！
