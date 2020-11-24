@@ -91,6 +91,10 @@ nodeselector 和 label是有参数的。仔细看doc
 rd"` 在 flink.yaml 改 loader为parent....  https://stackoverflow.com/questions/63559514/flink-fails-to-load-producerrecord-class-with-linkageerror-at-runtime
 
 
+## jvm 不够
+
+Total process memory (taskmanager.memory.process.size) 设置大
+
 
 # flink-hive
 
