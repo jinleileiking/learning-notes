@@ -96,6 +96,26 @@ rd"` 在 flink.yaml 改 loader为parent....  https://stackoverflow.com/questions
 Total process memory (taskmanager.memory.process.size) 设置大
 
 
+## datanode ip不对
+
+```
+2020-11-25 10:09:54,659 INFO  org.apache.hadoop.hdfs.DFSClient                             [] - Exception in createBlockOutputStream
+org.apache.hadoop.net.ConnectTimeoutException: 60000 millis timeout while waiting for channel to be ready for connect. ch : java.nio.channels.SocketChannel[connection-pending remote=/x.x.x.x:50010]
+```
+
+网络不通，默认找的是内网的ip,需要 hdfs-site.xml:
+
+```
+    <property>
+        <name>dfs.client.use.datanode.hostname</name>
+        <value>true</value>
+    </property>
+```
+
+然后添加datanode 信息到hosts
+
+
+
 # flink-hive
 
 
