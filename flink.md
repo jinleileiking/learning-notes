@@ -154,6 +154,10 @@ log4j.appender.DRFAAUDIT.MaxBackupIndex=10
 
 
 
+## Caused by: org.apache.parquet.hadoop.MemoryManager$1: New Memory allocation 1034931 bytes is smaller than the minimum allocation size of 1048576 bytes.
+
+
+
 ## create table失败
 `Caused by: MetaException(message:java.security.AccessControlException: Permission denied: user=xxxx, access=WRITE, inode="/apps/hive/warehouse/xxxxxxxxx.db":hdfs:hdfs:drwxr-xr-x`  
 在 client  ：` export HADOOP_USER_NAME=hdfs`
