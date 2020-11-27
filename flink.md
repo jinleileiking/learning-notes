@@ -153,8 +153,26 @@ log4j.appender.DRFAAUDIT.MaxBackupIndex=10
 需要copy gateway的 /etc/hive/2.6.1.0-129/0
 
 
+## 不提交任务
+
+event_time时区也有问题，看看watermart，我减了8个小时，watermark对了。。
+
+
+这个checkpoint不设置，就不提交。。。折腾半天。。。
+
+```
+
+| +  67         tableEnv.getConfig().getConfiguration().set(ExecutionCheckpointingOptions.CHECKPOINTING_MODE, CheckpointingMode.   |       ...EXACTLY_ONCE);¬
+| +  68         tableEnv.getConfig().getConfiguration().set(ExecutionCheckpointingOptions.CHECKPOINTING_INTERVAL, Duration.        |       ...ofSeconds(20)
+```
+
 
 ## Caused by: org.apache.parquet.hadoop.MemoryManager$1: New Memory allocation 1034931 bytes is smaller than the minimum allocation size of 1048576 bytes.
+
+重启flink好了，改了所有的xml文件
+
+并在 "TBLPROPERTIES ('parquet.memory.min.chunk.size' = '100000', 加了个这个。
+
 
 
 
