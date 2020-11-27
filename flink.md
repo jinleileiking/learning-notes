@@ -115,6 +115,16 @@ org.apache.hadoop.net.ConnectTimeoutException: 60000 millis timeout while waitin
 然后添加datanode 信息到hosts
 
 
+## NameNode 进入safe
+
+查了一下是磁盘满了，hdfs-audit.log没rotate：改hdfs-log4j:
+
+```
+log4j.appender.DRFAAUDIT.MaxFileSize=10MB
+log4j.appender.DRFAAUDIT.MaxBackupIndex=10
+```
+
+
 
 # flink-hive
 
