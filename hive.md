@@ -9,3 +9,16 @@
 # hive client 多打日志
 
 `hive -hiveconf hive.root.logger=DEBUG,console `
+
+
+# hive 连不上 namenode safe：
+
+`20/12/24 15:50:43 [main]: INFO retry.RetryInvocationHandler: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create directory /tmp/hive/hdfs/bd83d37c-5273-4b5a-a8e1-187067be04ec. Name node is in safe mode.
+The reported blocks 79693 needs additional 39072 blocks to reach the threshold 0.9990 of total blocks 118883.
+The number of live datanodes 3 has reached the minimum number 0. Safe mode will be turned off automatically once the thresholds have been reached.
+        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1396)` 
+
+```
+hadoop dfsadmin -safemode leave
+hadoop dfsadmin -safemode get
+```
