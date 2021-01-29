@@ -77,7 +77,22 @@ accept就执行完了，根据http框架，会执行 httpserve即：
 
 然后开始链式调用，妙！
 
-
+```
+ forwardedheaders.(*XForwarded).ServeHTTP
+accesslog.(*Handler).ServeHTTP
+requestdecorator.(*RequestDecorator).ServeHTTP
+accesslog.(*FieldHandler).ServeHTTP
+accesslog.AddOriginFields
+recovery.(*recovery).ServeHTTP
+accesslog.(*FieldHandler).ServeHTTP
+tracing.(*forwarderMiddleware).ServeHTTP
+emptybackendhandler.(*emptyBackend).ServeHTTP
+healthcheck.(*LbStatusUpdater).ServeHTTP
+accesslog.(*FieldHandler).ServeHTTP
+accesslog.AddServiceFields
+pipelining.(*pipelining).ServeHTTP
+service.buildProxy.func1
+```
 
 ```
  0  0x0000000001ff3f3a in github.com/containous/traefik/v2/pkg/server/service.buildProxy.func1
