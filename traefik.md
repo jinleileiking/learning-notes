@@ -1,3 +1,6 @@
+1. 需要go build cmd/traefik来进行编译，不能go build
+
+
 ```
 server.(*TCPEntryPoint).Start
    e.switcher.ServeTCP(newTrackedConnection(writeCloser, e.tracker))
