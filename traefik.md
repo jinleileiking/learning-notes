@@ -1,11 +1,81 @@
 1. 需要go build cmd/traefik来进行编译，不能go build
 
 
+
+# 分析配置文件：
+
+每个entrypoint会listen and  serve  `pkg/server/server_entrypoint_tcp.go`
 ```
-server.(*TCPEntryPoint).Start
-   e.switcher.ServeTCP(newTrackedConnection(writeCloser, e.tracker))
+runCmd
+--setupServer
+  NewTCPEntryPoints
+  NewTCPEntryPoint
+   会调用buildListener -> net.Listen 取得listener    
+   createHTTPServer 两次，这里有点复杂，第一次注册h2c, 第二次注册http， 我们只看第二次
+   使用forwardedheaders.NewXForwarded来定制httpserve：
+    (x *XForwarded) ServeHTTP  会处理 x.rewrite,会改写XForwarded header 信任ip和 insecure, Xforwarded是个链表，后续继续处理:`x.next.ServeHTTP(w, r)` 妙
+-- svr.Start
+   s.tcpEntryPoints.Start()
+```    
+
+
+forwarder 会 `(h *httpForwarder) Accept()` 这个不调用listener的accept，而是借用了serve的壳。。。。`conn := <-h.connChan` 等待channel， 直到链接上，会有消息发过来
+
+
+# tcpEntryPoints.Start
+
+go serverEntryPoint.Start(ctx)
+
+logger.Debugf("Start TCP Server")
+
+```
+ conn, err := e.listener.Accept  这个是真正的accept
+e.switcher.ServeTCP
 ```
 
+```
+(dlv) bt
+0  0x0000000002002507 in github.com/containous/traefik/v2/pkg/server.(*Server).Start
+   at ./pkg/server/server.go:60
+1  0x000000000200ceb5 in main.runCmd
+   at ./cmd/traefik/traefik.go:124
+2  0x0000000002010c9c in main.main.func1
+   at ./cmd/traefik/traefik.go:54
+3  0x0000000001f00a5c in github.com/containous/traefik/v2/pkg/cli.run
+   at ./pkg/cli/commands.go:133
+4  0x0000000001f0079a in github.com/containous/traefik/v2/pkg/cli.execute
+   at ./pkg/cli/commands.go:57
+5  0x000000000200c912 in github.com/containous/traefik/v2/pkg/cli.Execute
+   at ./pkg/cli/commands.go:51
+6  0x000000000200c912 in main.main
+   at ./cmd/traefik/traefik.go:70
+7  0x0000000000438ed2 in runtime.main
+   at /home/jinlei1/os/go/src/runtime/proc.go:203
+8  0x0000000000469421 in runtime.goexit
+   at /home/jinlei1/os/go/src/runtime/asm_amd64.s:1373
+
+```
+
+ # 来请求了
+ 
+```
+(s *HandlerSwitcher) ServeTCP
+ (r *Router) ServeTCP(conn WriteCloser)
+ clientHelloServerName ---> 这里用了peek， 只拿出来看看，不影响reader，妙！
+ r.httpForwarder.ServeTCP --> 这里会给刚才那个channel 把conn给他
+ 
+```
+
+
+# forwarder收到channel
+
+accept就执行完了，根据http框架，会执行 httpserve即：
+ 
+ ```
+ (x *XForwarded) ServeHTTP
+```
+
+然后开始链式调用，妙！
 
 
 
@@ -54,28 +124,8 @@ server.(*TCPEntryPoint).Start
 ```
 
 
- run and setup tcp server.
-```
-(dlv) bt
-0  0x0000000002002507 in github.com/containous/traefik/v2/pkg/server.(*Server).Start
-   at ./pkg/server/server.go:60
-1  0x000000000200ceb5 in main.runCmd
-   at ./cmd/traefik/traefik.go:124
-2  0x0000000002010c9c in main.main.func1
-   at ./cmd/traefik/traefik.go:54
-3  0x0000000001f00a5c in github.com/containous/traefik/v2/pkg/cli.run
-   at ./pkg/cli/commands.go:133
-4  0x0000000001f0079a in github.com/containous/traefik/v2/pkg/cli.execute
-   at ./pkg/cli/commands.go:57
-5  0x000000000200c912 in github.com/containous/traefik/v2/pkg/cli.Execute
-   at ./pkg/cli/commands.go:51
-6  0x000000000200c912 in main.main
-   at ./cmd/traefik/traefik.go:70
-7  0x0000000000438ed2 in runtime.main
-   at /home/jinlei1/os/go/src/runtime/proc.go:203
-8  0x0000000000469421 in runtime.goexit
-   at /home/jinlei1/os/go/src/runtime/asm_amd64.s:1373
 
-```
+
+
 
 
