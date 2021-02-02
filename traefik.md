@@ -154,6 +154,14 @@ service.buildProxy.func1
 
 
 
+# pkg/server/service/proxy.go
+
+```
+buildProxy
+Director: func(outReq *http.Request
+
+
+```
 
 
 
