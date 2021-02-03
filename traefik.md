@@ -157,8 +157,24 @@ service.buildProxy.func1
 # pkg/server/service/proxy.go
 
 ```
+ 1  0x0000000000c1f9b7 in net/http/httputil.(*ReverseProxy).ServeHTTP
+
 buildProxy
 Director: func(outReq *http.Request
+
+257 ▸   res, err := transport.RoundTrip(outreq)¬  ---> (t *Transport) RoundTrip(req *Request)    src/net/http/roundtrip.go:16
+|   258 ▸   if err != nil {¬
+|   259 ▸   ▸   p.getErrorHandler()(rw, outreq, err)¬
+|   260 ▸   ▸   return¬
+|   261 ▸   }¬
+
+
+~/os/go/src/net/http/transport.go
+
+|   2540 ▸   ▸   case <-ctxDoneChan:¬
+|   2541 ▸   ▸   ▸   pc.t.cancelRequest(req.Request, req.Context().Err())¬
+|   2542 ▸   ▸   ▸   cancelChan = nil¬
+|   2543 ▸   ▸   ▸   ctxDoneChan = nil¬
 
 
 ```
