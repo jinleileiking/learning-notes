@@ -159,6 +159,23 @@ service.buildProxy.func1
 ```
  1  0x0000000000c1f9b7 in net/http/httputil.(*ReverseProxy).ServeHTTP
 
+
+   367 // Clone returns a deep copy of r with its context changed to ctx.¬
+     368 // The provided ctx must be non-nil.¬
+     369 //¬
+     370 // For an outgoing client request, the context controls the entire¬
+     371 // lifetime of a request and its response: obtaining a connection,¬
+     372 // sending the request, and reading the response headers and body.¬
+-    373 func (r *Request) Clone(ctx context.Context) *Request {¬
+|    374 ▸   if ctx == nil {¬
+|    375 ▸   ▸   panic("nil context")¬
+|    376 ▸   }¬
+|    377 ▸   r2 := new(Request)¬
+|    378 ▸   *r2 = *r¬
+|    379 ▸   r2.ctx = ctx¬               --------------  注意这里把之前的ctx 给新的req ctx， 也就是共享一个context，所以如果之前的cancel了，新的req也能收到cancel
+
+
+
 buildProxy
 Director: func(outReq *http.Request
 
@@ -175,6 +192,31 @@ Director: func(outReq *http.Request
 |   2541 ▸   ▸   ▸   pc.t.cancelRequest(req.Request, req.Context().Err())¬
 |   2542 ▸   ▸   ▸   cancelChan = nil¬
 |   2543 ▸   ▸   ▸   ctxDoneChan = nil¬
+
+
+curl http请求取消，触发golang http ctx取消的位置
+go/src/net/http/server.go
+---> Serve   //启动http server
+---> rw, err := l.Accept()    //接收tcp连接
+---> go c.serve(connCtx)  //起协程处理连接
+serve(ctx context.Context){
+......
+       // HTTP/1.x from here on.
+	ctx, cancelCtx := context.WithCancel(ctx)     //为ctx 设置CancelFunc
+	c.cancelCtx = cancelCtx                                  //为tcp连接设置取消请求的ctx
+......
+for {
+处理重定向逻辑
+......
+w.conn.r.startBackgroundRead()   //实际读取数据
+serverHandler{c.server}.ServeHTTP(w, w.req)  //实际调用上层函数处理http数据
+......
+}
+}
+---> go cr.backgroundRead()                             //起go协程读数据
+---> n, err := cr.conn.rwc.Read(cr.byteBuf[:])   //实际tcp连接读数据
+---> cr.handleReadError(err)                               //处理tcp连接数据读取错误
+---> cr.conn.cancelCtx()                                      //客户断开tcp连接，比如终止curl，在此触发ctx取消
 
 
 ```
