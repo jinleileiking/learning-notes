@@ -1,3 +1,8 @@
+# compile
+
+https://trac.ffmpeg.org/wiki/CompilationGuide/Centos
+
+
 # 265
 
 https://www.jianshu.com/p/cba823dddbfe
