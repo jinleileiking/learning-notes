@@ -12,3 +12,6 @@ https://github.com/videolan/x265
         --disable-muxers --enable-muxer=h264  --enable-muxer=flv   --enable-muxer=mp4 --enable-muxer=null \
         --disable-doc --extra-cflags="-fno-stack-check"   --pkg-config-flags="--static"
 ```
+
+
+./configure --list-muxers
