@@ -732,3 +732,9 @@ Blocked 发送时机：
 1. 不掉read，不会触发MayWindowUpdate
 2. 不会发送WindowUpdate
 3. 导致发送端窗口满，block了
+
+
+
+# chrome h2+gquic
+
+https://halfrost.com/tag/protocol/
