@@ -1,3 +1,12 @@
+# go 学习笔记
+
+第六版 下 预览
+
+span里面有obj，一共67种class， class 0 就是一个大内存
+
+大块内存=span 
+
+
 # http client
 
 ```
