@@ -1,21 +1,32 @@
 ```
-可变窗口
-阻塞避免 — reno tahoe vegas new reno hybla
-慢启动
-选择性确认（sack）— 接收方通知发送方，收到非连续数据块
-前向确认（fack)
-快速重传
-快速恢复
+cat /proc/sys/net/ipv4/tcp_allowed_congestion_control
+cat /proc/sys/net/ipv4/tcp_congestion_control
+```
+
+
+
+
+* 可变窗口
+* 阻塞避免 — reno tahoe vegas new reno hybla
+* 慢启动
+* 选择性确认（sack）— 接收方通知发送方，收到非连续数据块
+* 前向确认（fack)
+* 快速重传
+* 快速恢复
 
 重复确认检测
+```
  11 12 13 -> 
 11 drop
  <- 11 11  响应12，13 — 我在等待11
  11 -> 
+```
 
-Nagle : 小数据包合并
-delayed ack：延时发送ack，从而合并ack（其他控制报文），减少包数量
+* Nagle : 小数据包合并  但在广域网上， 这些小分组则会增加拥塞出现的可能。
+* delayed ack：延时发送ack，从而合并ack（其他控制报文），减少包数量
 
+
+```
 肯定确认 -> sliding window
 等待期间也进行发送，利用带宽
 -> 可变窗口
