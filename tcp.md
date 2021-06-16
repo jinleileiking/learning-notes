@@ -1,6 +1,9 @@
 ```
+拥塞算法
 cat /proc/sys/net/ipv4/tcp_allowed_congestion_control
 cat /proc/sys/net/ipv4/tcp_congestion_control
+窗口扩展
+cat /proc/sys/net/ipv4/tcp_window_scaling
 ```
 
 
