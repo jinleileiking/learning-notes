@@ -9,7 +9,8 @@ cat /proc/sys/net/ipv4/tcp_window_scaling
 
 
 
-* 可变窗口 发送数据的win，代表我这边能收多少的窗口，对方最多给我发多少
+* 通告窗口： 发送数据的win，代表我这边能收多少的窗口，对方最多给我发多少
+* 拥塞窗口： 慢启动为发送方的TCP增加了另一个窗口：拥塞窗口 (congestion window)，记为cwnd
 * 阻塞避免 — reno tahoe vegas new reno hybla
 * 慢启动
 * 选择性确认（sack）— 接收方通知发送方，收到非连续数据块
