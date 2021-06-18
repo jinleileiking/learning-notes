@@ -18,6 +18,11 @@ cat /proc/sys/net/ipv4/tcp_window_scaling
 * 快速重传
 * 快速恢复
 
+* RTT
+** jackbson
+** karn
+
+
 重复确认检测
 ```
  11 12 13 -> 
