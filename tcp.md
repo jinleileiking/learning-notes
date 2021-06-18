@@ -15,9 +15,11 @@ cat /proc/sys/net/ipv4/tcp_window_scaling
 * 慢启动
 * 选择性确认（sack）— 接收方通知发送方，收到非连续数据块
 * 前向确认（fack)
-* 快速重传
-* 快速恢复
-
+* 拥塞算法
+    * 慢启动算法
+    * 拥塞避免算法
+    * 快速恢复算法
+        * 拥塞避免   
 * RTT
     * jackbson
     * karn
