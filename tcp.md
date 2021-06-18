@@ -11,18 +11,18 @@ cat /proc/sys/net/ipv4/tcp_window_scaling
 
 * 通告窗口： 发送数据的win，代表我这边能收多少的窗口，对方最多给我发多少
 * 拥塞窗口： 慢启动为发送方的TCP增加了另一个窗口：拥塞窗口 (congestion window)，记为cwnd
-* 阻塞避免 — reno tahoe vegas new reno hybla
-* 慢启动
-* 选择性确认（sack）— 接收方通知发送方，收到非连续数据块
-* 前向确认（fack)
 * 拥塞算法
     * 慢启动算法
-    * 拥塞避免算法
+    * 拥塞避免算法 reno tahoe vegas new_reno hybla
     * 快速恢复算法
-        * 拥塞避免   
+        * 快速重传
 * RTT
     * jackbson
     * karn
+* Nagle : 小数据包合并  但在广域网上， 这些小分组则会增加拥塞出现的可能。
+* delayed ack：延时发送ack，从而合并ack（其他控制报文），减少包数量
+* 选择性确认（sack）— 接收方通知发送方，收到非连续数据块
+* 前向确认（fack)
 
 
 重复确认检测
@@ -33,8 +33,6 @@ cat /proc/sys/net/ipv4/tcp_window_scaling
  11 -> 
 ```
 
-* Nagle : 小数据包合并  但在广域网上， 这些小分组则会增加拥塞出现的可能。
-* delayed ack：延时发送ack，从而合并ack（其他控制报文），减少包数量
 
 
 ```
