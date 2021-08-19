@@ -10,3 +10,9 @@ kubectl delete pods <pod> --grace-period=0 --force
 # helm
 
 redis.gloabal.XXX 不好使， 要 : : : 
+ 
+ 
+# 看node上都有神马pod
+ 
+ `kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName --all-namespaces`
+
