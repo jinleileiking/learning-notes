@@ -20,9 +20,10 @@ SrsRtmpConn::do_cycle()
   
   ??
   SrsRtmpConn::do_publishing
-  
-  ??
-  SrsMetaCache::update_data
+    SrsRtmpConn::handle_publish_message
+      SrsRtmpConn::process_publish_message
+        SrsLiveSource::on_meta_data
+          SrsMetaCache::update_data
   
   ??
   SrsHls::hls_show_mux_log
