@@ -32,3 +32,8 @@ SrsRtmpConn::cycle()[srs_app_rtmp_conn.cpp]
   ??
   SrsHls::hls_show_mux_log
 ```
+
+
+坑s：
+
+`clang: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]` 这个在编.o时没用， link时用，所以没事
