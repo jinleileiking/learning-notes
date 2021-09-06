@@ -1,5 +1,15 @@
 代码基于：23730fa48387fc41d847e2ab69d65ee721676b8e  4.0release
 
+启动：
+
+```
+SrsServer::listen()
+  SrsBufferListener::listen
+  
+
+```
+
+
 推流：
 
 ```
@@ -32,7 +42,6 @@ SrsRtmpConn::cycle()[srs_app_rtmp_conn.cpp]
   ??
   SrsHls::hls_show_mux_log
 ```
-
 
 坑s：
 
