@@ -22,12 +22,12 @@ SrsRtmpConn::cycle()
     rtmp->handshake()
       SrsComplexHandshake::handshake_with_client
     rtmp->connect_app(req) = SrsSimpleRtmpClient::connect_app()
-    ??
-    SrsBasicRtmpClient::recv_message[srs_service_rtmp_conn.cpp]
-      SrsProtocol::recv_message[srs_rtmp_stack.cpp]
-        SrsProtocol::on_recv_message
-          print_debug_info
     SrsRtmpConn::service_cycle()[srs_app_rtmp_conn.cpp]
+      SrsRtmpServer::set_window_ack_size
+        SrsProtocol::send_and_free_packet
+          SrsProtocol::do_send_and_free_packet
+            SrsProtocol::send_and_free_message
+              SrsProtocol::send_and_free_messages
       while(true){
       SrsRtmpConn::stream_service_cycle
         SrsRtmpConn::publishing
