@@ -36,6 +36,7 @@ SrsRtmpConn::cycle()
               SrsOriginHub::on_publish
                 SrsHls::on_publish[srs_app_hls.cpp] 
                   SrsHlsController::on_publish
+                    SrsHlsMuxer::on_publish
           SrsRtmpConn::do_publishing
             SrsRtmpConn::handle_publish_message
               SrsRtmpConn::process_publish_message
