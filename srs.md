@@ -31,16 +31,18 @@ SrsRtmpConn::cycle()
       while(true){
       SrsRtmpConn::stream_service_cycle
         SrsRtmpConn::publishing
+          SrsRtmpConn::acquire_publish
+            SrsLiveSource::on_publish[srs_app_source.cpp]
+              SrsOriginHub::on_publish
+                SrsHls::on_publish[srs_app_hls.cpp] 
+                  SrsHlsController::on_publish
           SrsRtmpConn::do_publishing
             SrsRtmpConn::handle_publish_message
               SrsRtmpConn::process_publish_message
                 SrsLiveSource::on_meta_data[srs_app_source.cpp]
                   SrsMetaCache::update_data
       }
-    
-    
-  ??
-  SrsHlsController::on_publish
+ 
  
   
   ??
