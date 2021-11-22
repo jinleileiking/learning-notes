@@ -1,8 +1,8 @@
 # aws 开k8s
 
+* 不要在控制台点创建，要用aws这个命令创建
 * role要创建k8s-cluster-policy, k8s-policy不管用
 * 子网要开两个可用区
-* https://aws.amazon.com/cn/blogs/china/approached-fargate-hands-on-configuration-belongs-to-their-own-fargate-cluster/ 
 * 安装aws命令 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 * 配置aws https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html  key找管理员要
 * `An error occurred (AccessDeniedException) when calling the DescribeCluster operation: User:  is not authorized to perform: eks:DescribeCluster on resource:    :cluster/k8s-rdqa`. 在控制台给用户添加eks权限，都点上就行，不知道是哪个
