@@ -1,4 +1,10 @@
-kubectl get sc
+# aws 开k8s
+
+* role要创建k8s-cluster-policy, k8s-policy不管用
+* 子网要开两个可用区
+
+
+# kubectl get sc
 
 强制删除
 kubectl delete pods <pod> --grace-period=0 --force
