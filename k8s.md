@@ -3,8 +3,10 @@
 * role要创建k8s-cluster-policy, k8s-policy不管用
 * 子网要开两个可用区
 * https://aws.amazon.com/cn/blogs/china/approached-fargate-hands-on-configuration-belongs-to-their-own-fargate-cluster/ 
-
-
+* 安装aws命令 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+* 配置aws https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html  key找管理员要
+* `An error occurred (AccessDeniedException) when calling the DescribeCluster operation: User:  is not authorized to perform: eks:DescribeCluster on resource:    :cluster/k8s-rdqa`. 在控制台给用户添加eks权限，都点上就行，不知道是哪个
+* `An error occurred (AccessDeniedException) when calling the CreateCluster operation: User: arn:aws:iam:: is not authorized to perform: eks:CreateCluster on resource: ` 给用户user添加相应的策略（ eks:CreateCluster) iam:PassRole -- 单独加不管用，选了所有就好了。
 
 
 # kubectl get sc
