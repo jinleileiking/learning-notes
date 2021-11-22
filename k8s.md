@@ -2,6 +2,9 @@
 
 * role要创建k8s-cluster-policy, k8s-policy不管用
 * 子网要开两个可用区
+* https://aws.amazon.com/cn/blogs/china/approached-fargate-hands-on-configuration-belongs-to-their-own-fargate-cluster/ 
+
+
 
 
 # kubectl get sc
