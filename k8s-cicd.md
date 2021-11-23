@@ -21,6 +21,13 @@
 * 控制台看不到node`您的当前用户或角色无权访问此 EKS 集群上的 Kubernetes 对象`
 
 
+# gitlab
+
+* runner 显示$是正常的，怕泄漏
+* docker 里build不了docker: https://gitlab.com/gitlab-org/gitlab-runner/-/issues/1986
+* docker login 不行，要stdin: https://gitlab.com/gitlab-org/gitlab-runner/-/issues/2861
+
+
 # aliyun
 
 * docker login进不去，竟然是挂了vpn导致。。。。
