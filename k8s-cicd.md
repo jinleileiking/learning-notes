@@ -39,7 +39,11 @@
 * docker 里build不了docker: https://gitlab.com/gitlab-org/gitlab-runner/-/issues/1986
 * docker login 不行，要stdin: https://gitlab.com/gitlab-org/gitlab-runner/-/issues/2861
 * docker build 不成功： srs 要 `-f ./trunk/Dockerfile .`
-* docker push 不上去：
+* docker push 不上去：runner挂了代理。。。。
+* srs : `sudo docker build-t rdqa/zzzzzz:test  -f ./trunk/Dockerfile .`
+* `docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]` 
+* `docker push registry.cn-zhangjiakou.aliyuncs.com/xxxx/zzzzz:test`
+
 
 
 # aliyun
