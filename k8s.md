@@ -14,6 +14,10 @@
 * ec2实例如果没开ssh，后面就不能开了，所以最好建立的时候开一下
 
 
+# aliyun
+
+* docker login进不去，竟然是挂了vpn导致。。。。
+
 # kubectl get sc
 
 强制删除
