@@ -17,7 +17,7 @@
 * kubelet 的log在 /var/log/messages. `journalctl -u kubelet`
 * eks 创建：`getting availability zones: getting availability zones for us-east-1: UnauthorizedOperation: You are not authorized to perform this operation.` : https://stackoverflow.com/questions/60438285/error-getting-availability-zones-when-trying-to-create-eks-cluster
 * --ssh-public-key 这个指的是秘钥对的名字。。。。。
-* eks 开直接就成功了，但机器是两台而且是m5 large...
+* eks 开直接就成功了，但机器是两台而且是m5 large... 使用小机器： https://eksctl.io/usage/creating-and-managing-clusters/
 * 控制台看不到node`您的当前用户或角色无权访问此 EKS 集群上的 Kubernetes 对象`
 
 
