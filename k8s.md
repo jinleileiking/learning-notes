@@ -12,6 +12,11 @@
 * `NodeCreationFailure-> Unhealthy nodes in the kubernetes cluster`:  https://stackoverflow.com/questions/65807859/nodecreationfailure-unhealthy-nodes-in-the-kubernetes-cluster
 * `NodeCreationFailure	Instances failed to join the kubernetes cluster`
 * ec2实例如果没开ssh，后面就不能开了，所以最好建立的时候开一下
+* ec2开了也登不上： 给自动生成的安全组加一个tcp全部可入，就可以ssh登录了， 自动生成的不好使
+* ec2机器ping不通: 
+* kubelet 的log在 /var/log/messages. `journalctl -u kubelet`
+* eks 创建：`getting availability zones: getting availability zones for us-east-1: UnauthorizedOperation: You are not authorized to perform this operation.` : https://stackoverflow.com/questions/60438285/error-getting-availability-zones-when-trying-to-create-eks-cluster
+* --ssh-public-key 这个指的是秘钥对的名字。。。。。
 
 
 # aliyun
