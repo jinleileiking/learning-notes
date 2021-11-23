@@ -26,6 +26,8 @@
 * runner 显示$是正常的，怕泄漏
 * docker 里build不了docker: https://gitlab.com/gitlab-org/gitlab-runner/-/issues/1986
 * docker login 不行，要stdin: https://gitlab.com/gitlab-org/gitlab-runner/-/issues/2861
+* docker build 不成功： srs 要 `-f ./trunk/Dockerfile .`
+* docker push 不上去：
 
 
 # aliyun
