@@ -11,6 +11,7 @@
 * node group: https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html#create-worker-node-role
 * `NodeCreationFailure-> Unhealthy nodes in the kubernetes cluster`:  https://stackoverflow.com/questions/65807859/nodecreationfailure-unhealthy-nodes-in-the-kubernetes-cluster
 * `NodeCreationFailure	Instances failed to join the kubernetes cluster`
+* ec2实例如果没开ssh，后面就不能开了，所以最好建立的时候开一下
 
 
 # kubectl get sc
