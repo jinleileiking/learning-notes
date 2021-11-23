@@ -17,6 +17,7 @@
 # aliyun
 
 * docker login进不去，竟然是挂了vpn导致。。。。
+* 如果不让直接 -p 输入密码 :  https://gitlab.com/gitlab-org/gitlab-runner/-/issues/2861
 
 # kubectl get sc
 
