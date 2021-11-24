@@ -43,6 +43,7 @@
 * srs : `sudo docker build-t rdqa/zzzzzz:test  -f ./trunk/Dockerfile .`
 * `docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]` 
 * `docker push registry.cn-zhangjiakou.aliyuncs.com/xxxx/zzzzz:test`
+* 引用 issue https://docs.gitlab.com/ee/user/project/issues/crosslinking_issues.html
 
 
 
