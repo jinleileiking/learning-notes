@@ -1,11 +1,13 @@
-# aws 开k8s
+# aws 
 
-## 控制台
+## 开k8s
+
+### 控制台
 
 * role要创建k8s-cluster-policy, k8s-policy不管用
 * 子网要开两个可用区
 
-## aws命令
+### aws命令
 
 * 不要在控制台点创建，要用aws这个命令创建 --- 事实证明也不好使
 * 安装aws命令 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
@@ -22,7 +24,7 @@
 * kubelet 的log在 /var/log/messages. `journalctl -u kubelet`
 
 
-## eksctl 
+### eksctl 
 
 * eks 创建：`getting availability zones: getting availability zones for us-east-1: UnauthorizedOperation: You are not authorized to perform this operation.` : https://stackoverflow.com/questions/60438285/error-getting-availability-zones-when-trying-to-create-eks-cluster
 * --ssh-public-key 这个指的是秘钥对的名字。。。。。
@@ -30,6 +32,10 @@
 * ??????    控制台看不到node`您的当前用户或角色无权访问此 EKS 集群上的 Kubernetes 对象`
 * t3a pod找不到node创建：初始配置一个node只能跑4个pod。。。。。 https://github.com/awslabs/amazon-eks-ami/blob/master/files/eni-max-pods.txt
 * t3a.small 8 , t3.small 11
+
+## k8s使用
+
+* 暴露的service访问不了
  
  
 
