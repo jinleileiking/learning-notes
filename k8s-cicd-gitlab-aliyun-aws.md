@@ -41,7 +41,7 @@
 
 ## cloudwatch
 
-* `CreateLogGroup API responded with error='AccessDeniedException'` 
+* `CreateLogGroup API responded with error='AccessDeniedException'` : create 文件，加入 cloudwatch配置，就好了，期间还加了一次cloudwatchlog all的权限
  
  
 
