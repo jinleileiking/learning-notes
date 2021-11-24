@@ -38,6 +38,10 @@
 * 暴露的service访问不了
   * 登录虚机可以curl
   * 过了一会就能进了，估计是service生效有时间？
+
+## cloudwatch
+
+* `CreateLogGroup API responded with error='AccessDeniedException'` 
  
  
 
