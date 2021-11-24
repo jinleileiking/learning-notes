@@ -28,7 +28,8 @@
 * --ssh-public-key 这个指的是秘钥对的名字。。。。。
 * eks 开直接就成功了，但机器是两台而且是m5 large... 使用小机器： https://eksctl.io/usage/creating-and-managing-clusters/ 尝试用t2不行，改成t3a.micro
 * ??????    控制台看不到node`您的当前用户或角色无权访问此 EKS 集群上的 Kubernetes 对象`
-* t3a pod找不到node创建：初始配置一个node只能跑4个pod。。。。。
+* t3a pod找不到node创建：初始配置一个node只能跑4个pod。。。。。 https://github.com/awslabs/amazon-eks-ami/blob/master/files/eni-max-pods.txt
+* t3a.small 8 , t3.small 11
  
  
 
