@@ -1,3 +1,14 @@
+# 测试
+
+srs单测基于c的测试，代码在src/utest
+
+集成测试基于go test，代码在`3rdparty/srs-bench/*_test.go`
+
+
+
+
+
+
 代码基于：23730fa48387fc41d847e2ab69d65ee721676b8e  4.0release
 
 启动：
