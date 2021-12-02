@@ -48,3 +48,11 @@ pc.readResponse
 * time.Now() or time.Now().UTC() 没必要调用utc https://stackoverflow.com/questions/44873825/how-to-get-timestamp-of-utc-time-with-golang
 * 跳过case：  t.Skip("Skipping testing in CI environment")
 * 判断是否在go test中：https://stackoverflow.com/questions/14249217/how-do-i-know-im-running-within-go-test
+* 传递参数/系统变量给gotest，参数没成功，变量可以：https://siongui.github.io/2017/04/28/command-line-argument-in-golang-test/
+* go test -timeout 99999s
+
+# mysql
+
+* 执行sql: https://stackoverflow.com/questions/49545146/how-to-exec-sql-file-with-commands-in-golang/49550419
+* 获得当前目录： https://stackoverflow.com/questions/23847003/golang-tests-and-working-directory
+* 一个sql语句由于有``，所以在go支持很不好，解决办法是 双引号用+ 连接起来，因为双引号不能换号， ``里面的``不能转义。。。。
