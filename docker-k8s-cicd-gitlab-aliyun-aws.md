@@ -66,10 +66,14 @@
 * entrypoint 和cmd 如果都有，那cmd就是entrypoint的参数。。。 https://www.cnblogs.com/sparkdev/p/8461576.html
 
 
+# docker 
+
+* 没办法给一个启动的docker expose端口 : https://stackoverflow.com/questions/19897743/exposing-a-port-on-a-live-docker-container.  `-p 8935:1935`
+
 # aliyun
 
 * docker login进不去，竟然是挂了vpn导致。。。。
-* 如果不让直接 -p 输入密码 :  https://gitlab.com/gitlab-org/gitlab-runner/-/issues/2861
+* 如果不让直接 -p 输入密码 :  https://gitlab.com/gitlab-org/gitlab-runner/-/issues/2861.    
 
 # kubectl get sc
 
