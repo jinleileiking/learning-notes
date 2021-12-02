@@ -75,6 +75,29 @@
 * docker login进不去，竟然是挂了vpn导致。。。。
 * 如果不让直接 -p 输入密码 :  https://gitlab.com/gitlab-org/gitlab-runner/-/issues/2861.    
 
+
+## k8s to sls
+
+* project不要新建，用建立k8s自带的，要不然找不到机器组
+* 示例配置
+
+```json
+{
+    "inputs": [
+        {
+            "detail": {
+                "Stderr": true,
+                "IncludeLabel": {
+                    "io.kubernetes.pod.namespace": "YOUR NS"
+                },
+                "Stdout": true
+            },
+            "type": "service_docker_stdout"
+        }
+    ]
+}
+```
+
 # kubectl get sc
 
 强制删除
