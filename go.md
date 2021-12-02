@@ -50,9 +50,58 @@ pc.readResponse
 * 判断是否在go test中：https://stackoverflow.com/questions/14249217/how-do-i-know-im-running-within-go-test
 * 传递参数/系统变量给gotest，参数没成功，变量可以：https://siongui.github.io/2017/04/28/command-line-argument-in-golang-test/
 * go test -timeout 99999s
+* func Short() bool   Short reports whether the -test.short flag is set.
 
 # mysql
 
 * 执行sql: https://stackoverflow.com/questions/49545146/how-to-exec-sql-file-with-commands-in-golang/49550419
 * 获得当前目录： https://stackoverflow.com/questions/23847003/golang-tests-and-working-directory
 * 一个sql语句由于有``，所以在go支持很不好，解决办法是 双引号用+ 连接起来，因为双引号不能换号， ``里面的``不能转义。。。。
+* 集成测试：go mysql mock的问题是需要指定sql去返回，不好。 用go containertest的问题是，无法给镜像跑程序。 最后用 https://github.com/ory/dockertest, 坑：
+ * 连mysql需要建非root授权去连
+ * mysql没有m1镜像，需要mysql/mysql-server. https://github.com/mysql/mysql-docker/blob/mysql-server/8.0/Dockerfile
+ *  
+
+```
+	var db *sql.DB
+	var err error
+
+	pool, err := dockertest.NewPool("")
+	pool.MaxWait = time.Minute * 5
+	if err != nil {
+		log.Fatalf("Could not connect to docker: %s", err)
+	}
+
+	resource, err := pool.Run("mysql/mysql-server", "8.0", []string{"MYSQL_ROOT_PASSWORD=123456"})
+	if err != nil {
+		log.Fatalf("Could not start resource: %s", err)
+	}
+
+	defer func() {
+		if err := pool.Purge(resource); err != nil {
+			log.Fatalf("Could not purge resource: %s", err)
+		}
+	}()
+
+	fmt.Println("mysql docker exposed port is:" + resource.GetPort("3306/tcp"))
+	if err := pool.Retry(func() error {
+		var err error
+		db, err = sql.Open("mysql", fmt.Sprintf("ut:123456@(localhost:%s)/live", resource.GetPort("3306/tcp")))
+		if err != nil {
+			spew.Dump(err)
+			return err
+		}
+		//启动阶段不停的重试连接，如果连接上了，则需要授权，让宿主机能连上
+		//一句话也不能少，因为要建立live的database
+		resource.Exec([]string{"mysql", "-uroot", "-p123456", "-e", `CREATE USER 'ut'@'%' IDENTIFIED BY '123456';`}, dockertest.ExecOptions{})
+		resource.Exec([]string{"mysql", "-uroot", "-p123456", "-e", `GRANT ALL ON *.* TO 'ut'@'%'`}, dockertest.ExecOptions{})
+		resource.Exec([]string{"mysql", "-uroot", "-p123456", "-e", `flush privileges;`}, dockertest.ExecOptions{})
+		resource.Exec([]string{"mysql", "-uroot", "-p123456", "-e", `create database live;`}, dockertest.ExecOptions{})
+		return db.Ping()
+	}); err != nil {
+		log.Fatalf("Could not connect to database: %s", err)
+	}
+
+	// 在项目根目录执行:  ROOT=`pwd` go test ./...   -v -timeout 10000s
+	execSql(db, os.Getenv("ROOT")+"/ddl/ddl.sql")
+```
