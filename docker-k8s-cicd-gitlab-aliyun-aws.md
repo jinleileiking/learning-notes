@@ -63,6 +63,7 @@
 
 # docker开发srs
 
+* entrypoint 和cmd 如果都有，那cmd就是entrypoint的参数。。。 https://www.cnblogs.com/sparkdev/p/8461576.html
 
 
 # aliyun
