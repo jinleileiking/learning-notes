@@ -78,6 +78,7 @@
 
 ## k8s to sls
 
+* https://help.aliyun.com/document_detail/66658.html
 * project不要新建，用建立k8s自带的，要不然找不到机器组
 * 示例配置
 
