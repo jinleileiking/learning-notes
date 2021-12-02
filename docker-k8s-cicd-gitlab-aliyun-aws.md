@@ -99,6 +99,10 @@
 }
 ```
 
+## sls 数据加工
+
+* 数据加工建立后，报错，python脚本说没有你要的logstore： 自己建一个。。。。。
+
 # kubectl get sc
 
 强制删除
