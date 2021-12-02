@@ -58,11 +58,10 @@ pc.readResponse
 * 获得当前目录： https://stackoverflow.com/questions/23847003/golang-tests-and-working-directory
 * 一个sql语句由于有``，所以在go支持很不好，解决办法是 双引号用+ 连接起来，因为双引号不能换号， ``里面的``不能转义。。。。
 * 集成测试：go mysql mock的问题是需要指定sql去返回，不好。 用go containertest的问题是，无法给镜像跑程序。 最后用 https://github.com/ory/dockertest, 坑：
- * 连mysql需要建非root授权去连
- * mysql没有m1镜像，需要mysql/mysql-server. https://github.com/mysql/mysql-docker/blob/mysql-server/8.0/Dockerfile
- *  
+  * 连mysql需要建非root授权去连
+  * mysql没有m1镜像，需要mysql/mysql-server. https://github.com/mysql/mysql-docker/blob/mysql-server/8.0/Dockerfile  
 
-```
+```go
 	var db *sql.DB
 	var err error
 
