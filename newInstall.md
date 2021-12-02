@@ -11,6 +11,7 @@
 
 # vim
 
-* https://github.com/junegunn/vim-plug 
-* vim PlugInstall
+* 安装：https://github.com/junegunn/vim-plug 
+* :PlugInstall
+* :GoInstallBinaries
 
