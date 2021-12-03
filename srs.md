@@ -64,3 +64,35 @@ SrsRtmpConn::cycle()
 坑s：
 
 `clang: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]` 这个在编.o时没用， link时用，所以没事
+
+
+# log header:
+
+```
+│ 232     int written = -1;¬
+│ 233     if (dangerous) {¬
+│ 234         if (tag) {¬
+│ 235             written = snprintf(buffer, size,¬
+│ 236                 "[%d-%02d-%02d %02d:%02d:%02d.%03d][%s][%d][%s][%d][%s] ",¬
+│ 237                 1900 + now.tm_year, 1 + now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min, now.tm_sec, (int)(tv.tv_usec / 1000),¬
+│ 238                 level, getpid(), cid.c_str(), errno, tag);¬
+│ 239         } else {¬
+│ 240             written = snprintf(buffer, size,¬
+│ 241                 "[%d-%02d-%02d %02d:%02d:%02d.%03d][%s][%d][%s][%d] ",¬
+│ 242                 1900 + now.tm_year, 1 + now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min, now.tm_sec, (int)(tv.tv_usec / 1000),¬
+│ 243                 level, getpid(), cid.c_str(), errno);¬
+│ 244         }¬
+│ 245     } else {¬
+│ 246         if (tag) {¬
+│ 247             written = snprintf(buffer, size,¬
+│ 248                 "[%d-%02d-%02d %02d:%02d:%02d.%03d][%s][%d][%s][%s] ",¬
+│ 249                 1900 + now.tm_year, 1 + now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min, now.tm_sec, (int)(tv.tv_usec / 1000),¬
+│ 250                 level, getpid(), cid.c_str(), tag);¬
+│ 251         } else {¬
+│ 252             written = snprintf(buffer, size,¬
+│ 253                 "[%d-%02d-%02d %02d:%02d:%02d.%03d][%s][%d][%s] ",¬
+│ 254                 1900 + now.tm_year, 1 + now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min, now.tm_sec, (int)(tv.tv_usec / 1000),¬
+│ 255                 level, getpid(), cid.c_str());¬
+│ 256         }¬
+│ 257     }¬
+```
