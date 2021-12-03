@@ -14,4 +14,5 @@
 * 安装：https://github.com/junegunn/vim-plug 
 * :PlugInstall
 * :GoInstallBinaries
+* brew install global (ctags?gtags?)
 
