@@ -105,6 +105,7 @@
 ## sls 数据加工
 
 * 数据加工建立后，报错，python脚本说没有你要的logstore： 自己建一个。。。。。
+* json展开： https://help.aliyun.com/document_detail/125488.html#section-o7x-7rl-2qh
 
 # kubectl get sc
 
