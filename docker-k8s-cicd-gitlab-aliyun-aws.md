@@ -75,6 +75,8 @@
 
 * docker login进不去，竟然是挂了vpn导致。。。。
 * 如果不让直接 -p 输入密码 :  https://gitlab.com/gitlab-org/gitlab-runner/-/issues/2861.    
+* 拉私有镜像： `kubectl create secret docker-registry regsecret --docker-server=registry.cn-zhangjiakou.aliyuncs.com   --docker-username=xxxx --docker-password=xxxxxxx` 注意image不要带https!
+
 
 
 ## k8s to sls
