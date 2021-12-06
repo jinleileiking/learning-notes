@@ -106,6 +106,7 @@
 
 * 数据加工建立后，报错，python脚本说没有你要的logstore： 自己建一个。。。。。
 * json展开： https://help.aliyun.com/document_detail/125488.html#section-o7x-7rl-2qh
+* srs的log带了颜色，数据加工不能简单排除，最后用文件解决这个问题，但srs不会自动建立目录，需要注意
 
 # kubectl get sc
 
