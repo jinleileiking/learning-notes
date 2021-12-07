@@ -126,3 +126,7 @@ redis.gloabal.XXX 不好使， 要 : : :
  
  `kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName --all-namespaces`
 
+ 
+ # 获取headless ip
+ 
+ `dig srv srs-origin-service.wzjinlei.svc.cluster.local`    SRV.NS.svc.cluster.local.
