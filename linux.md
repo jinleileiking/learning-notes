@@ -11,3 +11,10 @@ zplug clear
 # grep or
 
 `grep -e pattern1 -e pattern2 filename`
+
+
+
+# rg
+
+
+` rg wz -g '!tags' -g '!*js*' -g '!*.*~'`
