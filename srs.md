@@ -96,3 +96,9 @@ SrsRtmpConn::cycle()
 │ 256         }¬
 │ 257     }¬
 ```
+
+
+## k8s 
+
+
+* pod 地址： `srs-origin-1.socs.NAMESPACE.svc.cluster.local.`  `POD.SERVICE.NS.svc.cluster.local.` = SERVICE
