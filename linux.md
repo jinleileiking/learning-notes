@@ -18,3 +18,24 @@ zplug clear
 
 
 ` rg wz -g '!tags' -g '!*js*' -g '!*.*~'`
+
+
+# tz
+
+```
+ISO标准类型有：
+
+
+"2019-06-10" (date-only form)
+
+
+"2019-06-10T14:48:00" (date-time form)
+
+
+"2019-06-10T14:48:00.000+09:00" (date-time form with milliseconds and time zone)
+
+
+"2019-06-10T00:00:00.000Z" (specifying UTC timezone via the ISO date specification，Z is the same with +00:00)
+
+ 
+```
