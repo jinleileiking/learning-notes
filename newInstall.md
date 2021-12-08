@@ -17,3 +17,7 @@
 * :GoInstallBinaries
 * brew install global (ctags?gtags?)
 
+
+# go
+
+* string to struct : go get github.com/ChimeraCoder/gojson/gojson
