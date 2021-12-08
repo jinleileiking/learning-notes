@@ -98,6 +98,11 @@ SrsRtmpConn::cycle()
 ```
 
 
+# 其他
+
+* `make -j 8`  not `make -j8`
+
+
 ## k8s 
 
 
