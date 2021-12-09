@@ -107,3 +107,10 @@ SrsRtmpConn::cycle()
 
 
 * pod 地址： `srs-origin-1.socs.NAMESPACE.svc.cluster.local.`  `POD.SERVICE.NS.svc.cluster.local.` = SERVICE
+
+
+
+## st
+
+* http://state-threads.sourceforge.net/docs/reference.html
+* https://coolshell.cn/articles/12012.html
