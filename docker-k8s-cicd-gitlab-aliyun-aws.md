@@ -130,3 +130,15 @@ redis.gloabal.XXX 不好使， 要 : : :
  # 获取headless ip
  
  `dig srv srs-origin-service.wzjinlei.svc.cluster.local`    SRV.NS.svc.cluster.local.
+
+ 
+ 
+ 
+ # cicd
+ 
+ * argo :https://zhuanlan.zhihu.com/p/181692322
+ * https://github.com/spinnaker/spinnaker
+ * weave
+ * tekton
+ * jenkins X
+ 
