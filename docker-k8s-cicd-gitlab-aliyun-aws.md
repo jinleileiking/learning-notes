@@ -65,6 +65,7 @@
 
 * entrypoint 和cmd 如果都有，那cmd就是entrypoint的参数。。。 https://www.cnblogs.com/sparkdev/p/8461576.html
 * 没有cmd的镜像也可以跑起来，注意mount的话， /xxxx:/xxxx  都要是绝对目录，否则不行！ https://stackoverflow.com/questions/18878216/docker-how-to-live-sync-host-folder-with-container-folder
+* dockerfile 的expose 是给 docker直接打开的端口， 宿主机无法访问，所以得 -P 或 -p 
 
 
 # docker 
