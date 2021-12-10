@@ -104,3 +104,10 @@ pc.readResponse
 	// 在项目根目录执行:  ROOT=`pwd` go test ./...   -v -timeout 10000s
 	execSql(db, os.Getenv("ROOT")+"/ddl/ddl.sql")
 ```
+
+
+
+
+# ctx
+
+https://segmentfault.com/a/1190000022484275. 主携程cancel(), 子携程ctx.Done()
