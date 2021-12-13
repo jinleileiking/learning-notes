@@ -41,6 +41,7 @@ SrsRtmpConn::cycle()
               SrsProtocol::send_and_free_messages
       while(true){
       SrsRtmpConn::stream_service_cycle
+        _srs_sources->fetch_or_create(req, server, &source) --> source里存放着流的信息，作为重复推流，拉流对应关系的依据
         SrsRtmpConn::publishing
           SrsRtmpConn::acquire_publish
             SrsLiveSource::on_publish[srs_app_source.cpp]
