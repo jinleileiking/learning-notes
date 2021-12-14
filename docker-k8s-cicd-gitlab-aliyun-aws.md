@@ -39,6 +39,8 @@
   * 登录虚机可以curl
   * 过了一会就能进了，估计是service生效有时间？
 
+
+
 ## cloudwatch
 
 * 安装这个安装即可:https://docs.aws.amazon.com/zh_cn/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-logs-FluentBit.html
@@ -144,3 +146,8 @@ redis.gloabal.XXX 不好使， 要 : : :
  * tekton
  * jenkins X
  
+ 
+ 
+ # k8s 
+ 
+ * pod 给pod 发信号，用于logrotate: https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/#configure-a-pod
