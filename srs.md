@@ -44,6 +44,7 @@ SrsRtmpConn::cycle()
       while(true){
       SrsRtmpConn::stream_service_cycle
         _srs_sources->fetch_or_create(req, server, &source) --> source里存放着流的信息，作为重复推流，拉流对应关系的依据
+        start_fmle_publish -> 这里会响应fconpublish给ffmpeg
         SrsRtmpConn::publishing
           SrsRtmpConn::acquire_publish
             SrsLiveSource::on_publish[srs_app_source.cpp]
