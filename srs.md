@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 # 测试
 
 srs单测基于c的测试，代码在src/utest
@@ -5,13 +7,13 @@ srs单测基于c的测试，代码在src/utest
 集成测试基于go test，代码在`3rdparty/srs-bench/*_test.go`
 
 
-
+# 代码分析
 
 
 
 代码基于：23730fa48387fc41d847e2ab69d65ee721676b8e  4.0release
 
-启动：
+## 启动：
 
 ```
 SrsServer::listen()
@@ -21,7 +23,7 @@ SrsServer::listen()
 ```
 
 
-推流：
+## 推流：
 
 ```
 SrsBufferListener::on_tcp_client[srs_app_server.cpp]
@@ -97,6 +99,31 @@ SrsRtmpConn::cycle()
 │ 256         }¬
 │ 257     }¬
 ```
+
+## api
+
+```
+main
+  do_main
+    run_directly_or_daemon
+      run_hybrid_server
+        _srs_hybrid->register_server(new SrsServerAdapter());
+          SrsServerAdapter::run()
+            SrsServer::http_handle()
+              http_api_mux->handle("/api/v1/streams/", new SrsGoApiStreams()))
+                SrsGoApiStreams::serve_http
+                  stat->find_stream(sid)
+                  stat->dumps_streams(data, start, count)
+```        
+
+在publish时写入：
+```
+SrsRtmpConn::acquire_publish
+ SrsLiveSource::on_publish()
+   stat->on_stream_publish(req, _source_id.c_str());
+      create_stream(vhost, req);
+        // create stream if not exists.
+```      
 
 
 # 其他
