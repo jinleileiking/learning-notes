@@ -108,6 +108,7 @@ SrsRtmpConn::cycle()
 
 * edge 配置 cluster origin 是用于forward lb的
 * origin 的 coworker : rtmp 302
+* 在play阶段，如果本地没流，会根据配置去coworker查是否有流，然后302
 
 ## k8s 
 
