@@ -104,6 +104,11 @@ SrsRtmpConn::cycle()
 * `make -j 8`  not `make -j8`
 
 
+# 集群模式
+
+* edge 配置 cluster origin 是用于forward lb的
+* origin 的 coworker : rtmp 302
+
 ## k8s 
 
 
