@@ -161,9 +161,12 @@ redis.gloabal.XXX 不好使， 要 : : :
  * 先在gitlab建立自己的token， 然后argo 连接的时候， username:就是gitlab你的username， token就是刚才的token，skip version ssl
  * argo的git url是取里面的yaml进行部署，不是sourcecode，如果要递归，需要点一下recursive 
  * sync不成功的话，ns没建，他不会自己建ns
- 
+ * https://medium.com/@andrew.kaczynski/gitops-in-kubernetes-argo-cd-and-gitlab-ci-cd-5828c8eb34d6  比较好
+
+
  # k8s 
  
  * pod 给pod 发信号，用于logrotate: https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/#configure-a-pod
  * 看 request: https://github.com/kubernetes/kubernetes/issues/17512. `kubectl get po --all-namespaces -o=jsonpath="{range .items[*]}{.metadata.namespace}:{.metadata.name}{''}{range .spec.containers[*]}  {.name}:{.resources.requests.cpu}{'\n'}{end}{'\n'}{end}"  | grep -e ':\d*m'` `alias util='kubectl get nodes --no-headers | awk '\''{print $1}'\'' | xargs -I {} sh -c '\''echo {} ; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve -- ; echo '\'''`.  `kubectl describe nodes `
  * 给service改为loadbalancer（from argo): ` kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'`
+ * 
