@@ -82,6 +82,14 @@
 * 拉私有镜像： `kubectl create secret docker-registry regsecret --docker-server=registry.cn-zhangjiakou.aliyuncs.com   --docker-username=xxxx --docker-password=xxxxxxx` 注意image不要带https!
 
 
+## 私网slb
+
+* ` service.beta.kubernetes.io/alibaba-cloud-loadbalancer-address-type: "intranet"`. https://help.aliyun.com/document_detail/86531.htm?spm=a2c4g.11186623.0.0.2bacc00dVOK3Y7#task-1425948
+
+
+## pvc
+
+* https://help.aliyun.com/document_detail/134722.html
 
 ## k8s to sls
 
