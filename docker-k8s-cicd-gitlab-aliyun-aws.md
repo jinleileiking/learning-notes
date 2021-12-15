@@ -160,6 +160,7 @@ redis.gloabal.XXX 不好使， 要 : : :
  
  * 先在gitlab建立自己的token， 然后argo 连接的时候， username:就是gitlab你的username， token就是刚才的token，skip version ssl
  * argo的git url是取里面的yaml进行部署，不是sourcecode，如果要递归，需要点一下recursive 
+ * sync不成功的话，ns没建，他不会自己建ns
  
  # k8s 
  
