@@ -122,12 +122,14 @@
 
 # kubectl get sc
 
+```
 强制删除
 kubectl delete pods <pod> --grace-period=0 --force
+```
 
-
- kubectl get pods | grep redash |  awk '{print $1}' | xargs kubectl delete pod --grace-period=0 --force
-
+```
+kubectl get pods | grep redash |  awk '{print $1}' | xargs kubectl delete pod --grace-period=0 --force
+```
 
 # helm
 
@@ -160,3 +162,4 @@ redis.gloabal.XXX 不好使， 要 : : :
  
  * pod 给pod 发信号，用于logrotate: https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/#configure-a-pod
  * 看 request: https://github.com/kubernetes/kubernetes/issues/17512. `kubectl get po --all-namespaces -o=jsonpath="{range .items[*]}{.metadata.namespace}:{.metadata.name}{''}{range .spec.containers[*]}  {.name}:{.resources.requests.cpu}{'\n'}{end}{'\n'}{end}"  | grep -e ':\d*m'` `alias util='kubectl get nodes --no-headers | awk '\''{print $1}'\'' | xargs -I {} sh -c '\''echo {} ; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve -- ; echo '\'''`.  `kubectl describe nodes `
+ * 给service改为loadbalancer（from argo): ` kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'`
