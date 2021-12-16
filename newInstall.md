@@ -17,6 +17,7 @@
 * :PlugInstall
 * :GoInstallBinaries
 * brew install global (ctags?gtags?)
+* brew install yamllint
 
 
 # go
