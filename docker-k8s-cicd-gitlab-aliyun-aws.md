@@ -162,6 +162,7 @@ redis.gloabal.XXX 不好使， 要 : : :
  * argo的git url是取里面的yaml进行部署，不是sourcecode，如果要递归，需要点一下recursive 
  * sync不成功的话，ns没建，他不会自己建ns
  * https://medium.com/@andrew.kaczynski/gitops-in-kubernetes-argo-cd-and-gitlab-ci-cd-5828c8eb34d6  比较好
+ * 应该会自动忽略.的部署： https://github.com/argoproj/argo-cd/issues/2638
 
 
  # k8s 
