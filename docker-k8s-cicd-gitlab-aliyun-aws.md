@@ -62,9 +62,8 @@
 * `docker push registry.cn-zhangjiakou.aliyuncs.com/xxxx/zzzzz:test`
 * 引用 issue https://docs.gitlab.com/ee/user/project/issues/crosslinking_issues.html
 * gitlabci使用私有仓库做基础镜像：https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#determine-your-docker_auth_config-data
-* `standard_init_linux.go:211: exec user process caused "exec format error"
-` 在m1编的镜像 linux用不了 : https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/4558
-
+* `standard_init_linux.go:211: exec user process caused "exec format error" ` 在m1编的镜像 linux用不了 : https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/4558
+* 在job前加.可以跳过阶段
 
 # docker开发srs
 
