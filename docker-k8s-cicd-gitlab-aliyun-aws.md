@@ -184,3 +184,4 @@ redis.gloabal.XXX 不好使， 要 : : :
 # kustomize
 
 * docker的kustomize镜像基于alpine，起了他的bin，所以不能做基础镜像，用centos7 + curl
+* 使用简介：https://blog.stack-labs.com/code/kustomize-101/
