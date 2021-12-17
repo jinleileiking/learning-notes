@@ -64,6 +64,7 @@
 * gitlabci使用私有仓库做基础镜像：https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#determine-your-docker_auth_config-data
 * `standard_init_linux.go:211: exec user process caused "exec format error" ` 在m1编的镜像 linux用不了 : https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/4558
 * 在job前加.可以跳过阶段
+* gitlab改基础镜像的entry：`image:entrypoint`
 
 # docker开发srs
 
@@ -77,6 +78,8 @@
 * 没办法给一个启动的docker expose端口 : https://stackoverflow.com/questions/19897743/exposing-a-port-on-a-live-docker-container.  `-p 8935:1935`
 * `docker run -v /xxxxxxxxx/trunk:/srstrunk --name srs3  -P   -dit  srsdev /bin/bash` 
 * 起个centos：`docker run -it centos`
+* 有些镜像设置了启动命令不是shell，你要进sh，怎么办？`docker run --entrypoint '/bin/sh' -it  k8s.gcr.io/kustomize/kustomize:v3.8.7`
+
 
 
 
