@@ -51,6 +51,7 @@ pc.readResponse
 * 传递参数/系统变量给gotest，参数没成功，变量可以：https://siongui.github.io/2017/04/28/command-line-argument-in-golang-test/
 * go test -timeout 99999s
 * func Short() bool   Short reports whether the -test.short flag is set.
+* 不lint某文件:https://stackoverflow.com/questions/65985835/how-skip-file-in-golangci-lint vim ale重启生效
 
 # mysql
 
