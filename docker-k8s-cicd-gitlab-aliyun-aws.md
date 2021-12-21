@@ -65,6 +65,7 @@
 * `standard_init_linux.go:211: exec user process caused "exec format error" ` 在m1编的镜像 linux用不了 : https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/4558
 * 在job前加.可以跳过阶段
 * gitlab改基础镜像的entry：`image:entrypoint`
+* gitlab覆盖率需要在cicd配置`total:\s+\(statements\)\s+(\d+.\d+\%)`
 
 # docker开发srs
 
