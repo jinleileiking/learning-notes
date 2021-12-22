@@ -120,3 +120,24 @@ NopCloseReader的含义就是读完数据就没了，土的办法是read完之�
 gin中间件读requestbody的正确方法：    
 用shouldbindwithbody! ，但是如果用的话，你就都用withbody，别用json，仔细看代码，为什么  。。。。。。
 
+
+# go + gitlab
+
+最大boss，私有gitlab使用非80，443端口，为什么不用80，443呢？因为如果小企业，电信出口不能暴露80，443。。。。
+
+1. 你的项目go.mod必须要用域名来命名pacakge: xxx.com/group/project.git 
+2. 项目只能import下级的目录 比如 import pkg/xxxxx
+3. 同级目录引用，或引用上级，你在 pkg/yyy/yyy.go 需要 带域名引用 import xxx.com/group/project.git/pkg/xxx
+4. 所以别用同级目录
+5. 引用的project，增加deploy token，以便被引用。
+6. 改gitconfig 
+```
+[url "https://TOKEN:PW@xxx.com:12345/group/project"]
+    insteadOf = https://xxx.com/group/project
+
+```
+7. Enjoy
+
+
+
+
