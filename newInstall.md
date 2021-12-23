@@ -18,6 +18,8 @@
 * :GoInstallBinaries
 * brew install global (ctags?gtags?)
 * brew install yamllint
+* pip3 install --user pynvim.  # for deoplete
+* :UpdateRemotePlugins # for deoplete
 
 
 # go
