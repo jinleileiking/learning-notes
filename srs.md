@@ -149,3 +149,8 @@ SrsRtmpConn::acquire_publish
 
 * http://state-threads.sourceforge.net/docs/reference.html
 * https://coolshell.cn/articles/12012.html
+
+
+# OBS
+
+* 推时间流看延时：浏览器写time.is就行了
