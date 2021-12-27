@@ -24,3 +24,5 @@ tag1-2-g026498b
 ```
 2:表示自打tag tag1 以来有2次提交(commit)g026498b：g 为git的缩写
 ```
+
+* git commit --amend不好使： 如果vim有问题，会出出现这种情况，用 core editor = nvim
