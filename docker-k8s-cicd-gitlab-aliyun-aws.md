@@ -186,3 +186,11 @@ redis.gloabal.XXX 不好使， 要 : : :
 
 * docker的kustomize镜像基于alpine，起了他的bin，所以不能做基础镜像，用centos7 + curl
 * 使用简介：https://blog.stack-labs.com/code/kustomize-101/
+
+
+# helm
+
+* debug: `helm template --debug`比 helm lint方便， lint解决不了，用template看看原因
+* template用于configmap， include用于其他，好像include是用yaml的，configmap 只能用template，具体细节没研究明白
+* 遍历0123：`{{range $i, $e := until (.Values.replicas | int)}}  {{$i}} {{end}}` 如果报float的话，用int
+
