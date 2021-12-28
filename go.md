@@ -116,10 +116,10 @@ https://segmentfault.com/a/1190000022484275. 主携程cancel(), 子携程ctx.Don
 
 # gin
 
-NopCloseReader的含义就是读完数据就没了，土的办法是read完之后，再造一个，好的方法，参见gin。。
-gin中间件读requestbody的正确方法：    
-用shouldbindwithbody! ，但是如果用的话，你就都用withbody，别用json，仔细看代码，为什么  。。。。。。
-
+* NopCloseReader的含义就是读完数据就没了，土的办法是read完之后，再造一个，好的方法，参见gin。。
+* gin中间件读requestbody的正确方法：    
+* 用shouldbindwithbody! ，但是如果用的话，你就都用withbody，别用json，仔细看代码，为什么  。。。。。。
+* 多了个/ 导致307， 坑：https://github.com/gin-gonic/gin/issues/1004
 
 # go + gitlab
 
