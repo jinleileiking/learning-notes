@@ -23,3 +23,18 @@ https://github.com/videolan/x265
 
 
 ./configure --list-muxers
+
+
+
+# ffprobe
+
+* 让ffprobe探流一会停： 
+
+```
+-read_intervals will do the trick. e.g. %+2 is to read first 2 sec, %+#2 to read 2 frames.
+For example: -read_intervals "%+2"
+```
+
+# ffplay
+
+* 低延时: -fflags nobuffer : https://stackoverflow.com/questions/16658873/how-to-minimize-the-delay-in-a-live-streaming-with-ffmpeg
