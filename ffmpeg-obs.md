@@ -38,3 +38,7 @@ For example: -read_intervals "%+2"
 # ffplay
 
 * 低延时: -fflags nobuffer : https://stackoverflow.com/questions/16658873/how-to-minimize-the-delay-in-a-live-streaming-with-ffmpeg
+
+# obs 
+
+* 低延时：http://help.nuoyun.tv/chapter1/obs-LowLatency.html
