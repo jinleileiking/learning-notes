@@ -49,3 +49,8 @@ ISO标准类型有：
 # jq
 
 `jq -r .data.stream_key`
+
+
+# bash
+
+* ffplay $ARGS 说不对 用 ffplay $(ARGS)就好了
