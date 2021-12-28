@@ -44,3 +44,8 @@ ISO标准类型有：
 # httpie
 
 `http --verbose POST  'http://xxxxxxxx/video/v1/live-streams'   X-API-ACCOUNT-ID:10000   simulcast_targets:='[{"stream_key":"dest", "url":"rtmp://zzzzzz/live"}]'`
+
+
+# jq
+
+`jq -r .data.stream_key`
