@@ -129,32 +129,18 @@
 * json展开： https://help.aliyun.com/document_detail/125488.html#section-o7x-7rl-2qh
 * srs的log带了颜色，数据加工不能简单排除，最后用文件解决这个问题，但srs不会自动建立目录，需要注意
 
-# kubectl get sc
 
-```
-强制删除
-kubectl delete pods <pod> --grace-period=0 --force
-```
-
-```
-kubectl get pods | grep redash |  awk '{print $1}' | xargs kubectl delete pod --grace-period=0 --force
-```
-
-# helm
-
-redis.gloabal.XXX 不好使， 要 : : : 
- 
- 
-# 看node上都有神马pod
- 
- `kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName --all-namespaces`
+# k8s
 
  
- # 获取headless ip
+* kecm换editor： `KUBE_EDITOR="nano"`
+* 看node上都有神马pod : `kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName --all-namespaces`
+* 获取headless ip :  `dig srv srs-origin-service.wzjinlei.svc.cluster.local`    SRV.NS.svc.cluster.local.
+* 强制删除: `kubectl delete pods <pod> --grace-period=0 --force` `kubectl get pods | grep redash |  awk '{print $1}' | xargs kubectl delete pod --grace-period=0 --force`
+* kubectl get sc
  
- `dig srv srs-origin-service.wzjinlei.svc.cluster.local`    SRV.NS.svc.cluster.local.
 
- 
+
  
  
  # cicd
@@ -193,4 +179,4 @@ redis.gloabal.XXX 不好使， 要 : : :
 * debug: `helm template --debug`比 helm lint方便， lint解决不了，用template看看原因
 * template用于configmap， include用于其他，好像include是用yaml的，configmap 只能用template，具体细节没研究明白
 * 遍历0123：`{{range $i, $e := until (.Values.replicas | int)}}  {{$i}} {{end}}` 如果报float的话，用int
-
+* redis-helm: redis.gloabal.XXX 不好使， 要 : : : 
