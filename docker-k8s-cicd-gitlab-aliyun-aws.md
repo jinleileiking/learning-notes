@@ -180,3 +180,56 @@
 * template用于configmap， include用于其他，好像include是用yaml的，configmap 只能用template，具体细节没研究明白
 * 遍历0123：`{{range $i, $e := until (.Values.replicas | int)}}  {{$i}} {{end}}` 如果报float的话，用int
 * redis-helm: redis.gloabal.XXX 不好使， 要 : : : 
+
+
+# 其他
+
+ 
+
+## mac安装kubectl
+
+https://kubernetes.io/zh/docs/tasks/tools/install-kubectl-macos/
+
+创建 ~/.kube/config 文件，将控制台的kubeconfig拷入即可
+
+ 
+```
+[jinleileiking:~/.kube] master(+27/-27)* ± kubectl cluster-info
+Kubernetes control plane is running at xxxxxx
+metrics-server is running at xxxxx/api/v1/namespaces/kube-system/services/heapster/proxy
+KubeDNS is running at xxxxxxxx/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+```
+
+
+# 效率提升
+
+如果你用zsh， oh-my-zsh，
+
+使用ohmyzsh的plugin：
+
+我用zplug管理：改~/.vimrc 装zplug，并在vimrc添加：
+
+`zplug "plugins/kubectl",   from:oh-my-zsh`
+
+然后：
+
+```
+[jinleileiking:~/.kube] master(+27/-27)* ± alias | grep kube | head
+k=kubectl
+kaf='kubectl apply -f'
+kca='_kca(){ kubectl "$@" --all-namespaces;  unset -f _kca; }; _kca'
+kccc='kubectl config current-context'
+kcdc='kubectl config delete-context'
+kcgc='kubectl config get-contexts'
+kcn='kubectl config set-context --current --namespace'
+kcp='kubectl cp'
+kcsc='kubectl config set-context'
+kcuc='kubectl config use-context'
+```
+
+这样就方便多了
+
+kubens  用于换环境
+kubectx 用于换namespace
