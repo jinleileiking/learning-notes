@@ -99,6 +99,9 @@
 ## pvc
 
 * https://help.aliyun.com/document_detail/134722.html
+* pv的 aksk是 oss的
+* 按照官网方法2， 要加label，文档竟然是错误的，没加。。。。
+
 
 ## k8s to sls
 
@@ -166,7 +169,16 @@
  * 看 request: https://github.com/kubernetes/kubernetes/issues/17512. `kubectl get po --all-namespaces -o=jsonpath="{range .items[*]}{.metadata.namespace}:{.metadata.name}{''}{range .spec.containers[*]}  {.name}:{.resources.requests.cpu}{'\n'}{end}{'\n'}{end}"  | grep -e ':\d*m'` `alias util='kubectl get nodes --no-headers | awk '\''{print $1}'\'' | xargs -I {} sh -c '\''echo {} ; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve -- ; echo '\'''`.  `kubectl describe nodes `
  * 给service改为loadbalancer（from argo): ` kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'`
  * k8s配置尴尬局面： https://blog.argoproj.io/the-state-of-kubernetes-configuration-management-d8b06c1205  
-
+* `访问模式有：
+ReadWriteOnce
+卷可以被一个节点以读写方式挂载。 ReadWriteOnce 访问模式也允许运行在同一节点上的多个 Pod 访问卷。
+ReadOnlyMany
+卷可以被多个节点以只读方式挂载。
+ReadWriteMany
+卷可以被多个节点以读写方式挂载。
+ReadWriteOncePod
+卷可以被单个 Pod 以读写方式挂载。 如果你想确保整个集群中只有一个 Pod 可以读取或写入该 PVC， 请使用ReadWriteOncePod 访问模式。这只支持 CSI 卷以及需要 Kubernetes 1.22 以上版本。`
+*
 
 # kustomize
 
