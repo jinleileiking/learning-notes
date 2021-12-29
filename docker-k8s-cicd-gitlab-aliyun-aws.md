@@ -180,6 +180,7 @@
 * template用于configmap， include用于其他，好像include是用yaml的，configmap 只能用template，具体细节没研究明白
 * 遍历0123：`{{range $i, $e := until (.Values.replicas | int)}}  {{$i}} {{end}}` 如果报float的话，用int
 * redis-helm: redis.gloabal.XXX 不好使， 要 : : : 
+* upgrade无法升级pvc `: spec.persistentvolumesource is immutable after creation` : 要把所有的用pvc的pod停了就行 scale.
 
 
 # 其他
