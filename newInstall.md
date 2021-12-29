@@ -7,8 +7,10 @@
 * fzf
 * brew install tig
 * brew install jq # for pjson not in brew
-* iterm ctrl [ b 麻烦，映射为 ctrl b:  `iterm pref -> key binding -> ^b --> escape + B. ( escape = ^[) ]
+* iterm `ctrl [ b 麻烦，映射为 ctrl b:  `iterm pref -> key binding -> ^b --> escape + B. ( escape = ^[) ]`
 *  brew install httpie. # better curl
+*  krew https://krew.sigs.k8s.io/docs/user-guide/setup/install/
+
 
 
 # vim
