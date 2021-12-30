@@ -66,6 +66,7 @@
 * 在job前加.可以跳过阶段
 * gitlab改基础镜像的entry：`image:entrypoint`
 * gitlab覆盖率需要在cicd配置`total:\s+\(statements\)\s+(\d+.\d+\%)`
+* CI_COMMIT_REF_NAME : 新代码的分支名
 
 # docker开发srs
 
@@ -80,7 +81,9 @@
 * `docker run -v /xxxxxxxxx/trunk:/srstrunk --name srs3  -P   -dit  srsdev /bin/bash` 
 * 起个centos：`docker run -it centos`
 * 有些镜像设置了启动命令不是shell，你要进sh，怎么办？`docker run --entrypoint '/bin/sh' -it  k8s.gcr.io/kustomize/kustomize:v3.8.7`
-
+* docker pull超出dockerhub次数： https://cloud.tencent.com/developer/article/1701933（未验证)
+* alpine/git没有bash， docker:latest没有git， bash+git就乖乖centos+git把
+* 
 
 
 
