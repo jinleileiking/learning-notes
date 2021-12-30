@@ -196,6 +196,7 @@ ReadWriteOncePod
 * 遍历0123：`{{range $i, $e := until (.Values.replicas | int)}}  {{$i}} {{end}}` 如果报float的话，用int
 * redis-helm: redis.gloabal.XXX 不好使， 要 : : : 
 * upgrade无法升级pvc `: spec.persistentvolumesource is immutable after creation` : 要把所有的用pvc的pod停了就行 scale.
+* `{{ .Release.Namespace }}`
 
 
 # 其他
