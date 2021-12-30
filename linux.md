@@ -54,3 +54,5 @@ ISO标准类型有：
 # bash
 
 * ffplay $ARGS 说不对 用 ffplay $(ARGS)就好了
+* reg:  `[:digit:]`是数字 
+
