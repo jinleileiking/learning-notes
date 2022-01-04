@@ -181,7 +181,7 @@ ReadWriteMany
 卷可以被多个节点以读写方式挂载。
 ReadWriteOncePod
 卷可以被单个 Pod 以读写方式挂载。 如果你想确保整个集群中只有一个 Pod 可以读取或写入该 PVC， 请使用ReadWriteOncePod 访问模式。这只支持 CSI 卷以及需要 Kubernetes 1.22 以上版本。`
-*
+* 获取客户端ip： https://www.cnblogs.com/zisefeizhu/p/13262239.html. （未实验)
 
 # kustomize
 
