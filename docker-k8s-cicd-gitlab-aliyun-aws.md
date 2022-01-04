@@ -201,6 +201,7 @@ helm
 * redis-helm: redis.gloabal.XXX 不好使， 要 : : : 
 * upgrade无法升级pvc `: spec.persistentvolumesource is immutable after creation` : 要把所有的用pvc的pod停了就行 scale.
 * `{{ .Release.Namespace }}`
+* tips: https://www.qikqiak.com/post/helm-chart-tips-and-tricks/
 
 
 其他
