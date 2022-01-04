@@ -48,45 +48,6 @@
 * 改fluent-bit-config应该就可以收集其他日志了
  
  
-
-
-# gitlab
-
-* runner 显示$是正常的，怕泄漏
-* docker 里build不了docker: https://gitlab.com/gitlab-org/gitlab-runner/-/issues/1986
-* docker login 不行，要stdin: https://gitlab.com/gitlab-org/gitlab-runner/-/issues/2861
-* docker build 不成功： srs 要 `-f ./trunk/Dockerfile .`
-* docker push 不上去：runner挂了代理。。。。
-* srs : `sudo docker build-t rdqa/zzzzzz:test  -f ./trunk/Dockerfile .`
-* `docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]` 
-* `docker push registry.cn-zhangjiakou.aliyuncs.com/xxxx/zzzzz:test`
-* 引用 issue https://docs.gitlab.com/ee/user/project/issues/crosslinking_issues.html
-* gitlabci使用私有仓库做基础镜像：https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#determine-your-docker_auth_config-data
-* `standard_init_linux.go:211: exec user process caused "exec format error" ` 在m1编的镜像 linux用不了 : https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/4558
-* 在job前加.可以跳过阶段
-* gitlab改基础镜像的entry：`image:entrypoint`
-* gitlab覆盖率需要在cicd配置`total:\s+\(statements\)\s+(\d+.\d+\%)`
-* CI_COMMIT_REF_NAME : 新代码的分支名
-
-# docker开发srs
-
-* entrypoint 和cmd 如果都有，那cmd就是entrypoint的参数。。。 https://www.cnblogs.com/sparkdev/p/8461576.html
-* 没有cmd的镜像也可以跑起来，注意mount的话， /xxxx:/xxxx  都要是绝对目录，否则不行！ https://stackoverflow.com/questions/18878216/docker-how-to-live-sync-host-folder-with-container-folder
-* dockerfile 的expose 是给 docker直接打开的端口， 宿主机无法访问，所以得 -P 或 -p 
-
-
-# docker 
-
-* 没办法给一个启动的docker expose端口 : https://stackoverflow.com/questions/19897743/exposing-a-port-on-a-live-docker-container.  `-p 8935:1935`
-* `docker run -v /xxxxxxxxx/trunk:/srstrunk --name srs3  -P   -dit  srsdev /bin/bash` 
-* 起个centos：`docker run -it centos`
-* 有些镜像设置了启动命令不是shell，你要进sh，怎么办？`docker run --entrypoint '/bin/sh' -it  k8s.gcr.io/kustomize/kustomize:v3.8.7`
-* docker pull超出dockerhub次数： https://cloud.tencent.com/developer/article/1701933（未验证)
-* alpine/git没有bash， docker:latest没有git， bash+git就乖乖centos+git把
-* 
-
-
-
 # aliyun
 
 * docker login进不去，竟然是挂了vpn导致。。。。
@@ -136,17 +97,46 @@
 * srs的log带了颜色，数据加工不能简单排除，最后用文件解决这个问题，但srs不会自动建立目录，需要注意
 
 
-# k8s
+gitlab
+-------------------------
+
+* runner 显示$是正常的，怕泄漏
+* docker 里build不了docker: https://gitlab.com/gitlab-org/gitlab-runner/-/issues/1986
+* docker login 不行，要stdin: https://gitlab.com/gitlab-org/gitlab-runner/-/issues/2861
+* docker build 不成功： srs 要 `-f ./trunk/Dockerfile .`
+* docker push 不上去：runner挂了代理。。。。
+* srs : `sudo docker build-t rdqa/zzzzzz:test  -f ./trunk/Dockerfile .`
+* `docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]` 
+* `docker push registry.cn-zhangjiakou.aliyuncs.com/xxxx/zzzzz:test`
+* 引用 issue https://docs.gitlab.com/ee/user/project/issues/crosslinking_issues.html
+* gitlabci使用私有仓库做基础镜像：https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#determine-your-docker_auth_config-data
+* `standard_init_linux.go:211: exec user process caused "exec format error" ` 在m1编的镜像 linux用不了 : https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/4558
+* 在job前加.可以跳过阶段
+* gitlab改基础镜像的entry：`image:entrypoint`
+* gitlab覆盖率需要在cicd配置`total:\s+\(statements\)\s+(\d+.\d+\%)`
+* CI_COMMIT_REF_NAME : 新代码的分支名
+
+# docker开发srs
+
+* entrypoint 和cmd 如果都有，那cmd就是entrypoint的参数。。。 https://www.cnblogs.com/sparkdev/p/8461576.html
+* 没有cmd的镜像也可以跑起来，注意mount的话， /xxxx:/xxxx  都要是绝对目录，否则不行！ https://stackoverflow.com/questions/18878216/docker-how-to-live-sync-host-folder-with-container-folder
+* dockerfile 的expose 是给 docker直接打开的端口， 宿主机无法访问，所以得 -P 或 -p 
+
+
+# docker 
+
+* 没办法给一个启动的docker expose端口 : https://stackoverflow.com/questions/19897743/exposing-a-port-on-a-live-docker-container.  `-p 8935:1935`
+* `docker run -v /xxxxxxxxx/trunk:/srstrunk --name srs3  -P   -dit  srsdev /bin/bash` 
+* 起个centos：`docker run -it centos`
+* 有些镜像设置了启动命令不是shell，你要进sh，怎么办？`docker run --entrypoint '/bin/sh' -it  k8s.gcr.io/kustomize/kustomize:v3.8.7`
+* docker pull超出dockerhub次数： https://cloud.tencent.com/developer/article/1701933（未验证)
+* alpine/git没有bash， docker:latest没有git， bash+git就乖乖centos+git把
+* 
+
+
+
 
  
-* kecm换editor： `KUBE_EDITOR="nano"`
-* 看node上都有神马pod : `kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName --all-namespaces`
-* 获取headless ip :  `dig srv srs-origin-service.wzjinlei.svc.cluster.local`    SRV.NS.svc.cluster.local.
-* 强制删除: `kubectl delete pods <pod> --grace-period=0 --force` `kubectl get pods | grep redash |  awk '{print $1}' | xargs kubectl delete pod --grace-period=0 --force`
-* kubectl get sc
- 
-
-
  
  
  # cicd
@@ -168,10 +158,16 @@
 
  # k8s 
  
- * pod 给pod 发信号，用于logrotate: https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/#configure-a-pod
- * 看 request: https://github.com/kubernetes/kubernetes/issues/17512. `kubectl get po --all-namespaces -o=jsonpath="{range .items[*]}{.metadata.namespace}:{.metadata.name}{''}{range .spec.containers[*]}  {.name}:{.resources.requests.cpu}{'\n'}{end}{'\n'}{end}"  | grep -e ':\d*m'` `alias util='kubectl get nodes --no-headers | awk '\''{print $1}'\'' | xargs -I {} sh -c '\''echo {} ; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve -- ; echo '\'''`.  `kubectl describe nodes `
- * 给service改为loadbalancer（from argo): ` kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'`
- * k8s配置尴尬局面： https://blog.argoproj.io/the-state-of-kubernetes-configuration-management-d8b06c1205  
+  
+* kecm换editor： `KUBE_EDITOR="nano"`
+* 看node上都有神马pod : `kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName --all-namespaces`
+* 获取headless ip :  `dig srv srs-origin-service.wzjinlei.svc.cluster.local`    SRV.NS.svc.cluster.local.
+* 强制删除: `kubectl delete pods <pod> --grace-period=0 --force` `kubectl get pods | grep redash |  awk '{print $1}' | xargs kubectl delete pod --grace-period=0 --force`
+* kubectl get sc
+* pod 给pod 发信号，用于logrotate: https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/#configure-a-pod
+* 看 request: https://github.com/kubernetes/kubernetes/issues/17512. `kubectl get po --all-namespaces -o=jsonpath="{range .items[*]}{.metadata.namespace}:{.metadata.name}{''}{range .spec.containers[*]}  {.name}:{.resources.requests.cpu}{'\n'}{end}{'\n'}{end}"  | grep -e ':\d*m'` `alias util='kubectl get nodes --no-headers | awk '\''{print $1}'\'' | xargs -I {} sh -c '\''echo {} ; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve -- ; echo '\'''`.  `kubectl describe nodes `
+* 给service改为loadbalancer（from argo): ` kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'`
+* k8s配置尴尬局面： https://blog.argoproj.io/the-state-of-kubernetes-configuration-management-d8b06c1205  
 * `访问模式有：
 ReadWriteOnce
 卷可以被一个节点以读写方式挂载。 ReadWriteOnce 访问模式也允许运行在同一节点上的多个 Pod 访问卷。
@@ -182,6 +178,8 @@ ReadWriteMany
 ReadWriteOncePod
 卷可以被单个 Pod 以读写方式挂载。 如果你想确保整个集群中只有一个 Pod 可以读取或写入该 PVC， 请使用ReadWriteOncePod 访问模式。这只支持 CSI 卷以及需要 Kubernetes 1.22 以上版本。`
 * 获取客户端ip： https://www.cnblogs.com/zisefeizhu/p/13262239.html. （未实验)
+* -o yaml customize: `https://www.qikqiak.com/post/boosting-kubeclt-productivity/`
+
 
 # kustomize
 
