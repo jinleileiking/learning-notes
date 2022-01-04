@@ -1,4 +1,5 @@
-# aws 
+aws
+----------------
 
 ## 开k8s
 
@@ -48,7 +49,8 @@
 * 改fluent-bit-config应该就可以收集其他日志了
  
  
-# aliyun
+aliyun
+-------------
 
 * docker login进不去，竟然是挂了vpn导致。。。。
 * 如果不让直接 -p 输入密码 :  https://gitlab.com/gitlab-org/gitlab-runner/-/issues/2861.    
@@ -116,14 +118,10 @@ gitlab
 * gitlab覆盖率需要在cicd配置`total:\s+\(statements\)\s+(\d+.\d+\%)`
 * CI_COMMIT_REF_NAME : 新代码的分支名
 
-# docker开发srs
-
-* entrypoint 和cmd 如果都有，那cmd就是entrypoint的参数。。。 https://www.cnblogs.com/sparkdev/p/8461576.html
-* 没有cmd的镜像也可以跑起来，注意mount的话， /xxxx:/xxxx  都要是绝对目录，否则不行！ https://stackoverflow.com/questions/18878216/docker-how-to-live-sync-host-folder-with-container-folder
-* dockerfile 的expose 是给 docker直接打开的端口， 宿主机无法访问，所以得 -P 或 -p 
 
 
-# docker 
+docker 
+-------------------
 
 * 没办法给一个启动的docker expose端口 : https://stackoverflow.com/questions/19897743/exposing-a-port-on-a-live-docker-container.  `-p 8935:1935`
 * `docker run -v /xxxxxxxxx/trunk:/srstrunk --name srs3  -P   -dit  srsdev /bin/bash` 
@@ -135,12 +133,18 @@ gitlab
 
 
 
+## docker开发srs
+
+* entrypoint 和cmd 如果都有，那cmd就是entrypoint的参数。。。 https://www.cnblogs.com/sparkdev/p/8461576.html
+* 没有cmd的镜像也可以跑起来，注意mount的话， /xxxx:/xxxx  都要是绝对目录，否则不行！ https://stackoverflow.com/questions/18878216/docker-how-to-live-sync-host-folder-with-container-folder
+* dockerfile 的expose 是给 docker直接打开的端口， 宿主机无法访问，所以得 -P 或 -p 
 
  
  
  
- # cicd
- 
+cicd
+---------------
+
  * argo :https://zhuanlan.zhihu.com/p/181692322
  * https://github.com/spinnaker/spinnaker
  * weave
@@ -156,8 +160,8 @@ gitlab
  * 应该会自动忽略.的部署： https://github.com/argoproj/argo-cd/issues/2638
 
 
- # k8s 
- 
+k8s 
+------------- 
   
 * kecm换editor： `KUBE_EDITOR="nano"`
 * 看node上都有神马pod : `kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName --all-namespaces`
@@ -181,13 +185,15 @@ ReadWriteOncePod
 * -o yaml customize: `https://www.qikqiak.com/post/boosting-kubeclt-productivity/`
 
 
-# kustomize
+kustomize
+---------
 
 * docker的kustomize镜像基于alpine，起了他的bin，所以不能做基础镜像，用centos7 + curl
 * 使用简介：https://blog.stack-labs.com/code/kustomize-101/
 
 
-# helm
+helm
+---------
 
 * debug: `helm template --debug`比 helm lint方便， lint解决不了，用template看看原因
 * template用于configmap， include用于其他，好像include是用yaml的，configmap 只能用template，具体细节没研究明白
@@ -197,8 +203,8 @@ ReadWriteOncePod
 * `{{ .Release.Namespace }}`
 
 
-# 其他
-
+其他
+----------
  
 
 ## mac安装kubectl
@@ -218,7 +224,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ```
 
 
-# 效率提升
+## 效率提升
 
 如果你用zsh， oh-my-zsh，
 
