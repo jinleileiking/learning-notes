@@ -183,6 +183,7 @@ ReadWriteOncePod
 卷可以被单个 Pod 以读写方式挂载。 如果你想确保整个集群中只有一个 Pod 可以读取或写入该 PVC， 请使用ReadWriteOncePod 访问模式。这只支持 CSI 卷以及需要 Kubernetes 1.22 以上版本。`
 * 获取客户端ip： https://www.cnblogs.com/zisefeizhu/p/13262239.html. （未实验)
 * -o yaml customize: `https://www.qikqiak.com/post/boosting-kubeclt-productivity/`
+* 定制指标扩缩容： https://www.qikqiak.com/post/build-k8s-app-with-custom-metrics/
 
 
 kustomize
@@ -203,6 +204,11 @@ helm
 * `{{ .Release.Namespace }}`
 * tips: https://www.qikqiak.com/post/helm-chart-tips-and-tricks/
 
+
+prometheus
+------
+
+* https://www.qikqiak.com/k8s-book/docs/58.Prometheus%20Operator.html
 
 其他
 ----------
