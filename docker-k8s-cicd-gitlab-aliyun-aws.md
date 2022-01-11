@@ -55,11 +55,13 @@ aliyun
 * docker login进不去，竟然是挂了vpn导致。。。。
 * 如果不让直接 -p 输入密码 :  https://gitlab.com/gitlab-org/gitlab-runner/-/issues/2861.    
 * 拉私有镜像： `kubectl create secret docker-registry regsecret --docker-server=registry.cn-zhangjiakou.aliyuncs.com   --docker-username=xxxx --docker-password=xxxxxxx` 注意image不要带https!
-
-
-## 私网slb
-
-* ` service.beta.kubernetes.io/alibaba-cloud-loadbalancer-address-type: "intranet"`. https://help.aliyun.com/document_detail/86531.htm?spm=a2c4g.11186623.0.0.2bacc00dVOK3Y7#task-1425948
+* 私网slb ：` service.beta.kubernetes.io/alibaba-cloud-loadbalancer-address-type: "intranet"`. https://help.aliyun.com/document_detail/86531.htm?spm=a2c4g.11186623.0.0.2bacc00dVOK3Y7#task-1425948
+* 磁盘不够用：查是
+ * /var/log/message太大，占了10g，7天2g，解决方法：修改/etc/logrotate.conf，rotate 4 -> 1 然后 `systemctl restart rsyslog` ---未验证
+ * 镜像太多`/run/containerd/io.containerd.runtime.v2.task/k8s.io` `cat /etc/kubernetes/kubelet-customized-args.conf` https://segmentfault.com/a/1190000022163856
+* 登录k8s虚机：1. 虚机开不了外网ip，需用eip，好的办法是从另一个虚机跳过去， eip和外网ip比，eip多点维护费
+* k8s会用一个eip绑定到slb上，不知为何，收费！
+* k8s开了一个eip绑定到nat，不知道干什么用的 ??
 
 
 ## pvc
