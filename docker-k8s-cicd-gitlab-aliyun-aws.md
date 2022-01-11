@@ -155,12 +155,12 @@ cicd
  
  ## argo
  
- * 先在gitlab建立自己的token， 然后argo 连接的时候， username:就是gitlab你的username， token就是刚才的token，skip version ssl
- * argo的git url是取里面的yaml进行部署，不是sourcecode，如果要递归，需要点一下recursive 
- * sync不成功的话，ns没建，他不会自己建ns
- * https://medium.com/@andrew.kaczynski/gitops-in-kubernetes-argo-cd-and-gitlab-ci-cd-5828c8eb34d6  比较好
- * 应该会自动忽略.的部署： https://github.com/argoproj/argo-cd/issues/2638
-
+* 先在gitlab建立自己的token， 然后argo 连接的时候， username:就是gitlab你的username， token就是刚才的token，skip version ssl
+* argo的git url是取里面的yaml进行部署，不是sourcecode，如果要递归，需要点一下recursive 
+* sync不成功的话，ns没建，他不会自己建ns
+* https://medium.com/@andrew.kaczynski/gitops-in-kubernetes-argo-cd-and-gitlab-ci-cd-5828c8eb34d6  比较好
+* 应该会自动忽略.的部署： https://github.com/argoproj/argo-cd/issues/2638
+* argocd ns删除不掉： ` kubectl get Application -n argocd` 然后delete，但是不行，改一下finilizer: `finalizer: [] `. done.
 
 k8s 
 ------------- 
