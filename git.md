@@ -26,3 +26,5 @@ tag1-2-g026498b
 ```
 
 * git commit --amend不好使： 如果vim有问题，会出出现这种情况，用 core editor = nvim
+* 获取最新tag: `git -c 'versionsort.suffix=-' \
+    ls-remote --exit-code --refs --sort='version:refname' --tags <repository> '*.*.*'`
