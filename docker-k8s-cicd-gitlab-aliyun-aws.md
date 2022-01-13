@@ -131,7 +131,14 @@ docker
 * 有些镜像设置了启动命令不是shell，你要进sh，怎么办？`docker run --entrypoint '/bin/sh' -it  k8s.gcr.io/kustomize/kustomize:v3.8.7`
 * docker pull超出dockerhub次数： https://cloud.tencent.com/developer/article/1701933（未验证)
 * alpine/git没有bash， docker:latest没有git， bash+git就乖乖centos+git把
-* 
+* 地方不够，dockerbuild: 重启不了docker的话，删了重装。。。。
+```
+ :~/golang-image-extra$ cat /etc/docker/daemon.json
+{
+                    "data-root": "/data",
+                                "storage-driver": "overlay2"
+}
+```  
 
 
 
