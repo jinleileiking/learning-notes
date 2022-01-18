@@ -140,6 +140,7 @@ docker
 }
 ```  
 
+* overlay目录清理:`sudo docker system prune -a -f`
 
 
 ## docker开发srs
