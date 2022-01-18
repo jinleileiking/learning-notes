@@ -119,6 +119,9 @@ gitlab
 * gitlab改基础镜像的entry：`image:entrypoint`
 * gitlab覆盖率需要在cicd配置`total:\s+\(statements\)\s+(\d+.\d+\%)`
 * CI_COMMIT_REF_NAME : 新代码的分支名
+* `To push a commit without triggering a pipeline, add [ci skip] or [skip ci], using any capitalization, to your commit message.`
+* gitlab runner取镜像，sha变了， latest不会同步，解决：用tag。。。
+* centos瘦身： `yum install a && yum install b 改为 install a b  &&  yum clean all && rm -rf /var/cache/yum`
 
 
 
