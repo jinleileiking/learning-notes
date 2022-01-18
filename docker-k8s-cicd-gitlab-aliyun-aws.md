@@ -122,7 +122,8 @@ gitlab
 * `To push a commit without triggering a pipeline, add [ci skip] or [skip ci], using any capitalization, to your commit message.`
 * gitlab runner取镜像，sha变了， latest不会同步，解决：用tag。。。
 * centos瘦身： `yum install a && yum install b 改为 install a b  &&  yum clean all && rm -rf /var/cache/yum`
-
+* 不管downstream 的状态直接success： 得加`strategy: depend`
+* docker prune 只清没tag的， 有tag得 docker image rm
 
 
 docker 
