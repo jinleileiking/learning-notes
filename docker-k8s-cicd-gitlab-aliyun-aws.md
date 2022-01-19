@@ -1,29 +1,26 @@
 aws
 ----------------
 
-## 开k8s
-
-### 控制台
-
-* role要创建k8s-cluster-policy, k8s-policy不管用
-* 子网要开两个可用区
-
-### aws命令
-
-* 不要在控制台点创建，要用aws这个命令创建 --- 事实证明也不好使
-* 安装aws命令 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
-* 配置aws https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html  key找管理员要
-* `An error occurred (AccessDeniedException) when calling the DescribeCluster operation: User:  is not authorized to perform: eks:DescribeCluster on resource:    :cluster/k8s-rdqa`. 在控制台给用户添加eks权限，都点上就行，不知道是哪个
-* `An error occurred (AccessDeniedException) when calling the CreateCluster operation: User: arn:aws:iam:: is not authorized to perform: eks:CreateCluster on resource: ` 给用户user添加相应的策略（ eks:CreateCluster) iam:PassRole -- 单独加不管用，选了所有就好了。
-* https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html 按照这个开就可以了
-* node group: https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html#create-worker-node-role
-* `NodeCreationFailure-> Unhealthy nodes in the kubernetes cluster`:  https://stackoverflow.com/questions/65807859/nodecreationfailure-unhealthy-nodes-in-the-kubernetes-cluster
-* `NodeCreationFailure	Instances failed to join the kubernetes cluster`
-* ec2实例如果没开ssh，后面就不能开了，所以最好建立的时候开一下
-* ec2开了也登不上： 给自动生成的安全组加一个tcp全部可入，就可以ssh登录了， 自动生成的不好使
-* ??????  ec2机器ping不通: 
-* kubelet 的log在 /var/log/messages. `journalctl -u kubelet`
-* ??????    控制台看不到node`您的当前用户或角色无权访问此 EKS 集群上的 Kubernetes 对象`
+* 加磁盘:`https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/add-instance-store-volumes.html`
+* 开k8s
+  * 控制台
+    * role要创建k8s-cluster-policy, k8s-policy不管用
+    * 子网要开两个可用区
+  * aws命令
+    * 不要在控制台点创建，要用aws这个命令创建 --- 事实证明也不好使
+    * 安装aws命令 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+    * 配置aws https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html  key找管理员要
+    * `An error occurred (AccessDeniedException) when calling the DescribeCluster operation: User:  is not authorized to perform: eks:DescribeCluster on resource:    :cluster/k8s-rdqa`. 在控制台给用户添加eks权限，都点上就行，不知道是哪个
+    * `An error occurred (AccessDeniedException) when calling the CreateCluster operation: User: arn:aws:iam:: is not authorized to perform: eks:CreateCluster on resource: ` 给用户user添加相应的策略（ eks:CreateCluster) iam:PassRole -- 单独加不管用，选了所有就好了。
+    * https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html 按照这个开就可以了
+    * node group: https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html#create-worker-node-role
+    * `NodeCreationFailure-> Unhealthy nodes in the kubernetes cluster`:  https://stackoverflow.com/questions/65807859/nodecreationfailure-unhealthy-nodes-in-the-kubernetes-cluster
+    * `NodeCreationFailure	Instances failed to join the kubernetes cluster`
+    * ec2实例如果没开ssh，后面就不能开了，所以最好建立的时候开一下
+    * ec2开了也登不上： 给自动生成的安全组加一个tcp全部可入，就可以ssh登录了， 自动生成的不好使
+    * ??????  ec2机器ping不通: 
+    * kubelet 的log在 /var/log/messages. `journalctl -u kubelet`
+    * ??????    控制台看不到node`您的当前用户或角色无权访问此 EKS 集群上的 Kubernetes 对象`
 
 
 ### eksctl 
@@ -62,7 +59,6 @@ aliyun
 * 登录k8s虚机：1. 虚机开不了外网ip，需用eip，好的办法是从另一个虚机跳过去， eip和外网ip比，eip多点维护费
 * k8s会用一个eip绑定到slb上，不知为何，收费！
 * k8s开了一个eip绑定到nat，不知道干什么用的 ??
-
 
 ## pvc
 
