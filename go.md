@@ -7,6 +7,10 @@ span里面有obj，一共67种class， class 0 就是一个大内存
 大块内存=span 
 
 
+# context
+
+* 子goroutine的ctx也会收到Done(): `https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-context/`
+
 # http client
 
 ```
