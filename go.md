@@ -6,10 +6,7 @@ span里面有obj，一共67种class， class 0 就是一个大内存
 
 大块内存=span 
 
-
-# context
-
-* 子goroutine的ctx也会收到Done(): `https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-context/`
+ 
 
 # http client
 
@@ -115,7 +112,8 @@ pc.readResponse
 
 # ctx
 
-https://segmentfault.com/a/1190000022484275. 主携程cancel(), 子携程ctx.Done()
+* https://segmentfault.com/a/1190000022484275. 主携程cancel(), 子携程ctx.Done()
+* 子goroutine的ctx也会收到Done(): `https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-context/`
 
 
 # gin
@@ -124,6 +122,12 @@ https://segmentfault.com/a/1190000022484275. 主携程cancel(), 子携程ctx.Don
 * gin中间件读requestbody的正确方法：    
 * 用shouldbindwithbody! ，但是如果用的话，你就都用withbody，别用json，仔细看代码，为什么  。。。。。。
 * 多了个/ 导致307， 坑：https://github.com/gin-gonic/gin/issues/1004
+
+
+
+# other
+
+* signal需要缓存channel: https://studygolang.com/articles/23104
 
 # go + gitlab
 
