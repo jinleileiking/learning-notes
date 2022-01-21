@@ -56,3 +56,7 @@ ISO标准类型有：
 * ffplay $ARGS 说不对 用 ffplay $(ARGS)就好了
 * reg:  `[:digit:]`是数字 
 
+
+# other
+
+* 换行： `ps aux | cat`
