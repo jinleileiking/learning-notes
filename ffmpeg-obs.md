@@ -26,6 +26,11 @@ https://github.com/videolan/x265
 
 
 
+# ffmpeg
+
+* copy: https://stackoverflow.com/questions/38379412/what-does-copy-do-in-a-ffmpeg-command-line
+
+
 # ffprobe
 
 * 让ffprobe探流一会停： 
