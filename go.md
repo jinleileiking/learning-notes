@@ -128,6 +128,7 @@ pc.readResponse
 # other
 
 * signal需要缓存channel: https://studygolang.com/articles/23104
+* logrus, text模式的fields是按字母顺序补的，在后面，有时看不到
 
 # go + gitlab
 
