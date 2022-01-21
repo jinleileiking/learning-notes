@@ -198,6 +198,7 @@ ReadWriteOncePod
 * -o yaml customize: `https://www.qikqiak.com/post/boosting-kubeclt-productivity/`
 * 定制指标扩缩容： https://www.qikqiak.com/post/build-k8s-app-with-custom-metrics/
 * cp文件，前面不能用绝对路径 `k cp ns/pod:x.log    ./a`
+* cp bin进行调试： https://blog.csdn.net/StephenLu0422/article/details/78900420  patch有问题，需要自己改一下，方法是可行的
 
 
 kustomize
