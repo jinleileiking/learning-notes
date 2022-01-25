@@ -9,10 +9,14 @@ span里面有obj，一共67种class， class 0 就是一个大内存
  
 # http
 
-* 分hostname， port：`u, err := url.Parse("http://localhost:8080")
-host, port, err := net.SplitHostPort(u.Host)`
+* 分hostname， port：
 
-# http client
+````
+u, err := url.Parse("http://localhost:8080")
+host, port, err := net.SplitHostPort(u.Host)
+```
+
+* http client
 
 ```
 transport.go    (t *Transport) dialCon
