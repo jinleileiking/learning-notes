@@ -138,6 +138,7 @@ pc.readResponse
 * signal需要缓存channel: https://studygolang.com/articles/23104
 * logrus, text模式的fields是按字母顺序补的，在后面，有时看不到
 * 获得 pid cmd.Process.Pid
+* 找正则：https://colobu.com/2020/11/11/golang-regex-replace-example/  `FindStringSubmatch`
 
 
 
