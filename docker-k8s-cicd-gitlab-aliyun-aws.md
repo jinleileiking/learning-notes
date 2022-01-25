@@ -120,6 +120,7 @@ gitlab
 * centos瘦身： `yum install a && yum install b 改为 install a b  &&  yum clean all && rm -rf /var/cache/yum`
 * 不管downstream 的状态直接success： 得加`strategy: depend`
 * docker prune 只清没tag的， 有tag得 docker image rm
+* `No permissions to trigger downstream pipeline` 提升commiter的权限就好了，不知道为啥
 
 
 docker 
