@@ -59,6 +59,7 @@ aliyun
 * 登录k8s虚机：1. 虚机开不了外网ip，需用eip，好的办法是从另一个虚机跳过去， eip和外网ip比，eip多点维护费
 * k8s会用一个eip绑定到slb上，不知为何，收费！
 * k8s开了一个eip绑定到nat，不知道干什么用的 ??
+* rabbitmq & promtheus: https://help.aliyun.com/document_detail/161843.html?spm=a311a.7996332.0.0.2bc93080wZ9hk2
 
 ## pvc
 
