@@ -13,6 +13,12 @@
 * brew install --cask maccy # maccy clipboard
 
 
+# tmux
+* https://github.com/tmux-plugins/tpm   
+  * ` git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+  * ` tmux source ~/.tmux.conf`
+  * `Press prefix + I (capital i, as in Install) to fetch the plugin.`
+
 # vim
 
 * 安装：https://github.com/junegunn/vim-plug 
