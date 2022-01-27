@@ -128,6 +128,7 @@ job_name:
   variables:
     CI_DEBUG_TRACE: "true"
 ```
+* color :  `[-red-]`  `[-green-]` [-red-] [-green-]
 
 docker 
 -------------------
