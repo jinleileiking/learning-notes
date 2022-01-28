@@ -6,4 +6,4 @@
 
 # vim-go
 
-* 重启go引擎：`:GoBuildTags ''`
+* 重启go引擎：`:GoBuildTags ''` https://github.com/fatih/vim-go/issues/2550
