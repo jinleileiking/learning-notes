@@ -29,7 +29,8 @@ https://github.com/videolan/x265
 # ffmpeg
 
 * copy: https://stackoverflow.com/questions/38379412/what-does-copy-do-in-a-ffmpeg-command-line
-
+* 添加sei, 在sps，pps之后： `ffmpeg -i short.flv -c copy -bsf:v "h264_metadata=sei_user_data='086f3693-b7b3-4f2c-9653-21492feee5b8+hello'" short1.flv`
+* 查看sei: `ffmpeg -i ./short.flv -c:v copy -bsf:v trace_headers -f null -`
 
 # ffprobe
 
