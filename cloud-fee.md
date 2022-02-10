@@ -20,3 +20,12 @@ TGW： https://aws.amazon.com/cn/transit-gateway/pricing/
 CLOUDFRONT： 
 
 0.085 USD	 最低
+
+----
+
+ELB: https://aws.amazon.com/cn/elasticloadbalancing/pricing/?nc2=type_a
+
+每 Network Load Balancer 小时（或不足一小时）0.0225 USD
+每 NLCU 小时（或不足1小时）0.006 USD
+
+0.0225 * 24 * 30 = 100 RMB
