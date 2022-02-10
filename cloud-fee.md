@@ -17,7 +17,7 @@ TGW： https://aws.amazon.com/cn/transit-gateway/pricing/
 
 ----
 
-CLOUDFRONT： 
+CLOUDFRONT： https://aws.amazon.com/cn/cloudfront/pricing/?nc=sn&loc=3
 
 0.085 USD	 最低
 
