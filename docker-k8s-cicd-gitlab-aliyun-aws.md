@@ -239,6 +239,7 @@ prometheus
 ------
 
 * https://www.qikqiak.com/k8s-book/docs/58.Prometheus%20Operator.html
+* https://juejin.cn/post/6844903908251451406
 
 其他
 ----------
