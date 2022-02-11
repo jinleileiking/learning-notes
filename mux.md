@@ -1,3 +1,7 @@
+# publish
+
+ rtmp://global-live.mux.com:5222/app/a2541cc8-66a8-82a5-0654-14448a5d24c7
+
 global-live.mux.com
 
 https://dnschecker.org/#A/global-live.mux.com
@@ -57,3 +61,11 @@ XMPP/Jabber - client connection	 是 5222
 
 
 San Jose, United States
+
+
+# play 
+
+ffplay  https://stream.mux.com/qulZyQvZzhQbR5YsZUiOL8WJWnozSFebiJBwmlCQfXU.m3u8
+
+
+推拉流域名不一样， 流名也不一样
