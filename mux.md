@@ -45,3 +45,15 @@ Cogecodata 	35.237.91.193
 
 各个洲返回的ip不一样，用的gcp
 
+
+推流地址：  rtmp://global-live.mux.com:5222/app
+
+看到用的不是标准1935，而是5222， 猜测和lb有关，
+
+https://cloud.google.com/load-balancing/docs/tcp?hl=zh_cn， 果然里面接口有5222
+
+XMPP/Jabber - client connection	 是 5222
+
+
+
+San Jose, United States
