@@ -61,6 +61,10 @@ aliyun
 * k8s开了一个eip绑定到nat，不知道干什么用的 ??
 * rabbitmq & promtheus: https://help.aliyun.com/document_detail/161843.html?spm=a311a.7996332.0.0.2bc93080wZ9hk2
 * 拉不了私有镜像： 没有aliyun-acr-credential-helper， 安装一下就好了，猜测：老的集群建立时，点了ingress,我猜这个会自动安装这个app
+* 建不了抢占式实例：账号没权限，建了包月突发，贵一点
+* 跳板机创建：需要新建一个交换机，注意机器和交换机是绑定的，一个vpc的交换机是互通的
+* ssh到k8s机器： ssh到跳板机，copy pem到跳板机，在ssh -i pem到k8s node。
+
 
 ## pvc
 
