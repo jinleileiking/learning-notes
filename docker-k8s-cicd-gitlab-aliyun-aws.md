@@ -138,6 +138,7 @@ job_name:
 docker 
 -------------------
 
+* docker login不要sudo .... 
 * 没办法给一个启动的docker expose端口 : https://stackoverflow.com/questions/19897743/exposing-a-port-on-a-live-docker-container.  `-p 8935:1935`
 * `docker run -v /xxxxxxxxx/trunk:/srstrunk --name srs3  -P   -dit  srsdev /bin/bash` 
 * 起个centos：`docker run -it centos`
