@@ -7,3 +7,8 @@
 # vim-go
 
 * 重启go引擎：`:GoBuildTags ''` https://github.com/fatih/vim-go/issues/2550
+
+
+# cmdline
+
+* 编辑stdout : `echo This is example. | vim -`
