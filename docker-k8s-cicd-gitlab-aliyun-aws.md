@@ -134,6 +134,7 @@ job_name:
     CI_DEBUG_TRACE: "true"
 ```
 * color :  `[-red-]`  `[-green-]` [-red-] [-green-]
+* 当 only:pushes， 当打tag，也会触发pushes， 如果打tag不触发pushes，要 except tag   ：   only:pushes /n except: tags     pushes = push + tags
 
 docker 
 -------------------
