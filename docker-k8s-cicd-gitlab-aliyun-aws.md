@@ -64,7 +64,22 @@ aliyun
 * 建不了抢占式实例：账号没权限，建了包月突发，贵一点
 * 跳板机创建：需要新建一个交换机，注意机器和交换机是绑定的，一个vpc的交换机是互通的
 * ssh到k8s机器： ssh到跳板机，copy pem到跳板机，在ssh -i pem到k8s node。
-
+* 跨区拉镜像：
+  * 安装aliyun-acr-credential-helper
+  * 改acr-configuration
+  * 加regionID
+```
+- instanceId: ""
+  regionId: "cn-zhangjiakou"
+```
+* oss挂载不了
+  * 增加机器到两台，解决CSI插件起不起来的问题，即oss挂载不了
+  * 给k8s资源组授权oss全访问权限
+* mysql访问不了
+  * 白名单加pod白名单 172.19.224.0/20
+  * 建数据库后，要给账号授权
+* rabbit报vhost没权限： RAM加amqp权限
+* 
 
 ## pvc
 
