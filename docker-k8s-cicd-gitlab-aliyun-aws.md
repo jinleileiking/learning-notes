@@ -88,6 +88,8 @@ aliyun
 * 按照官网方法2， 要加label，文档竟然是错误的，没加。。。。
 
 
+
+
 ## k8s to sls
 
 * https://help.aliyun.com/document_detail/87540.html?spm=5176.smartservice_service_robot-chat.help.dexternal.6c674b0dRyuKQp 
@@ -110,6 +112,8 @@ aliyun
     ]
 }
 ```
+- 告警https://help.aliyun.com/document_detail/207609.html， 一个文件默认只被一个logstore，要想支持一个文件入多个logstore，需要改配置
+
 
 ## sls 数据加工
 
