@@ -206,6 +206,7 @@ cicd
 * 应该会自动忽略.的部署： https://github.com/argoproj/argo-cd/issues/2638
 * argocd ns删除不掉： ` kubectl get Application -n argocd` 然后delete，但是不行，改一下finilizer: `finalizer: [] `. done.
 * argocd用helm 看不到，是因为：argo执行 `helm template . <options> | kubectl apply -f - `
+* 覆盖values.yaml : https://argo-cd.readthedocs.io/en/stable/user-guide/helm/#helm-parameters (未成功）
 
 k8s 
 ------------- 
