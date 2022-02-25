@@ -114,7 +114,7 @@ aliyun
 ```
 - 告警https://help.aliyun.com/document_detail/207609.html， 一个文件默认只被一个logstore，要想支持一个文件入多个logstore，需要改配置
 - logstore删了，再重启dep，有时不能重建，解决方案： 重启logtail-ds的pod.
-
+- 告警邮件展示自动标注： 发送内容里加一个annotations: ${annotations} <br>
 
 ## sls 数据加工
 
