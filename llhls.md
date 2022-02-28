@@ -11,7 +11,7 @@
 * https://www.theoplayer.com/blog/optimizing-ll-hls-4-recommendations
 
 
-## mux
+## apple
 
 ```
 #EXTM3U
