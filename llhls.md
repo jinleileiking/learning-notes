@@ -72,3 +72,5 @@ fileSequence209282.m4s
 #EXT-X-RENDITION-REPORT:URI="../media3/lowLatencyHLS.m3u8",LAST-MSN=208636,LAST-PART=3
 #
 ```
+
+16个m4s，最后 2个拆part, 5个m4s加一个datetime
