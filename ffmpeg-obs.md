@@ -37,6 +37,8 @@ https://github.com/videolan/x265
 * debug: https://lldb.llvm.org/use/tutorial.html
 - `-hls_segment_type fmp4`  m4s
 - hls muxer: https://www.jianshu.com/p/98ff1c49f232
+- 加`#EXT-X-PROGRAM-DATE-TIME:2022-03-01T18:23:40.021+0800` `-hls_flags program_date_time`
+
 
 ## write hls
 
