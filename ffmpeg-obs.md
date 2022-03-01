@@ -36,6 +36,7 @@ https://github.com/videolan/x265
 * ffmpeg_g 是有调试信息的，可以debug
 * debug: https://lldb.llvm.org/use/tutorial.html
 - `-hls_segment_type fmp4`  m4s
+- hls muxer: https://www.jianshu.com/p/98ff1c49f232
 
 ## write hls
 
