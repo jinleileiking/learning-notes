@@ -34,7 +34,7 @@ https://github.com/videolan/x265
 * ffmpeg 支持sei : https://wangtaot.github.io/2020/11/09/ffmpeg%E6%8F%92%E5%85%A5sei%E5%AE%9E%E8%B7%B5/
 * debug:  `lldb --  ./ffmpeg_g -re -stream_loop -1 -i https://1.mp4   -g 50 -keyint_min 50 -sc_threshold 0 -f hls -hls_time 2   test.m3u8`
 * ffmpeg_g 是有调试信息的，可以debug
-* 
+* debug: https://lldb.llvm.org/use/tutorial.html
 
 
 ## write hls
