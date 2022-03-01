@@ -62,6 +62,24 @@ https://github.com/videolan/x265
 ```
 
 
+```
+* thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+  * frame #0: 0x00000001002f9828 ffmpeg_g`io_open_default(s=0x000000010300c200, pb=0x0000000103098420, url="init.mp4", flags=2, options=0x000000016fdf7688) at options.c:174:25 [opt]
+    frame #1: 0x000000010026064c ffmpeg_g`hls_init [inlined] hls_mux_init(s=0x000000010300c200, vs=0x0000000103098400) at hlsenc.c:0 [opt]
+    frame #2: 0x0000000100260364 ffmpeg_g`hls_init(s=<unavailable>) at hlsenc.c:3099:20 [opt]
+    frame #3: 0x00000001002cf508 ffmpeg_g`avformat_init_output [inlined] init_muxer(s=0x000000010300c200, options=0x00000001023046b8) at mux.c:408:20 [opt]
+    frame #4: 0x00000001002cef5c ffmpeg_g`avformat_init_output(s=0x000000010300c200, options=<unavailable>) at mux.c:490:16 [opt]
+    frame #5: 0x00000001002cf798 ffmpeg_g`avformat_write_header(s=0x000000010300c200, options=<unavailable>) at mux.c:513:20 [opt]
+    frame #6: 0x000000010001f294 ffmpeg_g`check_init_output_file(of=0x00000001023046b0, file_index=0) at ffmpeg.c:3150:11 [opt]
+    frame #7: 0x000000010001f0e4 ffmpeg_g`init_output_stream_wrapper [inlined] init_output_stream(ost=0x0000000102305150, frame=<unavailable>, error="", error_len=1024) at ffmpeg.c:3824:11 [opt]
+    frame #8: 0x000000010001ef08 ffmpeg_g`init_output_stream_wrapper(ost=0x0000000102305150, frame=<unavailable>, fatal=<unavailable>) at ffmpeg.c:1054:11 [opt]
+    frame #9: 0x00000001000209c4 ffmpeg_g`do_video_out(of=0x00000001023046b0, ost=0x0000000102305150, next_picture=0x0000000102206920) at ffmpeg.c:1223:5 [opt]
+    frame #10: 0x0000000100020368 ffmpeg_g`reap_filters(flush=0) at ffmpeg.c:1669:17 [opt]
+    frame #11: 0x000000010001a48c ffmpeg_g`transcode [inlined] transcode_step at ffmpeg.c:4928:12 [opt]
+    frame #12: 0x0000000100018be4 ffmpeg_g`transcode at ffmpeg.c:4972:15 [opt]
+    frame #13: 0x0000000100016724 ffmpeg_g`main(argc=<unavailable>, argv=<unavailable>) at ffmpeg.c:5177:9 [opt]
+    frame #14: 0x0000000101c390f4 dyld`start + 520
+```
 
 
 
