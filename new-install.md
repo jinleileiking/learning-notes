@@ -28,6 +28,7 @@
 * brew install yamllint
 * pip3 install --user pynvim.  # for deoplete
 * :UpdateRemotePlugins # for deoplete
+* https://github.com/ryanoasis/vim-devicons/issues/226#issuecomment-492783382
 
 
 # go
