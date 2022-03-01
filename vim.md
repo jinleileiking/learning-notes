@@ -12,3 +12,9 @@
 # cmdline
 
 * 编辑stdout : `echo This is example. | vim -`
+
+
+# nvim 
+
+- lsp 参考这个即可： http://xfyuan.github.io/2021/02/neovim-builtin-lsp-basic-configuration/
+- symbols-outline 显示不出来： https://github.com/ryanoasis/vim-devicons/issues/226#issuecomment-492783382
