@@ -18,3 +18,9 @@
 
 - lsp 参考这个即可： http://xfyuan.github.io/2021/02/neovim-builtin-lsp-basic-configuration/
 - symbols-outline 显示不出来： https://github.com/ryanoasis/vim-devicons/issues/226#issuecomment-492783382
+- c跳转
+  - brew install clangd
+  - brew install bear
+  - ffmpeg 目录， `bear -- make`
+  - `local servers = { 'pyright', 'rust_analyzer', 'tsserver' }` 这里加上clangd
+  - done
