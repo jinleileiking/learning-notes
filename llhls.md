@@ -74,3 +74,13 @@ fileSequence209282.m4s
 ```
 
 16个m4s，最后 2个拆part, 5个m4s加一个datetime
+
+
+
+# llhls
+
+* https://bitmovin.com/fun-with-container-formats-2/
+* `cat ./init.mp4 ./test0.m4s | ffprobe -show_frames -`
+* https://stackoverflow.com/questions/52705023/ffmpeg-converting-m4s-to-mp4 将init和m4s cat为一个后，可以播放
+* init, m4s均可由mp4dump debug
+
