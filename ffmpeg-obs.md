@@ -47,22 +47,29 @@ disable-filter=wzhdr --disable-optimizations  --disable-stripping`
 * https://blog.csdn.net/leixiaohua1020/article/details/39760711?spm=1001.2014.3001.5502
 
 ```
-* thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
-  * frame #0: 0x00000001002f9828 ffmpeg_g`io_open_default(s=0x0000000103010e00, pb=0x00000001030b4820, url="test0.ts", flags=2, options=0x000000016fdfc9a8) at options.c:174:25 [opt]
-    frame #1: 0x000000010025eea0 ffmpeg_g`hls_write_packet(s=0x0000000103010e00, pkt=0x000000016fdfcb90) at hlsenc.c:2582:23 [opt]
-    frame #2: 0x00000001002d1628 ffmpeg_g`write_packet(s=0x0000000103010e00, pkt=0x000000016fdfcb90) at mux.c:749:15 [opt]
-    frame #3: 0x00000001002d13b0 ffmpeg_g`write_packet_common at mux.c:1124:15 [opt]
-    frame #4: 0x00000001002d1354 ffmpeg_g`write_packet_common(s=0x0000000103010e00, st=<unavailable>, pkt=<unavailable>, interleaved=1) at mux.c:1151:16 [opt]
-    frame #5: 0x00000001002d0328 ffmpeg_g`write_packets_common(s=<unavailable>, pkt=<unavailable>, interleaved=<unavailable>) at mux.c:1208:16 [opt] [artificial]
-    frame #6: 0x00000001002d037c ffmpeg_g`av_interleaved_write_frame(s=0x0000000103010e00, pkt=0x0000000102205810) at mux.c:1264:15 [opt]
-    frame #7: 0x000000010001fdb4 ffmpeg_g`write_packet(of=<unavailable>, pkt=0x0000000102205810, ost=0x0000000102305040, unqueue=<unavailable>) at ffmpeg.c:895:15 [opt]
-    frame #8: 0x0000000100021f64 ffmpeg_g`output_packet(of=<unavailable>, pkt=<unavailable>, ost=<unavailable>, eof=<unavailable>) at ffmpeg.c:974:9 [opt] [artificial]
-    frame #9: 0x0000000100021874 ffmpeg_g`do_video_out(of=<unavailable>, ost=0x0000000102305040, next_picture=0x000000010233fdc0) at ffmpeg.c:1509:13 [opt]
-    frame #10: 0x0000000100020368 ffmpeg_g`reap_filters(flush=0) at ffmpeg.c:1669:17 [opt]
-    frame #11: 0x000000010001a48c ffmpeg_g`transcode [inlined] transcode_step at ffmpeg.c:4928:12 [opt]
-    frame #12: 0x0000000100018be4 ffmpeg_g`transcode at ffmpeg.c:4972:15 [opt]
-    frame #13: 0x0000000100016724 ffmpeg_g`main(argc=<unavailable>, argv=<unavailable>) at ffmpeg.c:5177:9 [opt]
-    frame #14: 0x0000000101c390f4 dyld`start + 520
+  * frame #0: 0x00000001004a649c ffmpeg_g`ff_mov_write_packet(s=0x000000010288fe00, pkt=0x000000010300fef0) at movenc.c:5885:12
+    frame #1: 0x00000001004bc024 ffmpeg_g`mov_write_single_packet(s=0x000000010288fe00, pkt=0x000000010300fef0) at movenc.c:5970:12
+    frame #2: 0x00000001004a7fcc ffmpeg_g`mov_write_packet(s=0x000000010288fe00, pkt=0x000000010300fef0) at movenc.c:6090:16
+    frame #3: 0x00000001004e3f34 ffmpeg_g`write_packet(s=0x000000010288fe00, pkt=0x000000010300fef0) at mux.c:749:15
+    frame #4: 0x00000001004e3070 ffmpeg_g`write_packet_common(s=0x000000010288fe00, st=0x000000010301fea0, pkt=0x000000010300fef0, interleaved=0) at mux.c:1153:16
+    frame #5: 0x00000001004e20f8 ffmpeg_g`write_packets_common(s=0x000000010288fe00, pkt=0x000000010300fef0, interleaved=0) at mux.c:1208:16
+    frame #6: 0x00000001004e1fe4 ffmpeg_g`av_write_frame(s=0x000000010288fe00, in=0x000000016fdfdbe0) at mux.c:1251:11
+    frame #7: 0x00000001004e2774 ffmpeg_g`ff_write_chained(dst=0x000000010288fe00, dst_stream=0, pkt=0x000000016fdfdee8, src=0x000000010481a000, interleave=0) at mux.c:1342:27
+    frame #8: 0x0000000100443aa4 ffmpeg_g`hls_write_packet(s=0x000000010481a000, pkt=0x000000016fdfdee8) at hlsenc.c:2886:15
+    frame #9: 0x00000001004e3f34 ffmpeg_g`write_packet(s=0x000000010481a000, pkt=0x000000016fdfdee8) at mux.c:749:15
+    frame #10: 0x00000001004e21f0 ffmpeg_g`interleaved_write_packet(s=0x000000010481a000, pkt=0x0000000000000000, flush=0) at mux.c:1124:15
+    frame #11: 0x00000001004e305c ffmpeg_g`write_packet_common(s=0x000000010481a000, st=0x0000000103206de0, pkt=0x000000010323cc70, interleaved=1) at mux.c:1151:16
+    frame #12: 0x00000001004e20f8 ffmpeg_g`write_packets_common(s=0x000000010481a000, pkt=0x000000010323cc70, interleaved=1) at mux.c:1208:16
+    frame #13: 0x00000001004e2138 ffmpeg_g`av_interleaved_write_frame(s=0x000000010481a000, pkt=0x000000010323cc70) at mux.c:1264:15
+    frame #14: 0x000000010002c0b0 ffmpeg_g`write_packet(of=0x0000000103207cb0, pkt=0x000000010323cc70, ost=0x00000001032072f0, unqueue=0) at ffmpeg.c:895:15
+    frame #15: 0x00000001000314a0 ffmpeg_g`output_packet(of=0x0000000103207cb0, pkt=0x000000010323cc70, ost=0x00000001032072f0, eof=0) at ffmpeg.c:974:9
+    frame #16: 0x000000010003074c ffmpeg_g`do_video_out(of=0x0000000103207cb0, ost=0x00000001032072f0, next_picture=0x0000000103244e70) at ffmpeg.c:1509:13
+    frame #17: 0x000000010002e864 ffmpeg_g`reap_filters(flush=0) at ffmpeg.c:1669:17
+    frame #18: 0x00000001000266cc ffmpeg_g`transcode_step at ffmpeg.c:4928:12
+    frame #19: 0x0000000100024918 ffmpeg_g`transcode at ffmpeg.c:4972:15
+    frame #20: 0x0000000100023eb4 ffmpeg_g`main(argc=9, argv=0x000000016fdfeb80) at ffmpeg.c:5177:9
+    frame #21: 0x00000001022b90f4 dyld`start + 520
+
 ```
 
 
