@@ -46,6 +46,29 @@ disable-filter=wzhdr --disable-optimizations  --disable-stripping`
 
 * https://blog.csdn.net/leixiaohua1020/article/details/39760711?spm=1001.2014.3001.5502
 
+- 打开 fmp4
+```
+  * frame #0: 0x0000000100514228 ffmpeg_g`io_open_default(s=0x0000000103809e00, pb=0x000000010392ea30, url="test0.m4s", flags=2, options=0x000000016fdfdce8) at options.c:174:17
+    frame #1: 0x0000000100445d90 ffmpeg_g`hlsenc_io_open(s=0x0000000103809e00, pb=0x000000010392ea30, filename="test0.m4s", options=0x000000016fdfdce8) at hlsenc.c:324:15
+    frame #2: 0x0000000100443498 ffmpeg_g`hls_write_packet(s=0x0000000103809e00, pkt=0x000000016fdfdee8) at hlsenc.c:2755:23
+    frame #3: 0x00000001004e3f34 ffmpeg_g`write_packet(s=0x0000000103809e00, pkt=0x000000016fdfdee8) at mux.c:749:15
+    frame #4: 0x00000001004e21f0 ffmpeg_g`interleaved_write_packet(s=0x0000000103809e00, pkt=0x0000000000000000, flush=0) at mux.c:1124:15
+    frame #5: 0x00000001004e305c ffmpeg_g`write_packet_common(s=0x0000000103809e00, st=0x0000000103005170, pkt=0x000000010303a7a0, interleaved=1) at mux.c:1151:16
+    frame #6: 0x00000001004e20f8 ffmpeg_g`write_packets_common(s=0x0000000103809e00, pkt=0x000000010303a7a0, interleaved=1) at mux.c:1208:16
+    frame #7: 0x00000001004e2138 ffmpeg_g`av_interleaved_write_frame(s=0x0000000103809e00, pkt=0x000000010303a7a0) at mux.c:1264:15
+    frame #8: 0x000000010002c0b0 ffmpeg_g`write_packet(of=0x0000000103106990, pkt=0x000000010303a7a0, ost=0x0000000103005610, unqueue=0) at ffmpeg.c:895:15
+    frame #9: 0x00000001000314a0 ffmpeg_g`output_packet(of=0x0000000103106990, pkt=0x000000010303a7a0, ost=0x0000000103005610, eof=0) at ffmpeg.c:974:9
+    frame #10: 0x000000010003074c ffmpeg_g`do_video_out(of=0x0000000103106990, ost=0x0000000103005610, next_picture=0x000000010310b2f0) at ffmpeg.c:1509:13
+    frame #11: 0x000000010002e864 ffmpeg_g`reap_filters(flush=0) at ffmpeg.c:1669:17
+    frame #12: 0x00000001000266cc ffmpeg_g`transcode_step at ffmpeg.c:4928:12
+    frame #13: 0x0000000100024918 ffmpeg_g`transcode at ffmpeg.c:4972:15
+    frame #14: 0x0000000100023eb4 ffmpeg_g`main(argc=9, argv=0x000000016fdfeb80) at ffmpeg.c:5177:9
+    frame #15: 0x00000001022b90f4 dyld`start + 520
+```
+
+
+
+- 写 fmp4
 ```
   * frame #0: 0x00000001004a649c ffmpeg_g`ff_mov_write_packet(s=0x000000010288fe00, pkt=0x000000010300fef0) at movenc.c:5885:12
     frame #1: 0x00000001004bc024 ffmpeg_g`mov_write_single_packet(s=0x000000010288fe00, pkt=0x000000010300fef0) at movenc.c:5970:12
@@ -72,6 +95,7 @@ disable-filter=wzhdr --disable-optimizations  --disable-stripping`
 
 ```
 
+- init
 
 ```
 * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
