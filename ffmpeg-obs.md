@@ -33,7 +33,8 @@ https://github.com/videolan/x265
 * 查看sei: `ffmpeg -i ./short.flv -c:v copy -bsf:v trace_headers -f null -`
 * ffmpeg 支持sei : https://wangtaot.github.io/2020/11/09/ffmpeg%E6%8F%92%E5%85%A5sei%E5%AE%9E%E8%B7%B5/
 * debug:  `lldb --  ./ffmpeg_g -re -stream_loop -1 -i https://1.mp4   -g 50 -keyint_min 50 -sc_threshold 0 -f hls -hls_time 2   test.m3u8`
-* ffmpeg_g 是有调试信息的，可以debug
+* ffmpeg_g 是有调试信息的，可以debug 但是会乱`./configure --disable-filter=wzaipreopt --disable-filter=wzfaceft --disable-filter=wzvmaf --disable-filter=wzvideoclassifier --disable-filter=wzscale --disable-filter=wzoptimize --disable-filter=wzdctdn --
+disable-filter=wzhdr --disable-optimizations  --disable-stripping`
 * debug: https://lldb.llvm.org/use/tutorial.html
 - `-hls_segment_type fmp4`  m4s
 - hls muxer: https://www.jianshu.com/p/98ff1c49f232
