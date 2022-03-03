@@ -46,7 +46,7 @@ disable-filter=wzhdr --disable-optimizations  --disable-stripping`
 
 * https://blog.csdn.net/leixiaohua1020/article/details/39760711?spm=1001.2014.3001.5502
 * reap_filters
-  * init_output_stream_wrapper --> hls_init
+  * init_output_stream_wrapper --> init_muxer  --> `if ((ret = s->oformat->init(s)) < 0) {` -> hls_init
   * output_packet --> hls_write_packet
    
 
