@@ -45,6 +45,10 @@ disable-filter=wzhdr --disable-optimizations  --disable-stripping`
 ## write hls
 
 * https://blog.csdn.net/leixiaohua1020/article/details/39760711?spm=1001.2014.3001.5502
+* reap_filters
+  * init_output_stream_wrapper --> hls_init
+  * output_packet --> hls_write_packet
+   
 
 - 打开 fmp4
 ```
@@ -68,7 +72,9 @@ disable-filter=wzhdr --disable-optimizations  --disable-stripping`
 
 
 
-- 写 fmp4
+- 写 fmp4 `hls_write_packet`
+-  mux.c: `ret = s->oformat->write_packet(s, pkt);¬`
+
 ```
   * frame #0: 0x00000001004a649c ffmpeg_g`ff_mov_write_packet(s=0x000000010288fe00, pkt=0x000000010300fef0) at movenc.c:5885:12
     frame #1: 0x00000001004bc024 ffmpeg_g`mov_write_single_packet(s=0x000000010288fe00, pkt=0x000000010300fef0) at movenc.c:5970:12
