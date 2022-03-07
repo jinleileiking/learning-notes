@@ -30,6 +30,9 @@ aws
 * eks 开直接就成功了，但机器是两台而且是m5 large... 使用小机器： https://eksctl.io/usage/creating-and-managing-clusters/ 尝试用t2不行，改成t3a.micro
   * t3a pod找不到node创建：初始配置一个node只能跑4个pod。。。。。 https://github.com/awslabs/amazon-eks-ami/blob/master/files/eni-max-pods.txt
   * t3a.small 8 , t3.small 11
+* 没有机器
+  * 如果要有ssh，那你的子网得有外网访问权限
+  * eksctl会从你配置的子网zone获取机器，也不会遍历，如果选中了1e，1e没有，那就失败了，所以要从ecs界面，看看哪两个zone有机器，然后创建public子网（需要两个），这样才能继续
 
 ## k8s使用
 
