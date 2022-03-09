@@ -33,6 +33,9 @@ aws
 * 没有机器
   * 如果要有ssh，那你的子网得有外网访问权限
   * eksctl会从你配置的子网zone获取机器，也不会遍历，如果选中了1e，1e没有，那就失败了，所以要从ecs界面，看看哪两个zone有机器，然后创建public子网（需要两个），这样才能继续
+* 在界面看不到机器资源
+  * aws configure设置eksctl的账号，需要用子账号登进去，才能看到相关
+* 没机器：`reached your quata for maximum Fleet Requests for this account.` 
 
 ## k8s使用
 
