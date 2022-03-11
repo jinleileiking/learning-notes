@@ -203,7 +203,7 @@ cicd
  * tekton
  * jenkins X
  
- ## argo
+ ## argocd
  
 * 先在gitlab建立自己的token， 然后argo 连接的时候， username:就是gitlab你的username， token就是刚才的token，skip version ssl
 * argo的git url是取里面的yaml进行部署，不是sourcecode，如果要递归，需要点一下recursive 
@@ -213,6 +213,17 @@ cicd
 * argocd ns删除不掉： ` kubectl get Application -n argocd` 然后delete，但是不行，改一下finilizer: `finalizer: [] `. done.
 * argocd用helm 看不到，是因为：argo执行 `helm template . <options> | kubectl apply -f - `
 * 覆盖values.yaml : https://argo-cd.readthedocs.io/en/stable/user-guide/helm/#helm-parameters (未成功）
+
+
+## argo rollout
+
+### aliyun asm
+
+* 我的ack版本不支持asm，等了一周后支持了，然后开始调试
+* rollout一点反应也没有，发现是argo rollout没安装。。。。。
+* 安装后提示 vs找不到，这是因为asm 数据平面要找控制平面，需要打通：https://help.aliyun.com/document_detail/336919.htm?spm=5176.13895322.help.dexternal.43de5fcfhw5OAi
+* 按照文档安装后，提示ram没权限，我给了个AliyunASMFullAccess 好使了，asm权限也改成了管理员
+
 
 k8s 
 ------------- 
