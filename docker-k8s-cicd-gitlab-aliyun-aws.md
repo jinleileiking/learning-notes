@@ -51,7 +51,12 @@ aws
 * `CreateLogGroup API responded with error='AccessDeniedException'` : create 文件，加入 cloudwatch配置，就好了，期间还加了一次cloudwatchlog all的权限
 * 改fluent-bit-config应该就可以收集其他日志了
  
- 
+
+## 对等连接
+
+- https://docs.aws.amazon.com/zh_cn/vpc/latest/peering/vpc-peering-routing.html 按照这个，把两个vpc打通，注意要配置两个路由表
+- 还要给k8s的node加上icmp安全组，才可以ping通
+
 aliyun
 -------------
 
