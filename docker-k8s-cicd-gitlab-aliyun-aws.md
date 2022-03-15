@@ -28,8 +28,11 @@ aws
   --docker-email=DOCKER_EMAIL`
   * 注意密码看看对不对
   * 通过` journalctl -u kubelet --no-pager -f` 来看log
-  * 在deployment加 `  imagePullSecrets:
-    - name: myregistrykey`
+  * 在deployment加 
+  ```
+  imagePullSecrets:
+    - name: myregistrykey
+  ```
   * https://kubernetes.io/zh/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
 
 
