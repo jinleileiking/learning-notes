@@ -21,6 +21,16 @@ aws
     * ??????  ec2机器ping不通: 
     * kubelet 的log在 /var/log/messages. `journalctl -u kubelet`
     * ??????    控制台看不到node`您的当前用户或角色无权访问此 EKS 集群上的 Kubernetes 对象`
+* 访问阿里云镜像: `kubectl create secret docker-registry <名称> \
+  --docker-server=DOCKER_REGISTRY_SERVER \
+  --docker-username=DOCKER_USER \
+  --docker-password=DOCKER_PASSWORD \
+  --docker-email=DOCKER_EMAIL`
+  * 注意密码看看对不对
+  * 通过` journalctl -u kubelet --no-pager -f` 来看log
+  * 在deployment加 `  imagePullSecrets:
+    - name: myregistrykey`
+  * https://kubernetes.io/zh/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
 
 
 ### eksctl 
