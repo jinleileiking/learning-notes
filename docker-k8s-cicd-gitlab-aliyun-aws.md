@@ -297,6 +297,13 @@ helm
 * `{{ .Release.Namespace }}`
 * tips: https://www.qikqiak.com/post/helm-chart-tips-and-tricks/
 * 不删pvc： https://helm.sh/docs/howto/charts_tips_and_tricks/  (未验证)
+* comment:
+```
+{{- /*
+This is a comment.
+*/}}
+type: frobnitz
+```
 
 
 prometheus
