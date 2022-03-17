@@ -77,8 +77,7 @@ aws
 选择 Attach policies（附上策略）。
 ```
 - https://docs.aws.amazon.com/zh_cn/AmazonCloudWatch/latest/monitoring/Container-Insights-prerequisites.html
-* 改fluent-bit-config应该就可以收集其他日志了
- 
+- aws docker 默认rotate： https://github.com/awslabs/amazon-eks-ami/blob/master/files/docker-daemon.json#L4-L6 
 
 ## 对等连接
 
