@@ -167,5 +167,7 @@ pc.readResponse
 7. Enjoy
 
 
+# golang-cilint
 
+* 有时会报没有文件，我改了一下命令行`GL_DEBUG=loader,gocritic,env,autogen_exclude,nolint golangci-lint run -v --no-config --disable ineffassign --disable deadcode --disable unused --timeout=10m -E gofmt ./...`，好了，有个历史老bug:https://github.com/golangci/golangci-lint/issues/825
 
