@@ -71,6 +71,37 @@ aws
 - https://docs.aws.amazon.com/zh_cn/vpc/latest/peering/vpc-peering-routing.html 按照这个，把两个vpc打通，注意要配置两个路由表
 - 还要给k8s的node加上icmp安全组，才可以ping通
 
+
+## 挂载efs
+
+- created IAM Open ID Connect provider： ` eksctl utils associate-iam-oidc-provider --cluster prod-k8s --approve`
+- policy: 
+```
+aws iam create-policy \
+    --policy-name AmazonEKS_EFS_CSI_Driver_Policy \
+    --policy-document file://iam-policy-example.json`
+```
+- iam sa
+```
+eksctl create iamserviceaccount \
+    --name efs-csi-controller-sa \
+    --namespace kube-system \
+    --cluster prod-k8s \
+    --attach-policy-arn arn:aws:iam::802625923695:policy/AmazonEKS_EFS_CSI_Driver_Policy \
+    --approve \
+    --override-existing-serviceaccounts \
+    --region us-east-1
+```
+- helm install
+```
+helm upgrade -i aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver \
+    --namespace kube-system \
+    --set image.repository=602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/aws-efs-csi-driver \
+    --set controller.serviceAccount.create=false \
+    --set controller.serviceAccount.name=efs-csi-controller-sa
+```
+- https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html
+
 aliyun
 -------------
 
