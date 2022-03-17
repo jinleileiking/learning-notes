@@ -63,6 +63,20 @@ aws
 
 * 安装这个安装即可:https://docs.aws.amazon.com/zh_cn/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-logs-FluentBit.html
 * `CreateLogGroup API responded with error='AccessDeniedException'` : create 文件，加入 cloudwatch配置，就好了，期间还加了一次cloudwatchlog all的权限
+```
+将所需的策略附加到 Worker 节点的 IAM 角色
+
+通过以下网址打开 Amazon EC2 控制台：https://console.aws.amazon.com/ec2/。
+
+选择其中的一个 Worker 节点实例，然后在描述中选择 IAM 角色。
+
+在 IAM 角色页面上，选择 Attach policies（附加策略）。
+
+在策略列表中，选中 CloudWatchAgentServerPolicy 旁边的复选框。如有必要，请使用搜索框查找该策略。
+
+选择 Attach policies（附上策略）。
+```
+- https://docs.aws.amazon.com/zh_cn/AmazonCloudWatch/latest/monitoring/Container-Insights-prerequisites.html
 * 改fluent-bit-config应该就可以收集其他日志了
  
 
