@@ -34,7 +34,8 @@ aws
     - name: myregistrykey
   ```
   * https://kubernetes.io/zh/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
-
+* 挂载云盘
+  - aws默认支持云盘，是最方便的方式了，云盘默认有gp2的动态存储卷，不用声明pvc，pv，直接把deployment改为statefulsets，加个templatepvc，每一个pod就有一个云盘了，对于coredump，好使。
 
 ### eksctl 
 
