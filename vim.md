@@ -24,3 +24,7 @@
   - ffmpeg 目录， `bear -- make`
   - `local servers = { 'pyright', 'rust_analyzer', 'tsserver' }` 这里加上clangd
   - done
+
+# telescope
+
+- ctrl q 可以把搜索结果送到quickfix
