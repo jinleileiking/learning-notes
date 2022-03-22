@@ -349,7 +349,7 @@ This is a comment.
 */}}
 type: frobnitz
 ```
-
+* template 好像不能渲染里面的if，巨坑，折腾一下午，得用include xxx .
 
 prometheus
 ------
