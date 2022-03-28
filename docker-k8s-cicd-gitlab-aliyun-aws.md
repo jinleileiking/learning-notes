@@ -79,6 +79,8 @@ aws
 - https://docs.aws.amazon.com/zh_cn/AmazonCloudWatch/latest/monitoring/Container-Insights-prerequisites.html
 - aws docker 默认rotate： https://github.com/awslabs/amazon-eks-ami/blob/master/files/docker-daemon.json#L4-L6 
 
+* grafana不支持变量：https://github.com/grafana/grafana/issues/24603  用正则。。。。
+
 ## 对等连接
 
 - https://docs.aws.amazon.com/zh_cn/vpc/latest/peering/vpc-peering-routing.html 按照这个，把两个vpc打通，注意要配置两个路由表
