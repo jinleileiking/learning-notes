@@ -126,6 +126,27 @@ disable-filter=wzhdr --disable-optimizations  --disable-stripping`
 ```
 
 
+## input
+```
+main
+  transcode
+    init_input_threads
+      init_input_thread
+        av_thread_message_queue_alloc
+        pthread_create(input_thread)
+    ...
+    while (!received_sigterm)
+    transcode_step
+      process_input
+        get_input_packet
+          get_input_packet_mt      
+      
+
+input_thread
+  av_read_frame
+  av_thread_message_queue_send
+ 
+
 
 # ffprobe
 
