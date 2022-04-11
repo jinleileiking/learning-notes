@@ -92,8 +92,20 @@ SrsHttpConn::do_cycle
         SrsLiveStream::serve_http
           SrsLiveStream::do_serve_http
             create_consumer
-            
+srs_is_server_gracefully_close          
 ```
+
+推流断开：
+
+```
+SrsServer::on_unpublish
+  http_server->http_unmount(s, r)
+
+
+SrsLiveStream::do_serve_http
+   while (entry->enabled)
+```
+
     
 # log header:
 
