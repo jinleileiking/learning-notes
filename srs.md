@@ -70,6 +70,31 @@ SrsRtmpConn::cycle()
 `clang: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]` 这个在编.o时没用， link时用，所以没事
 
 
+## 拉rtmp
+
+```
+stream_service_cycle
+  SrsRtmpServer::identify_client
+    identify_play_client
+  SrsRtmpServer::start_play
+  SrsRtmpConn::playing
+    SrsLiveSource::consumer_dumps
+    do_playing
+```
+    
+## 拉flv
+
+```
+SrsHttpConn::do_cycle
+  SrsHttpConn::process_requests
+    SrsHttpConn::process_request
+      SrsHttpServer::serve_http
+        SrsLiveStream::serve_http
+          SrsLiveStream::do_serve_http
+            create_consumer
+            
+```
+    
 # log header:
 
 ```
