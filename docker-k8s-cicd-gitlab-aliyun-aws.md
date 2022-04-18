@@ -36,6 +36,12 @@ aws
   * https://kubernetes.io/zh/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
 * 挂载云盘
   - aws默认支持云盘，是最方便的方式了，云盘默认有gp2的动态存储卷，不用声明pvc，pv，直接把deployment改为statefulsets，加个templatepvc，每一个pod就有一个云盘了，对于coredump，好使。
+* grafana 采集 prometheus metics
+  - 这套系统不用部署prometheus， aws可以直接把metrics采集到cloudwatch
+  - https://docs.aws.amazon.com/zh_cn/AmazonCloudWatch/latest/monitoring/ContainerInsights-Prometheus-Setup-configure.html
+  - https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config
+  - 记得加 metric_path: /metrics，默认好使是/
+  - kaf yaml后，要del pod才生效，光升配置没用，好像
 
 ### eksctl 
 
