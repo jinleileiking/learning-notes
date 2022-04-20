@@ -33,8 +33,7 @@ https://github.com/videolan/x265
 * 查看sei: `ffmpeg -i ./short.flv -c:v copy -bsf:v trace_headers -f null -`
 * ffmpeg 支持sei : https://wangtaot.github.io/2020/11/09/ffmpeg%E6%8F%92%E5%85%A5sei%E5%AE%9E%E8%B7%B5/
 * debug:  `lldb --  ./ffmpeg_g -re -stream_loop -1 -i https://1.mp4   -g 50 -keyint_min 50 -sc_threshold 0 -f hls -hls_time 2   test.m3u8`
-* ffmpeg_g 是有调试信息的，可以debug 但是会乱`./configure --disable-filter=wzaipreopt --disable-filter=wzfaceft --disable-filter=wzvmaf --disable-filter=wzvideoclassifier --disable-filter=wzscale --disable-filter=wzoptimize --disable-filter=wzdctdn --
-disable-filter=wzhdr --disable-optimizations  --disable-stripping`
+* ffmpeg_g 是有调试信息的，可以debug 但是会乱`./configure --disable-optimizations  --disable-stripping`
 * debug: https://lldb.llvm.org/use/tutorial.html
 - `-hls_segment_type fmp4`  m4s
 - hls muxer: https://www.jianshu.com/p/98ff1c49f232
@@ -52,6 +51,31 @@ disable-filter=wzhdr --disable-optimizations  --disable-stripping`
       * `ret = s->oformat->write_header(s);` -> hls_write_header 
   * output_packet --> hls_write_packet 
    
+```
+hls_write_packet
+  hlsenc_io_open
+  flush_dynbuf
+    av_write_frame
+      s->oformat->write_packet = mov_write_packet
+        mov_flush_fragment
+      flush_if_needed
+        avio_flush
+          flush_buffer
+    avio_write
+    avio_flush
+      flush_buffer
+        writeout
+          s->write_packet = ffurl_write
+            retry_transfer_wrapper
+              transfer_func = file_write
+                write
+  hlsenc_io_close
+    ff_format_io_close
+      s->io_close = io_close_default
+        avio_close
+          avio_flush
+
+```
 
 - 打开 fmp4
 ```
