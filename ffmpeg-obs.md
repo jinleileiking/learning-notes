@@ -68,7 +68,7 @@ hls_write_packet
           s->write_packet = ffurl_write
             retry_transfer_wrapper
               transfer_func = file_write
-                write
+                write ---> 落盘m4s, m3u8
   hlsenc_io_close
     ff_format_io_close
       s->io_close = io_close_default
