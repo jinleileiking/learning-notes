@@ -123,6 +123,17 @@ helm upgrade -i aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver \
 ```
 - https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html
 
+
+## prometheus
+
+- https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-ingest-metrics-new-Prometheus.html 
+- https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-query-standalone-grafana.html
+- https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/
+- https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus#scraping-pod-metrics-via-annotations
+- https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config
+- https://stackoverflow.com/questions/59866342/prometheus-dynamic-metrics-path
+- helm status prometheus, 然后port-forward
+
 aliyun
 -------------
 
