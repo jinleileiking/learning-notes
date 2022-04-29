@@ -59,4 +59,11 @@ ISO标准类型有：
 
 # other
 
-* 换行： `ps aux | cat`
+* 换行： `ps aux | cat`  `ps auxww`
+
+
+# 看thread数
+
+`cat /proc/{id}/task | wc -l`
+
+
