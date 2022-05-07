@@ -128,6 +128,13 @@ hls_write_packet
 
 ```
 
+- 多码率
+
+```
+reap_filters
+  for (i = 0; i < nb_output_streams; i++)
+```
+
 - init
 
 ```
