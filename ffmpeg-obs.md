@@ -195,3 +195,11 @@ For example: -read_intervals "%+2"
 # obs 
 
 * 低延时：http://help.nuoyun.tv/chapter1/obs-LowLatency.html
+
+
+# zmq
+
+* https://ffmpeg.org/ffmpeg-filters.html#toc-zmq_002c-azmq
+* `ffmpeg -re -stream_loop -1     -i main.mp4   -i logo.flv -filter_complex "overlay@my=W-w:H-h-56,zmq"   -f flv  rtmp`
+*  `echo Parsed_overlay_0 y 100 | zmqsend`
+*  `echo my y 100 | zmqsend`
