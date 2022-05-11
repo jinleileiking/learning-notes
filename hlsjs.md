@@ -83,6 +83,7 @@ onFragBuffered
       this.doTick() 
         this.doTickIdle()
           let frag = this.getNextFragment
+            getInitialLiveFragment
           this.loadFragment
             super.loadFragment
               this._loadFragForPlayback
