@@ -88,5 +88,15 @@ onFragBuffered
             super.loadFragment
               this._loadFragForPlayback
                 this._doFragLoad
-              
+                  _handleFragmentLoadComplete
+                    transmuxer.flush(chunkMeta)
+                        worker.postMessage({
+                          cmd: 'flush',
+                          chunkMeta,
+                    })
+                    
+TransmuxerWorker
+  self.transmuxer.flush
+    flushRemux
+                    
 ```
