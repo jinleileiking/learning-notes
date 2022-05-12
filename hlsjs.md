@@ -100,3 +100,27 @@ TransmuxerWorker
     flushRemux
                     
 ```
+
+渲染mse
+
+
+```
+onWorkerMessage
+  handleTransmuxComplete
+    this.onTransmuxComplete
+      _handleTransmuxComplete
+        bufferFragmentData
+          this.hls.trigger(Events.BUFFER_APPENDING, segment)
+
+protected onBufferAppending(
+    event: Events.BUFFER_APPENDING,
+    eventData: BufferAppendingData
+  )
+  operationQueue.append
+    this.executeNext
+      operation.execute();
+         this.appendExecutor
+           sb.appendBuffer(data);
+
+```
+
