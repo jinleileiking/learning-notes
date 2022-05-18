@@ -87,7 +87,10 @@ onFragBuffered
           this.loadFragment
             super.loadFragment
               this._loadFragForPlayback
-                this._doFragLoad
+                this._doFragLoad   //          Loading part url
+                ??
+                  _loadFragForPlayback
+                    this._doFragLoad 
                   _handleFragmentLoadComplete
                     transmuxer.flush(chunkMeta)
                         worker.postMessage({
@@ -97,7 +100,7 @@ onFragBuffered
                     
 TransmuxerWorker
   self.transmuxer.flush
-    flushRemux
+    flushRemux---> passthough->remux
                     
 ```
 
@@ -121,6 +124,30 @@ protected onBufferAppending(
       operation.execute();
          this.appendExecutor
            sb.appendBuffer(data);
+
+```
+
+
+
+```
+[log] > [level-controller]: live playlist 2 REFRESHED 25-1
+level-controller.ts:524 [log] > [level-controller]: Attempt loading level index 2 at sn 26 part 0 with URL-id 0 https://stream.visionular.com/MWQzZWM0MmNmY2ZlZDNlNjMzYmZhZmVkMWM5ODYxNTI/2M/playlist.m3u8?expired=0&_HLS_msn=26&_HLS_part=0
+stream-controller.ts:603 [log] > [stream-controller]: Level 2 loaded [11,25], cc [0, 0] duration:30
+base-stream-controller.ts:554 [log] > [stream-controller]: Loading part url: playlistsegment0025.1652872407.m4s sn: 25 p: 1 cc: 0 of playlist [11-25] parts [0-5-5] level: 2, target: 50.967
+base-stream-controller.ts:1381 [log] > [stream-controller]: IDLE->FRAG_LOADING
+buffer-controller.ts:647 [log] > [buffer-controller]: Updating Media Source duration to 52.000
+5a9265d0-1df3-4f79-9012-76478582deaa:938 [log] > [transmuxer.ts]: Flushed fragment 25 p: 1 of level 2
+base-stream-controller.ts:1381 [log] > [stream-controller]: FRAG_LOADING->PARSING
+buffer-controller.ts:854 [info] > hihihi, appending.........
+base-stream-controller.ts:1381 [log] > [stream-controller]: PARSING->PARSED
+base-stream-controller.ts:499 [log] > [stream-controller]: Buffered main sn: 25 part: 1 of level 2 [22.000,52.000]
+base-stream-controller.ts:1381 [log] > [stream-controller]: PARSED->IDLE
+base-playlist-controller.ts:120 
+```
+
+
+```
+
 
 ```
 
