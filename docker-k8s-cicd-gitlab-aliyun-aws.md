@@ -89,6 +89,9 @@ aws
 - aws docker 默认rotate： https://github.com/awslabs/amazon-eks-ami/blob/master/files/docker-daemon.json#L4-L6 
 
 * grafana不支持变量：https://github.com/grafana/grafana/issues/24603  用正则。。。。
+* recap
+  * https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-EKS-quickstart.html 这个收集applog到application，和host，dataplane
+  * https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-metrics.html 这个收集perfermance 如何变为metrics的呢？ 
 
 ## 对等连接
 
