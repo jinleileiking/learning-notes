@@ -82,7 +82,7 @@ onFragBuffered
     this.tick()  
       this.doTick() 
         this.doTickIdle()
-          let frag = this.getNextFragment
+          let frag = this.getNextFragment  ！！！！！选frag！
             getInitialLiveFragment
           this.loadFragment
             super.loadFragment
