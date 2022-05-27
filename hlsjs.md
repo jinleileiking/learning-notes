@@ -167,3 +167,36 @@ event
 - LEVEL_PTS_UPDATED
 - BUFFER_APPENDED
 - FRAG_BUFFERED
+
+BUFFER_APPENDING
+======
+
+```
+onBufferAppending
+  onComplete
+  this.hls.trigger(Events.BUFFER_APPENDED
+```
+
+BUFFER_APPENDED
+=====
+
+```
+onBufferAppended
+  frag.appendedPTS = 
+  
+
+aa
+====
+
+```
+_loadFragForPlayback
+_handleFragmentLoadProgress
+_handleTransmuxerFlush  
+updateLevelTiming
+  this.hls.trigger(Events.LEVEL_PTS_UPDATED
+```  
+  
+ 
+
+
+updateMediaElementDuration
