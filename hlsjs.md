@@ -158,9 +158,12 @@ base-stream-controller.ts:1381 [log] > [stream-controller]: PARSED->IDLE
 base-playlist-controller.ts:120 
 ```
 
+event
+------
 
-```
-
-
-```
-
+- LEVEL_UPDATED
+- FRAG_LOADED
+- BUFFER_APPENDING
+- LEVEL_PTS_UPDATED
+- BUFFER_APPENDED
+- FRAG_BUFFERED
