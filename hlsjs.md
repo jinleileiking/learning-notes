@@ -168,6 +168,24 @@ event
 - BUFFER_APPENDED
 - FRAG_BUFFERED
 
+???
+=====
+
+```
+handlePlaylistLoaded
+this.hls.trigger(Events.LEVEL_LOADED
+```
+
+
+LEVEL_LOADED
+=====
+
+```
+alignPlaylists
+this.hls.trigger(Events.LEVEL_UPDATED
+```
+
+
 BUFFER_APPENDING
 ======
 
