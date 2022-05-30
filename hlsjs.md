@@ -16,40 +16,86 @@ playlistsegment2459.1652231625.m4s
 
 
 
+?????
+======
+
 ```
 loadSource
    this.trigger(Events.MANIFEST_LOADING
+``` 
  
+MANIFEST_LOADING 主m3u8 下载
+========
+
+```
 class PlaylistLoader
   onManifestLoading
     this.load = 
   load  
-
-
+  [XHR]
   loadsuccess
     handleMasterPlaylist
       hls.trigger(Events.MANIFEST_LOADED
+```      
       
-      
-      
+MANIFEST_LOADED 主m3u8 下载完
+======
+
+```
 class LevelController
   onManifestLoaded ------> 主m3u8
     this.hls.trigger(Events.MANIFEST_PARSED
-    
-    
-???
+    this.hls.startLoad
+      this.networkControllers.forEach((controller) => {
+        controller.startLoad(startPosition);
+      });
 
+0: LevelController {hls: Hls, timer: -1, canLoad: true, retryCount: 0, log: ƒ, …}
+1: StreamController {_tickTimer: null, _tickInterval: 4878, _tickCallCount: 0, hls: Hls, _boundTick: ƒ, …}
+2: AudioTrackController {hls: Hls, timer: -1, canLoad: false, retryCount: 0, log: ƒ, …}
+3: AudioStreamController {_tickTimer: null, _tickInterval: null, _tickCallCount: 0, hls: Hls, _boundTick: ƒ, …}
+4: SubtitleTrackController {hls: Hls, timer: -1, canLoad: false, retryCount: 0, log: ƒ, …}
+5: SubtitleStreamController
+
+
+
+StreamController
+  startLoad
+    this.level = hls.nextLoadLevel
+      nextLoadLevel
+-->
+LevelController
+  set level
+    this.hls.trigger(Events.LEVEL_SWITCHING
+    loadPlaylist
+      this.hls.trigger(Events.LEVEL_LOADING
+```
+
+LEVEL_LOADING
+=== 
+
+```
+[playlist-loader.ts]
+onLevelLoading  
+  this.load  type: PlaylistContextType.LEVEL
+    loader.load
+---XHR---
 loadsuccess
   handleTrackOrLevelPlaylist
     handlePlaylistLoaded
       this.hls.trigger(Events.LEVEL_LOADED
-  
-  
+```
+
+LEVEL_LOADED  子m3u8 下载完
+====  
+```
 onLevelLoaded
   set level()
     this.loadPlaylist ----> 子m3u8
       this.hls.trigger(Events.LEVEL_LOADING
-      
+```
+
+```
  ???
  
  ---子带参m3u8读取完毕
@@ -172,6 +218,39 @@ event
 =====
 
 ```
+tick
+  doTick
+    doTickIdle
+      this.getNextFragment
+      loadFragment
+      super.loadFragment = _loadFragForPlayback
+    onTickEnd
+      checkFragmentChanged
+        this.hls.trigger(Events.FRAG_CHANGED
+```
+
+FRAG_CHANGED
+===== 
+
+
+
+
+
+```
+liveSyncPosition
+  estimateLiveEdge
+```
+
+
+
+
+
+
+
+???
+=====
+
+```
 handlePlaylistLoaded
 this.hls.trigger(Events.LEVEL_LOADED
 ```
@@ -204,7 +283,7 @@ onBufferAppended
   
 ````
 
-aa
+？？
 ====
 
 ```
