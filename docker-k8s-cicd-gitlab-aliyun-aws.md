@@ -133,6 +133,10 @@ helm upgrade -i aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver \
 
 - 注意，resouce：s3 改为 * 就行了！！！！！
 
+## ebs
+
+- 一个机器有最大磁盘数目挂载量，20个左右https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#linux-specific-volume-limits
+
 ## prometheus
 
 - https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-ingest-metrics-new-Prometheus.html 
