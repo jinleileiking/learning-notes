@@ -129,6 +129,9 @@ helm upgrade -i aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver \
 ```
 - https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html
 
+## fsx
+
+- 注意，resouce：s3 改为 * 就行了！！！！！
 
 ## prometheus
 
