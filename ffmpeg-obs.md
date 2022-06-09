@@ -187,6 +187,10 @@ process_input_packet
   decode_video
 ```
 
+# ffmpeg cmd
+
+- `-copyts` ts不变，否则demux后就会改
+- `-debug_ts` 打印ts信息
 
 # ffprobe
 
