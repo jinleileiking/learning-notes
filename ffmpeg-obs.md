@@ -179,6 +179,15 @@ input_thread
  
 ```
 
+## 改变pts
+
+```
+process_input_packet
+  pkt->pts += av_rescale_q(ifile->ts_offset, AV_TIME_BASE_Q, ist->st->time_base)
+  decode_video
+```
+
+
 # ffprobe
 
 * 让ffprobe探流一会停： 
