@@ -147,6 +147,12 @@ helm upgrade -i aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver \
 - https://stackoverflow.com/questions/59866342/prometheus-dynamic-metrics-path
 - helm status prometheus, 然后port-forward
 
+
+
+## ca
+
+- 曾经在控制台把最大机器改成了1，扩容不行，改成10，ca也不行，重启pod好了。
+
 aliyun
 -------------
 
