@@ -388,6 +388,8 @@ This is a comment.
 type: frobnitz
 ```
 * template 好像不能渲染里面的if，巨坑，折腾一下午，得用include xxx .
+* helm 因为 超时导致failed，然后upgrade不成功， helm history 可以看原因，解决：https://jacky-jiang.medium.com/how-to-fix-helm-upgrade-error-has-no-deployed-releases-mystery-3dd67b2eb126
+
 
 prometheus
 ------
