@@ -153,6 +153,20 @@ helm upgrade -i aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver \
 
 - 曾经在控制台把最大机器改成了1，扩容不行，改成10，ca也不行，重启pod好了。
 
+
+## 一次pod terminating的问题
+
+https://github.com/kubernetes/autoscaler/issues/4966, 排查，kubelet log：
+```
+Jun 15 06:55:57 ip-192-168-44-229.ec2.internal kubelet[4195]: I0615 06:55:57.895419    4195 reconciler.go:196] "operationExecutor.UnmountVolume started for volume \"volume-hls-disk\" (UniqueName: \"kubernetes.io/csi/fsx.csi.aws.com^fs-000f8f664d17faf82\") pod \"b2a61441-8129-4372-946c-cea170ae9979\" (UID: \"b2a61441-8129-4372-946c-cea170ae9979\") "
+Jun 15 06:55:57 ip-192-168-44-229.ec2.internal kubelet[4195]: E0615 06:55:57.895504    4195 nestedpendingoperations.go:301] Operation for "{volumeName:kubernetes.io/csi/fsx.csi.aws.com^fs-000f8f664d17faf82 podName:b2a61441-8129-4372-946c-cea170ae9979 nodeName:}" failed. No retries permitted until 2022-06-15 06:57:59.895477052 +0000 UTC m=+84822.216273975 (durationBeforeRetry 2m2s). Error: "UnmountVolume.TearDown failed for volume \"volume-hls-disk\" (UniqueName: \"kubernetes.io/csi/fsx.csi.aws.com^fs-000f8f664d17faf82\") pod \"b2a61441-8129-4372-946c-cea170ae9979\" (UID: \"b2a61441-8129-4372-946c-cea170ae9979\") : kubernetes.io/csi: mounter.SetUpAt failed to get CSI client: driver name fsx.csi.aws.com not found in the list of registered CSI drivers"
+Jun 15 06:56:16 ip-192-168-44-229.ec2.internal kubelet[4195]: WARNING: 2022/06/15 06:56:16 grpc: addrConn.createTransport failed to connect to {/var/lib/kubelet/plugins/fsx.csi.aws.com/csi.sock  <nil> 0 <nil>}. Err :connection error: desc = "transport: Error while dialing dial unix /var/lib/kubelet/plugins/fsx.csi.aws.com/csi.sock: connect: connection refused". Reconnecting...
+```
+
+果然是，pod要detach pvc不行，为啥呢，因为之前把fsx的按照搞过一次，有些估计不行了
+
+
+
 aliyun
 -------------
 
