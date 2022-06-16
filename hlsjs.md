@@ -308,6 +308,15 @@ updateMediaElementDuration
 
 # ivs
 
-- 主m3u8
-- 子m3u8
-- 2s的ts片（直接首帧）
+- 主m3u8 1.7s 去除ssl 1s 6.2k  https://b0d63d132328.us-east-1.playback.live-video.net   --- 没走加速
+- 子m3u8 1.1s 去除ssl 400ms 13k  video-weaver.tyo03.hls.live-video.net
+- 2s的ts片（直接首帧）500ms 350k  https://video-edge-785cca.tyo03.hls.live-video.net
+- http 1.1
+
+# aurora
+
+- 主m3u8 1.7s 去除ssl 1s 6.2k  https://b0d63d132328.us-east-1.playback.live-video.net   --- 没走加速
+- 子m3u8 1.1s 去除ssl 400ms 13k  video-weaver.tyo03.hls.live-video.net
+- 2s的ts片（直接首帧）500ms 350k  https://video-edge-785cca.tyo03.hls.live-video.net
+- http 1.1
+
