@@ -299,3 +299,15 @@ updateLevelTiming
 ====
 
 updateMediaElementDuration
+
+
+
+
+
+
+
+# ivs
+
+- 主m3u8
+- 子m3u8
+- 2s的ts片（直接首帧）
