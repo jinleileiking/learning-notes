@@ -33,6 +33,9 @@ SrsBufferListener::on_tcp_client[srs_app_server.cpp]
 SrsRtmpConn::cycle()
   SrsRtmpConn::do_cycle()
     rtmp->handshake()
+    
+    
+    
       SrsComplexHandshake::handshake_with_client
     rtmp->connect_app(req) = SrsSimpleRtmpClient::connect_app()
     SrsRtmpConn::service_cycle()[srs_app_rtmp_conn.cpp]
@@ -179,13 +182,15 @@ SrsRtmpConn::acquire_publish
 
 
 * pod 地址： `srs-origin-1.socs.NAMESPACE.svc.cluster.local.`  `POD.SERVICE.NS.svc.cluster.local.` = SERVICE
-
+* ` docker run -v /Users/jinleileiking/visionular/wzsrs/trunk:/srstrunk --name srs  -P   -dit  srsdev /bin/bash`
 
 
 ## st
 
 * http://state-threads.sourceforge.net/docs/reference.html
 * https://coolshell.cn/articles/12012.html
+
+
 
 
 # OBS
