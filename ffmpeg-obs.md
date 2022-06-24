@@ -197,10 +197,10 @@ process_input_packet
 
 ## input_thread_queue
 
-不使用input_thread_queue:   `input -> demux -> decode -> encode -> remux -> output`  
-使用：  `input | queue | demux -> encode -> remux -> output`, 即input receive回建立一个线程，通过queue的方式供 demux进行处理  
-对于直播场景而言，使用input_thread_queue,这个 thread会不停的调用receive收取tcp数据包，由于直播发包是按照设置的码率来发的，所以只要后续处理跟的上，这个队列不会有积压。实际测试在40-0之间波动。如果后续处理慢，则这个queue会积压到满，ffmpeg也会打一个log进行告警。理论上到达配置值，则ffmpeg的后续处理就有问题了。
-不使用input_thread_queue，直播是否正常的可观测指标为input tcp链接的tcp q size，这个指标不容易观察
+不使用input_thread_queue:   `input -> demux -> decode -> encode -> remux -> output`    
+使用：  `input | queue | demux -> encode -> remux -> output`, 即input receive回建立一个线程，通过queue的方式供 demux进行处理    
+对于直播场景而言，使用input_thread_queue,这个 thread会不停的调用receive收取tcp数据包，由于直播发包是按照设置的码率来发的，所以只要后续处理跟的上，这个队列不会有积压。实际测试在40-0之间波动。如果后续处理慢，则这个queue会积压到满，ffmpeg也会打一个log进行告警。理论上到达配置值，则ffmpeg的后续处理就有问题了。   
+不使用input_thread_queue，直播是否正常的可观测指标为input tcp链接的tcp q size，这个指标不容易观察      
 wz_live分支已经有这个queue的打印统计，客户如果使用这个参数，可以使用这个指标来提高系统的可观测性:
 * 客户自己看这个值，发现queue满了，就异常了，需要处理
 * 我们上报这个值到云，我们监测，发现异常了，提醒客户有异常，提醒客户处理
