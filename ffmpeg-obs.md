@@ -1,9 +1,11 @@
-# compile
+# FFMPEG
+
+## compile
 
 https://trac.ffmpeg.org/wiki/CompilationGuide/Centos
 
 
-# 265
+## 265
 
 https://www.jianshu.com/p/cba823dddbfe
 
@@ -26,7 +28,7 @@ https://github.com/videolan/x265
 
 
 
-# ffmpeg
+## FAQ
 
 * copy: https://stackoverflow.com/questions/38379412/what-does-copy-do-in-a-ffmpeg-command-line
 * 添加sei, 在sps，pps之后： `ffmpeg -i short.flv -c copy -bsf:v "h264_metadata=sei_user_data='086f3693-b7b3-4f2c-9653-21492feee5b8+hello'" short1.flv`
@@ -187,12 +189,23 @@ process_input_packet
   decode_video
 ```
 
-# ffmpeg cmd
+## ffmpeg cmd
 
 - `-copyts` ts不变，否则demux后就会改
 - `-debug_ts` 打印ts信息
 
-# ffprobe
+
+## input_thread_queue
+
+不使用input_thread_queue:   `input -> demux -> decode -> encode -> remux -> output`  
+使用：  `input | queue | demux -> encode -> remux -> output`, 即input receive回建立一个线程，通过queue的方式供 demux进行处理  
+对于直播场景而言，使用input_thread_queue,这个 thread会不停的调用receive收取tcp数据包，由于直播发包是按照设置的码率来发的，所以只要后续处理跟的上，这个队列不会有积压。实际测试在40-0之间波动。如果后续处理慢，则这个queue会积压到满，ffmpeg也会打一个log进行告警。理论上到达配置值，则ffmpeg的后续处理就有问题了。
+不使用input_thread_queue，直播是否正常的可观测指标为input tcp链接的tcp q size，这个指标不容易观察
+wz_live分支已经有这个queue的打印统计，客户如果使用这个参数，可以使用这个指标来提高系统的可观测性:
+* 客户自己看这个值，发现queue满了，就异常了，需要处理
+* 我们上报这个值到云，我们监测，发现异常了，提醒客户有异常，提醒客户处理
+
+## ffprobe
 
 * 让ffprobe探流一会停： 
 
@@ -201,18 +214,21 @@ process_input_packet
 For example: -read_intervals "%+2"
 ```
 
-# ffplay
+## ffplay
 
 * 低延时: -fflags nobuffer : https://stackoverflow.com/questions/16658873/how-to-minimize-the-delay-in-a-live-streaming-with-ffmpeg. ` ffplay http://$SERVICE_IP/live/1.flv -v debug -fflags nobuffer -fflags discardcorrupt -flags low_delay -framedrop -avioflags -strict experimental`
 
-# obs 
-
-* 低延时：http://help.nuoyun.tv/chapter1/obs-LowLatency.html
 
 
-# zmq
+## zmq
 
 * https://ffmpeg.org/ffmpeg-filters.html#toc-zmq_002c-azmq
 * `ffmpeg -re -stream_loop -1     -i main.mp4   -i logo.flv -filter_complex "overlay@my=W-w:H-h-56,zmq"   -f flv  rtmp`
 *  `echo Parsed_overlay_0 y 100 | zmqsend`
 *  `echo my y 100 | zmqsend`
+
+
+# obs 
+
+* 低延时：http://help.nuoyun.tv/chapter1/obs-LowLatency.html
+
