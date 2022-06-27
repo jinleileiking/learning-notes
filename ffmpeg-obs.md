@@ -60,6 +60,7 @@ main
         process_input_packet
           decode_video
             decode
+            send_frame_to_filters
       reap_filters
         for (i = 0; i < nb_output_streams; i++)
         见下
