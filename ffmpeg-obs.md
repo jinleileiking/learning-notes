@@ -43,6 +43,28 @@ https://github.com/videolan/x265
 - `ffmpeg -h muxer=hls`
 
 
+## 整体流程
+
+```
+main
+  transcode
+    init_input_threads
+      init_input_thread
+        av_thread_message_queue_alloc
+        pthread_create(input_thread)
+    ...
+    while (!received_sigterm)
+    transcode_step
+      process_input
+        get_input_packet
+        process_input_packet
+          decode_video
+            decode
+      reap_filters
+        for (i = 0; i < nb_output_streams; i++)
+        见下
+ ```
+
 ## write hls
 
 * https://blog.csdn.net/leixiaohua1020/article/details/39760711?spm=1001.2014.3001.5502
