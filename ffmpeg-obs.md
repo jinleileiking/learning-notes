@@ -66,10 +66,13 @@ main
       process_input
         get_input_packet
         process_input_packet
+          while (ist->decoding_needed) {  ---   一个packet有多个frame在这循环
           decode_video      ---- decode
             decode
             send_frame_to_filters           ---- filter
               ifilter_send_frame
+          if (!got_output); break
+          
       reap_filters
         for (i = 0; i < nb_output_streams; i++)
         见下
