@@ -46,6 +46,14 @@ https://github.com/videolan/x265
 ## 整体流程
 
 ```
+input_thread
+  while(1)
+  av_read_frame
+    read_frame_internal
+      while (!got_packet && !s->internal->parse_queue)
+      ff_read_packet
+        ret = s->iformat->read_packet(s, pkt)        ---- demux
+
 main
   transcode
     init_input_threads
@@ -58,9 +66,10 @@ main
       process_input
         get_input_packet
         process_input_packet
-          decode_video
+          decode_video      ---- decode
             decode
-            send_frame_to_filters
+            send_frame_to_filters           ---- filter
+              ifilter_send_frame
       reap_filters
         for (i = 0; i < nb_output_streams; i++)
         见下
