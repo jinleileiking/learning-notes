@@ -146,7 +146,7 @@ helm upgrade -i aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver \
 - https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config
 - https://stackoverflow.com/questions/59866342/prometheus-dynamic-metrics-path
 - helm status prometheus, 然后port-forward
-
+- 测试环境接入跨区prom，需要确保oidc有police策略，不用官网那个脚本，直接在信任里添加新的eks信息就行，注意里面有ns信息
 
 
 ## ca
