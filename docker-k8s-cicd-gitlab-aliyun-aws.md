@@ -62,6 +62,7 @@ aws
 * 暴露的service访问不了
   * 登录虚机可以curl
   * 过了一会就能进了，估计是service生效有时间？
+* statefulsset 的pvc是有磁盘属性的，也就是说一个pod，如果在A机器上启动，那就一直在A了，无法调配，需要开启feature gate，才能自动删除ebs
 
 
 
@@ -374,6 +375,8 @@ ReadWriteOncePod
 # Change mongo-75f59d57f4-4nd6q to the name of the Pod
 kubectl port-forward mongo-75f59d57f4-4nd6q 28015:27017
 ```
+
+
 
 
 kustomize
