@@ -246,6 +246,11 @@ aliyun
 * srs的log带了颜色，数据加工不能简单排除，最后用文件解决这个问题，但srs不会自动建立目录，需要注意
 
 
+## kinesis
+
+kinesis收不到fluent bit的数据：1， 要用stern看所有pod的，当初只看了一个pod，导致错了。2。给nodegroup加kinesis firehose的权限，注意，不能是kinesis，必须是firehose，不能是eks的权限，必须是nodegroup的
+
+
 gitlab
 -------------------------
 
