@@ -249,6 +249,11 @@ wz_live分支已经有这个queue的打印统计，客户如果使用这个参�
 For example: -read_intervals "%+2"
 ```
 
+
+* 打印pts
+
+`ffprobe -i 'rtmp://xxxb'  -print_format json    -show_frames  -hide_banner  -v quiet -select_streams v 2>&1   | jq -r -c  --stream    | grep pts | grep -v pts_time`
+
 ## ffplay
 
 * 低延时: -fflags nobuffer : https://stackoverflow.com/questions/16658873/how-to-minimize-the-delay-in-a-live-streaming-with-ffmpeg. ` ffplay http://$SERVICE_IP/live/1.flv -v debug -fflags nobuffer -fflags discardcorrupt -flags low_delay -framedrop -avioflags -strict experimental`
