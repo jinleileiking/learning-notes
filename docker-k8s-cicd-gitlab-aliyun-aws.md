@@ -155,6 +155,16 @@ helm upgrade -i aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver \
 - 曾经在控制台把最大机器改成了1，扩容不行，改成10，ca也不行，重启pod好了。
 
 
+## kinesis
+
+kinesis收不到fluent bit的数据：
+
+1. 要用stern看所有pod的，当初只看了一个pod，导致错了。
+2. 给nodegroup加kinesis firehose的权限，注意，不能是kinesis，必须是firehose，不能是eks的权限，必须是nodegroup的
+
+
+
+
 ## 一次pod terminating的问题
 
 https://github.com/kubernetes/autoscaler/issues/4966, 排查，kubelet log：
@@ -244,11 +254,6 @@ aliyun
 * 数据加工建立后，报错，python脚本说没有你要的logstore： 自己建一个。。。。。
 * json展开： https://help.aliyun.com/document_detail/125488.html#section-o7x-7rl-2qh
 * srs的log带了颜色，数据加工不能简单排除，最后用文件解决这个问题，但srs不会自动建立目录，需要注意
-
-
-## kinesis
-
-kinesis收不到fluent bit的数据：1， 要用stern看所有pod的，当初只看了一个pod，导致错了。2。给nodegroup加kinesis firehose的权限，注意，不能是kinesis，必须是firehose，不能是eks的权限，必须是nodegroup的
 
 
 gitlab
