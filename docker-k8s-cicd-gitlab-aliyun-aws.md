@@ -155,13 +155,27 @@ helm upgrade -i aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver \
 - 曾经在控制台把最大机器改成了1，扩容不行，改成10，ca也不行，重启pod好了。
 
 
-## kinesis
+## kinesis firehose
 
 kinesis收不到fluent bit的数据：
 
 1. 要用stern看所有pod的，当初只看了一个pod，导致错了。
 2. 给nodegroup加kinesis firehose的权限，注意，不能是kinesis，必须是firehose，不能是eks的权限，必须是nodegroup的
 
+
+## kinisis datastreams
+
+1. fluentbit 官网的文档是错的，应该用plugin：kinesis
+2. lamda mac 用 pip3 install，必须打包，因为依赖request
+3. rewrite filter reg必须是字符串，int不行！
+4. 使用stdout output进行debug
+5. https://aws.amazon.com/cn/blogs/china/build-a-logging-system-with-fluent-bit-and-amazon-opensearch-service/
+6. 需更改region
+
+
+## aos
+
+1. 碰到使用t3 small，dashboard打不开，重新用t3 medium就行了。 
 
 
 
