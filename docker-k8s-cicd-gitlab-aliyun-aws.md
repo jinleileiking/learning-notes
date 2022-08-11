@@ -64,7 +64,10 @@ aws
   * 过了一会就能进了，估计是service生效有时间？
 * statefulsset 的pvc是有磁盘属性的，也就是说一个pod，如果在A机器上启动，那就一直在A了，无法调配，需要开启feature gate，才能自动删除ebs
 
+## nlb
 
+* nlb -> targetgroupbinding -> nodeport
+* 遇到health check不通，看一看nodegroup的安全组，安全组端口要通，加192.168 172.x.x.x
 
 ## cloudwatch
 
