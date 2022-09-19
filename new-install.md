@@ -17,7 +17,7 @@
 * /usr/sbin/visudo NOPASSWORD
   * jinlei  ALL=(ALL:ALL) ALL
   * %sudo   ALL=(ALL:ALL) NOPASSWD:ALL
-
+*  sudo apt install -y zsh
 
 
 # tmux
