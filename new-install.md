@@ -21,10 +21,15 @@
 *  sudo apt install -y zsh tig
 *  https://github.com/zplug/zplug
 *   chsh -s /usr/bin/zsh
-* https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management
+*   https://dandavison.github.io/delta/installation.html
+* https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
+* https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html
 * https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
-* aws configure
 * https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
+* aws configure
+* https://github.com/ahmetb/kubectx#manual-installation-macos-and-linux
+* https://github.com/BurntSushi/ripgrep
+* https://ohmyz.sh/
 
 
 # tmux
@@ -41,8 +46,10 @@
 
 
 
-# vim
+# nvim
 
+* debian [需要源码安装](https://github.com/neovim/neovim/releases/tag/v0.7.2)  
+*  sudo apt install  ./nvim-linux64.deb
 * 安装：https://github.com/junegunn/vim-plug 
 * :PlugInstall
 * :GoInstallBinaries
@@ -51,6 +58,7 @@
 * pip3 install --user pynvim.  # for deoplete
 * :UpdateRemotePlugins # for deoplete
 * https://github.com/ryanoasis/vim-devicons/issues/226#issuecomment-492783382
+* https://github.com/nvim-treesitter/nvim-treesitter
 
 
 # go
