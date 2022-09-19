@@ -1,4 +1,4 @@
-# general
+# mac
 
 * brew 要用vpn翻墙
 * brew update 不好使，就brew doctor
@@ -11,6 +11,13 @@
 *  brew install httpie. # better curl
 *  krew https://krew.sigs.k8s.io/docs/user-guide/setup/install/
 * brew install --cask maccy # maccy clipboard
+
+# debian
+
+* /usr/sbin/visudo NOPASSWORD
+  * jinlei  ALL=(ALL:ALL) ALL
+  * %sudo   ALL=(ALL:ALL) NOPASSWD:ALL
+
 
 
 # tmux
