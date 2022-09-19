@@ -18,6 +18,8 @@
   * jinlei  ALL=(ALL:ALL) ALL
   * %sudo   ALL=(ALL:ALL) NOPASSWD:ALL
 *  sudo apt install -y zsh
+*  https://github.com/zplug/zplug
+*   chsh -s /usr/bin/zsh
 
 
 # tmux
