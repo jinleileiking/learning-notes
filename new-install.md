@@ -56,6 +56,7 @@
 * brew install global (ctags?gtags?)
 * brew install yamllint
 * pip3 install --user pynvim.  # for deoplete
+* :TSUpdate go (treesitter)
 * :UpdateRemotePlugins # for deoplete
 * https://github.com/ryanoasis/vim-devicons/issues/226#issuecomment-492783382
 * https://github.com/nvim-treesitter/nvim-treesitter
