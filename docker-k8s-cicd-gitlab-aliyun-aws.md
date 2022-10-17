@@ -180,7 +180,15 @@ kinesis收不到fluent bit的数据：
 
 1. 碰到使用t3 small，dashboard打不开，重新用t3 medium就行了。 
 
+## e2c
 
+* 带宽 
+
+```
+The number reported is the number of bytes sent during the period. If you are using basic (5-minute) monitoring and the statistic is Sum, you can divide this number by 300 to find Bytes/second. If you have detailed (1-minute) monitoring and the statistic is Sum, divide it by 60.
+```
+
+即：sum值 / 300 * 8
 
 ## 一次pod terminating的问题
 
