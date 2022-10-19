@@ -43,6 +43,13 @@ eks
   - 记得加 metric_path: /metrics，默认好使是/
   - kaf yaml后，要del pod才生效，光升配置没用，好像
 
+## 给node保留cpu内存
+
+https://kubernetes.io/docs/tasks/administer-cluster/reserve-compute-resources/#kube-reserved
+https://eksctl.io/usage/customizing-the-kubelet/
+
+注意只能是不managed了。有方法github弄managed，比较麻烦
+
 ##  eksctl 
 
 * eks 创建：`getting availability zones: getting availability zones for us-east-1: UnauthorizedOperation: You are not authorized to perform this operation.` : https://stackoverflow.com/questions/60438285/error-getting-availability-zones-when-trying-to-create-eks-cluster
