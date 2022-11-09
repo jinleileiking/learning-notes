@@ -177,6 +177,19 @@ Jun 15 06:56:16 ip-192-168-44-229.ec2.internal kubelet[4195]: WARNING: 2022/06/1
 
 果然是，pod要detach pvc不行，为啥呢，因为之前把fsx的按照搞过一次，有些估计不行了
 
+
+## argo, crossplane alpha1
+
+```
+❯ kubectl crossplane install configuration registry.upbound.io/xp/getting-started-with-aws:v1.10.1
+
+kubectl crossplane: error: failed to create kube client: exec plugin: invalid apiVersion "client.authentication.k8s.io/v1alpha1"
+```
+
+1. 升级aws cli
+2. aws eks update-kubeconfig  --region=us-east-2 --name=rdqa-k8s
+
+
 #  kinesis firehose
 
 kinesis收不到fluent bit的数据：
