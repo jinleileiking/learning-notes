@@ -14,6 +14,7 @@
 
 # debian
 
+* ssh-keygen, put keys to github
 * fzf ( debian use git install)
 * /usr/sbin/visudo NOPASSWORD
   * jinlei  ALL=(ALL:ALL) ALL
