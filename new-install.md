@@ -14,14 +14,18 @@
 
 # debian
 
-* ssh-keygen, put keys to github
-* fzf ( debian use git install)
+* sudo apt install -y zsh tig
+  * ssh-keygen, put keys to github
+  * git init .
+  * git remote add -t \* -f origin 
+  * git checkout master
+* https://ohmyz.sh/
+* https://github.com/zplug/zplug
+* https://github.com/romkatv/powerlevel10k#oh-my-zsh
+* [fzf](https://github.com/junegunn/fzf#using-git) ( debian use git install)
 * /usr/sbin/visudo NOPASSWORD
   * jinlei  ALL=(ALL:ALL) ALL
   * %sudo   ALL=(ALL:ALL) NOPASSWD:ALL
-*  sudo apt install -y zsh tig
-*  https://github.com/zplug/zplug
-*   chsh -s /usr/bin/zsh
 *   https://dandavison.github.io/delta/installation.html
 * https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
 * https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html
@@ -30,7 +34,6 @@
 * aws configure
 * https://github.com/ahmetb/kubectx#manual-installation-macos-and-linux
 * https://github.com/BurntSushi/ripgrep
-* https://ohmyz.sh/
 
 
 # tmux
