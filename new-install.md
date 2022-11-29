@@ -23,15 +23,17 @@
 * https://github.com/zplug/zplug
 * https://github.com/romkatv/powerlevel10k#oh-my-zsh
 * [fzf](https://github.com/junegunn/fzf#using-git) ( debian use git install)
+* https://github.com/ahmetb/kubectx#installation
+* AWS
+  * https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+  * aws configure
 * /usr/sbin/visudo NOPASSWORD
   * jinlei  ALL=(ALL:ALL) ALL
   * %sudo   ALL=(ALL:ALL) NOPASSWD:ALL
 *   https://dandavison.github.io/delta/installation.html
 * https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
 * https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html
-* https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 * https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
-* aws configure
 * https://github.com/ahmetb/kubectx#manual-installation-macos-and-linux
 * https://github.com/BurntSushi/ripgrep
 
