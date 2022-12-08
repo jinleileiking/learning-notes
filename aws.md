@@ -64,6 +64,13 @@ https://eksctl.io/usage/customizing-the-kubelet/
   * aws configure设置eksctl的账号，需要用子账号登进去，才能看到相关
 * 没机器：`reached your quata for maximum Fleet Requests for this account.` 
 
+## fluentbit
+
+log原始日志：
+```
+{"log":"{\"time\":\"2022-12-08T03:00:58.187+00:00\", \"level\":\"Trace\", \"pid\":1, \"cid\":\"68093n81\", \"message\":\"TCP: disposing #0 resource(HttpStream)(0x56484a6a4c30), conns=1, disposing=1, zombies=0\"}\n","stream":"stdout","time":"2022-12-08T03:00:58.187782553Z"}
+```
+
 ## k8s使用
 
 * 暴露的service访问不了
