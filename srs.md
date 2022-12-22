@@ -179,7 +179,39 @@ SrsRtmpConn::acquire_publish
    server: 'vid-xxxx"   
    sessionid: "xxxxx"   
 
+```
+SrsGoApiRtcPlay::do_serve_http
 
+
+SrsUdpStreamListener::listen
+ SrsUdpListener::cycle
+  SrsRtcServer::on_udp_packet
+   SrsRtcConnection::on_stun 
+    SrsRtcConnection::update_sendonly_socket
+    SrsRtcConnection::on_binding_request  
+
+SrsDtlsImpl::state_trace
+
+```
+
+```
+{"time":"2022-12-22T08:02:17.604+08:00", "level":"Trace", "pid":1, "cid":"977a7ly7", "message":"TCP: clear zombies=1 resources, conns=2, removing=0, unsubs=0"}
+{"time":"2022-12-22T08:02:17.604+08:00", "level":"Trace", "pid":1, "cid":"b24518u9", "message":"TCP: disposing #0 resource(HttpConn)(0x5652cc2459d0), conns=2, disposing=1, zombies=0"}
+{"time":"2022-12-22T08:02:17.605+08:00", "level":"Trace", "pid":1, "cid":"b24518u9", "message":"RTC: session address init 172.17.67.1:26814"}
+{"time":"2022-12-22T08:02:17.606+08:00", "level":"Trace", "pid":1, "cid":"b24518u9", "message":"RTC: session STUN done, waiting DTLS handshake."}
+{"time":"2022-12-22T08:02:17.623+08:00", "level":"Trace", "pid":1, "cid":"b24518u9", "message":"DTLS: State Passive RECV, done=0, arq=0/0, r0=1, r1=0, len=157, cnt=22, size=144, hs=1"}
+{"time":"2022-12-22T08:02:17.623+08:00", "level":"Trace", "pid":1, "cid":"b24518u9", "message":"DTLS: State Passive SEND, done=0, arq=0/0, r0=-1, r1=2, len=638, cnt=22, size=82, hs=2"}
+{"time":"2022-12-22T08:02:17.641+08:00", "level":"Trace", "pid":1, "cid":"b24518u9", "message":"DTLS: State Passive RECV, done=0, arq=0/0, r0=1, r1=0, len=577, cnt=22, size=299, hs=11"}
+{"time":"2022-12-22T08:02:17.642+08:00", "level":"Trace", "pid":1, "cid":"b24518u9", "message":"DTLS: State Passive SEND, done=1, arq=0/0, r0=1, r1=0, len=554, cnt=22, size=466, hs=4"}
+{"time":"2022-12-22T08:02:17.642+08:00", "level":"Trace", "pid":1, "cid":"b24518u9", "message":"RTC: DTLS handshake done."}
+{"time":"2022-12-22T08:02:17.642+08:00", "level":"Trace", "pid":1, "cid":"b24518u9", "message":"RTC: session pub=0, sub=1, to=30000ms connection established"}
+{"time":"2022-12-22T08:02:17.642+08:00", "level":"Trace", "pid":1, "cid":"b24518u9", "message":"RTC: Subscriber url=/live/lk established"}
+{"time":"2022-12-22T08:02:17.642+08:00", "level":"Trace", "pid":1, "cid":"b24518u9", "message":"create consumer, no gop cache"}
+{"time":"2022-12-22T08:02:17.642+08:00", "level":"Trace", "pid":1, "cid":"b24518u9", "message":"RTC: start play url=/live/lk, source_id=772ky644/t28308g9, realtime=1, mw_msgs=0"}
+{"time":"2022-12-22T08:02:19.150+08:00", "level":"Trace", "pid":1, "cid":"b24518u9", "message":"RTC: NACK ARQ seq=10014, ssrc=10143, ts=20861100, count=1/1, 647 bytes"}
+{"time":"2022-12-22T08:02:21.199+08:00", "level":"Trace", "pid":1, "cid":"08cp485l", "message":"RTC: Server conns=1, rpkts=(6,rtp:0,stun:1,rtcp:5), spkts=(364,rtp:364,stun:1,rtcp:0), rnk=(1,1,h:1,m:0), fid=(id:0,fid:6,ffid:0,addr:1,faddr:6)"}
+{"time":"2022-12-22T08:02:21.762+08:00", "level":"Trace", "pid":1, "cid":"772ky644", "event
+```
 
 
 # 其他
