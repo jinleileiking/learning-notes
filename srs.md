@@ -167,6 +167,21 @@ SrsRtmpConn::acquire_publish
 ```      
 
 
+
+# webrtc
+
+1. http://47.92.231.11:1985/rtc/v1/play/
+
+   trunk/src/app/srs_app_rtc_api.cpp
+   
+   code: 0   
+   sdp: xxx   
+   server: 'vid-xxxx"   
+   sessionid: "xxxxx"   
+
+
+
+
 # 其他
 
 * `make -j 8`  not `make -j8`
