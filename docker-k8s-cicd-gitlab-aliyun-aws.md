@@ -298,3 +298,8 @@ kcuc='kubectl config use-context'
 
 kubens  用于换环境
 kubectx 用于换namespace
+
+
+## 快速调试
+
+发现了一个在k8s快速调试的办法，在本地build latest镜像，然后push 覆盖云上的，imagepull改为always，deletepod，新pod就会用最新的代码重启了
