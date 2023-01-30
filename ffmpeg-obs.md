@@ -250,6 +250,10 @@ For example: -read_intervals "%+2"
 ```
 
 
+* 看 bp
+
+` ffprobe ~/a1.flv -show_frames -print_format json -hide_banner -v quiet  | jq '.frames[] | select(.media_type == "video")' | jq .pict_type`
+
 * 打印pts
 
 `ffprobe -i 'rtmp://xxxb'  -print_format json    -show_frames  -hide_banner  -v quiet -select_streams v 2>&1   | jq -r -c  --stream    | grep pts | grep -v pts_time`
