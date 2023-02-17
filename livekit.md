@@ -16,7 +16,7 @@ graph TD;
 
 ```
 
+# react
   
-# debug react
+- 调试client sdk module： 先要在sdk，yarn build，然后https://classic.yarnpkg.com/en/docs/cli/link
 
-调试client sdk module： 先要在sdk，yarn build，然后https://classic.yarnpkg.com/en/docs/cli/link
