@@ -1,3 +1,8 @@
+# vm ubuntu
+
+sudo apt install vm-open-tools ripgrep gcc git tig net-tools zsh fzf jq neovim
+
+
 # mac
 
 * brew 要用vpn翻墙
