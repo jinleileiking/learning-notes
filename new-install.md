@@ -1,6 +1,6 @@
 # vm ubuntu
 
-sudo apt install vm-open-tools ripgrep gcc git tig net-tools zsh fzf jq neovim
+sudo apt install open-vm-tools ripgrep gcc git tig net-tools zsh fzf jq neovim
 
 
 # mac
