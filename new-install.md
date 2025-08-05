@@ -8,16 +8,17 @@
 
 # vm ubuntu
 
-* sudo apt install open-vm-tools open-vm-tools-desktop ripgrep gcc git tig net-tools zsh jq neovim curl
+* sudo apt install open-vm-tools open-vm-tools-desktop ripgrep gcc git tig net-tools zsh jq  curl ssh
+* install neovim from source https://github.com/neovim/neovim/
 * zplug https://github.com/zplug/zplug
 * https://github.com/starship/starship p10k 替代
 * fzf git install
 * zoxide
 
-# nvim
+## nvim
 
-* 需要源码安装 https://github.com/neovim/neovim/releases/tag
-* 安装：https://github.com/junegunn/vim-plug 
+* 需要源码安装 releases/tag
+* https://github.com/junegunn/vim-plug 
 * :PlugInstall
 * :GoInstallBinaries
 * :TSUpdate go (treesitter)
@@ -43,12 +44,7 @@
 
 # debian
 
-* sudo apt install -y zsh tig
-
-* https://ohmyz.sh/
-* https://github.com/zplug/zplug
-* https://github.com/romkatv/powerlevel10k#oh-my-zsh
-* [fzf](https://github.com/junegunn/fzf#using-git) ( debian use git install)
+ 
 * https://github.com/ahmetb/kubectx#installation
 * AWS
   * https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
@@ -61,8 +57,7 @@
 * https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html
 * https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
 * https://github.com/ahmetb/kubectx#manual-installation-macos-and-linux
-* https://github.com/BurntSushi/ripgrep
-
+ 
 
 # tmux
 
