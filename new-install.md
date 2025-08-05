@@ -15,6 +15,14 @@
 * fzf git install
 * zoxide
 
+## ubuntu
+
+隐藏上面的时间栏
+
+* gnome-shell --version
+* gnome-extensions install hidetopbar@mathieu.bidon.ca
+
+
 ## nvim
 
 * 需要源码安装 releases/tag
