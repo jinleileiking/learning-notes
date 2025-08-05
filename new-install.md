@@ -1,6 +1,7 @@
 # dotfiles
 
-  * ssh-keygen, put keys to github
+  * ssh-keygen
+  * put public key `id_rsa.pub` to github
   * git init .
   * git remote add origin git@github.com:jinleileiking/DotFiles.git 
   * git checkout master
