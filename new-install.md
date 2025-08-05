@@ -2,7 +2,7 @@
 
   * ssh-keygen, put keys to github
   * git init .
-  * git remote add -t \* -f origin 
+  * git remote add origin git@github.com:jinleileiking/DotFiles.git 
   * git checkout master
 
 # vm ubuntu
