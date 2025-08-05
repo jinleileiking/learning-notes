@@ -1,6 +1,26 @@
+# dotfiles
+
+  * ssh-keygen, put keys to github
+  * git init .
+  * git remote add -t \* -f origin 
+  * git checkout master
+
 # vm ubuntu
 
 sudo apt install open-vm-tools ripgrep gcc git tig net-tools zsh fzf jq neovim curl
+
+
+# nvim
+
+* 需要源码安装 https://github.com/neovim/neovim/releases/tag
+* 安装：https://github.com/junegunn/vim-plug 
+* :PlugInstall
+* :GoInstallBinaries
+* :TSUpdate go (treesitter)
+* https://github.com/ryanoasis/vim-devicons/issues/226#issuecomment-492783382
+* https://github.com/nvim-treesitter/nvim-treesitter
+
+
 
 
 # mac
@@ -20,10 +40,7 @@ sudo apt install open-vm-tools ripgrep gcc git tig net-tools zsh fzf jq neovim c
 # debian
 
 * sudo apt install -y zsh tig
-  * ssh-keygen, put keys to github
-  * git init .
-  * git remote add -t \* -f origin 
-  * git checkout master
+
 * https://ohmyz.sh/
 * https://github.com/zplug/zplug
 * https://github.com/romkatv/powerlevel10k#oh-my-zsh
@@ -57,20 +74,16 @@ sudo apt install open-vm-tools ripgrep gcc git tig net-tools zsh fzf jq neovim c
 
 
 
-# nvim
 
-* debian [需要源码安装](https://github.com/neovim/neovim/releases/tag/v0.7.2)  
-*  sudo apt install  ./nvim-linux64.deb
-* 安装：https://github.com/junegunn/vim-plug 
-* :PlugInstall
-* :GoInstallBinaries
+
+## mac
+
 * brew install global (ctags?gtags?)
 * brew install yamllint
+
+## trash 
 * pip3 install --user pynvim.  # for deoplete
-* :TSUpdate go (treesitter)
 * :UpdateRemotePlugins # for deoplete
-* https://github.com/ryanoasis/vim-devicons/issues/226#issuecomment-492783382
-* https://github.com/nvim-treesitter/nvim-treesitter
 
 
 # go
