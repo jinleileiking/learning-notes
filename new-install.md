@@ -8,9 +8,10 @@
 
 # vm ubuntu
 
-* sudo apt install open-vm-tools open-vm-tools-desktop ripgrep gcc git tig net-tools zsh fzf jq neovim curl
+* sudo apt install open-vm-tools open-vm-tools-desktop ripgrep gcc git tig net-tools zsh jq neovim curl
 * zplug https://github.com/zplug/zplug
 * https://github.com/starship/starship p10k 替代
+* fzf git install
 
 # nvim
 
