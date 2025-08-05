@@ -12,6 +12,7 @@
 * zplug https://github.com/zplug/zplug
 * https://github.com/starship/starship p10k 替代
 * fzf git install
+* zoxide
 
 # nvim
 
